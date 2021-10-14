@@ -1,3 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  namespace :parent do
+    root "acounts#new"
+  end
+
+  namespace :student do
+    root "acounts#new"
+  end
+
+  namespace :staff do
+    root "acounts#new"
+  end
+  
 end
