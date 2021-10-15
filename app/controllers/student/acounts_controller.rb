@@ -12,15 +12,15 @@ class Student::AcountsController < Student::Base
             redirect_to student_login_path, notice: "登録しました"
             #そのままログインする
         else
-            render "new"
+            render "new", notice: "登録に失敗しました"
         end
     end
 
     private
 
         def student_params
-            params.permit(:family_name, :given_name, :family_name_kana, :given_name_kana, :gender, :birthday,
-            :school_type, :school_year, :password)
+            params.require(:student_member).permit(:family_name, :given_name, :family_name_kana, :given_name_kana, :gender, :birthday,
+            :school_type, :school_year, { subject_ids: [] }, :password, :password_confirmation)
         end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_14_145810) do
+ActiveRecord::Schema.define(version: 2021_10_15_091105) do
 
   create_table "parent_members", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "family_name", null: false
@@ -53,4 +53,21 @@ ActiveRecord::Schema.define(version: 2021_10_14_145810) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "subjects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "takes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "student_member_id"
+    t.bigint "subject_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_member_id"], name: "index_takes_on_student_member_id"
+    t.index ["subject_id"], name: "index_takes_on_subject_id"
+  end
+
+  add_foreign_key "takes", "student_members"
+  add_foreign_key "takes", "subjects"
 end
