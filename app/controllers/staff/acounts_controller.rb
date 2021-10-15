@@ -9,7 +9,7 @@ class Staff::AcountsController < Staff::Base
         def create
             @staff = StaffMember.new(staff_params)
             if @staff.save
-                redirect_to "#", notice: "登録しました"
+                redirect_to staff_login_path, notice: "登録しました"
                 #そのままログインする
             else
                 render "new"
@@ -19,8 +19,8 @@ class Staff::AcountsController < Staff::Base
         private
     
             def staff_params
-                params.permit(:family_name, :given_name, :family_name_kana, :given_name_kana, :gender, :birthday,
-                :email, :employment_status, :password)
+                params.require(:staff_member).permit(:family_name, :given_name, :family_name_kana, :given_name_kana, :gender, :birthday,
+                :email, :employment_status, :password, :password_confirmation)
             end
     
 end

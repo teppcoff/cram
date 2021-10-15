@@ -17,6 +17,7 @@
 
   <body>
     <%= render "parent/shared/header" %>
+    <%= flash[:notice] %>
     <%= yield %>
     
     <!-- Popperを含んだBootstrapバンドル版 -->

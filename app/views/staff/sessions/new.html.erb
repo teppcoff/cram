@@ -1,4 +1,4 @@
-<%= form_with scope: :session, local: :true do |f| %>
+<%= form_with scope: :session, local: true do |f| %>
     <div>
         <%= f.label :email, "メールアドレス" %>
         <%= f.text_field :email %>
@@ -11,4 +11,4 @@
         <%= f.submit "ログイン" %>
     </div>
 <% end %>
-<a>または<%= link_to "新規登録", student_signup_path %></a>
+<a>または<%= link_to "新規登録", staff_signup_path %></a>
