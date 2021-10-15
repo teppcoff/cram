@@ -9,7 +9,7 @@ class Parent::AcountsController < Parent::Base
     def create
         @parent = ParentMember.new(parent_params)
         if @parent.save
-            redirect_to "#", notice: "登録しました"
+            redirect_to parent_login_path, notice: "登録しました"
             #そのままログインする
         else
             render "new"
@@ -19,8 +19,8 @@ class Parent::AcountsController < Parent::Base
     private
 
         def parent_params
-            params.permit(:family_name, :given_name, :family_name_kana, :given_name_kana, :gender, :birthday,
-            :email, :password)
+            params.require(:parent_member).permit(:family_name, :given_name, :family_name_kana, :given_name_kana, :gender, :birthday,
+            :email, :password, :password_confirmation)
         end
     
 end

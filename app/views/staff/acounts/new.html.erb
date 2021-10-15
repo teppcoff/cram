@@ -1,4 +1,4 @@
-<%= form_with url: staff_signup_path, local: true do |f| %>
+<%= form_with model: @staff, url: staff_signup_path, local: true do |f| %>
     <div class="form-group">
         <%= f.label :family_name, "性" %>
         <%= f.text_field :family_name, class: "form-control" %>
