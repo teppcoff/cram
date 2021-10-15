@@ -15,7 +15,7 @@
         <%= f.label :given_name_kana, "名（フリガナ）" %>
         <%= f.text_field :given_name_kana, class: "form-control" %>
     </div> 
-    <div class="field">
+    <div class="group">
         <%= f.label :gender, "性別:" %>
         <%= f.label :男性 %>
         <%= f.radio_button :gender, :male %>
@@ -24,15 +24,15 @@
         <%= f.label :その他 %>
         <%= f.radio_button :gender, :others %>
     </div>
-    <div class="field">
+    <div class="group">
         <%= f.label :birthday, "生年月日:" %>
-        <%= f.date_field :birthday, class: "form-control" %>
+        <%= f.date_select :birthday, start_year: Time.now.year, end_year: 1900, class: "form-control" %>
     </div> 
-    <div class="field">
+    <div class="group">
         <%= f.label :school_type, "学校:" %>
         <%= f.select :school_type, StudentMember.school_types_i18n.keys.map{|k| [I18n.t("enum.student_member.school_type.#{k}"), k]} %>
     </div> 
-    <div class="field">
+    <div class="group">
         <%= f.label :school_year, "学年:" %>
         <%= f.select :school_year, StudentMember.school_years_i18n.keys.map{|k| [I18n.t("enum.student_member.school_year.#{k}"), k]} %>
     </div>
@@ -44,5 +44,5 @@
         <%= f.label :password_confirmation, "パスワード（確認）" %>
         <%= f.text_field :password_confirmation, class: "form-control" %>
     </div>
-    <%= f.submit "登録", class: "btn btn-priary" %>
+    <%= f.submit "登録", class: "btn btn-primary" %>
 <% end %>

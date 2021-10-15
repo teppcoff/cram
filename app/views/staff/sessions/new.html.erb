@@ -1,0 +1,14 @@
+<%= form_with scope: :session, local: :true do |f| %>
+    <div>
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.text_field :email %>
+    </div>
+    <div>
+        <%= f.label :password, "パスワード" %>
+        <%= f.text_field :password %>
+    </div>
+    <div>
+        <%= f.submit "ログイン" %>
+    </div>
+<% end %>
+<a>または<%= link_to "新規登録", student_signup_path %></a>
