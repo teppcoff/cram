@@ -16,3 +16,16 @@ ja:
         fourth_year: "4年生"
         fifth_year: "5年生"
         sixth_year: "6年生"
+    parent_member:
+      gender:
+        male: "男性"
+        female: "女性"
+        others: "その他"
+    staff_member:
+      gender:
+        male: "男性"
+        female: "女性"
+        others: "その他"
+      employment_status:
+        permanent: "正社員"
+        part_time: "アルバイト"

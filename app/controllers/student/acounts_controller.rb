@@ -1,4 +1,6 @@
-class Student::AcountsController < ApplicationController
+class Student::AcountsController < Student::Base
+
+    skip_before_action :login_required, only: [:new, :create]
 
     def new
         @student = StudentMember.new
@@ -7,7 +9,7 @@ class Student::AcountsController < ApplicationController
     def create
         @student = StudentMember.new(student_params)
         if @student.save
-            redirect_to "#", notice: "登録しました"
+            redirect_to student_login_path, notice: "登録しました"
             #そのままログインする
         else
             render "new"
