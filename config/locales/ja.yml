@@ -1,0 +1,18 @@
+ja:
+  enum:
+    student_member:
+      gender:
+        male: "男性"
+        female: "女性"
+        others: "その他"
+      school_type:
+        elementary_school: "小学校"
+        junior_high_school: "中学校"
+        high_school: "高校"
+      school_year:
+        first_year: "1年生"
+        second_year: "2年生"
+        third_year: "3年生"
+        fourth_year: "4年生"
+        fifth_year: "5年生"
+        sixth_year: "6年生"

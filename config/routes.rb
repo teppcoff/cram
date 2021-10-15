@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   namespace :student do
     root "acounts#new"
+    get "/signup", to: "acounts#new"
+    post "/signup", to: "acounts#create"
   end
 
   namespace :staff do
