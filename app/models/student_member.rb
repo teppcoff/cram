@@ -1,8 +1,8 @@
 class StudentMember < ApplicationRecord
     has_secure_password
 
-    has_many :takes, dependent: :destroy
-    has_many :subjects, :through => :takes
+    has_many :semesters, dependent: :destroy
+    has_many :subjects, :through => :semesters
 
     enum gender: { male: 1, female: 2, others: 3 }
     enum school_type: { elementary_school: 1, junior_high_school: 2, high_school: 3 }
