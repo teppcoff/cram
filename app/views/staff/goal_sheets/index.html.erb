@@ -1,0 +1,3 @@
+<%= @goal_sheets.each do |sheet| %>
+    <a><%= link_to "#{sheet.name}", staff_path(sheet.id) %></a>
+<% end %>

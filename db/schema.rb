@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_16_074957) do
+ActiveRecord::Schema.define(version: 2021_10_18_063442) do
+
+  create_table "goal_sheets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "student_member_id"
+    t.bigint "staff_member_id"
+    t.string "name", null: false
+    t.integer "number_of_lessons", null: false
+    t.text "description", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["staff_member_id"], name: "index_goal_sheets_on_staff_member_id"
+    t.index ["student_member_id"], name: "index_goal_sheets_on_student_member_id"
+  end
 
   create_table "parent_members", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "family_name", null: false
@@ -21,6 +33,12 @@ ActiveRecord::Schema.define(version: 2021_10_16_074957) do
     t.date "birthday", null: false
     t.string "password_digest", null: false
     t.string "email", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "semesters", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -68,6 +86,8 @@ ActiveRecord::Schema.define(version: 2021_10_16_074957) do
     t.index ["subject_id"], name: "index_takes_on_subject_id"
   end
 
+  add_foreign_key "goal_sheets", "staff_members"
+  add_foreign_key "goal_sheets", "student_members"
   add_foreign_key "takes", "student_members"
   add_foreign_key "takes", "subjects"
 end
