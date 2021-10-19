@@ -1,0 +1,16 @@
+<table class="table">
+    <tr><th scope="col">担当講師</th></tr>
+    <tr><td><%= @student.staff_member.family_name %></td></tr>
+    <tr><th scope="col">生徒</th></tr>
+    <tr><td><%= @student.family_name %></td></tr>
+    <tr><th scope="col">学年</th></tr>
+    <tr><td><%= "#{@student.school_type + @student.school_year}" %></td></tr>
+    <tr><th scope="col">履修科目</th></tr>
+        <% @subjects.each do |s| %>
+            <td><%= s.name %></td>
+        <% end %>
+    <tr><th scope="col">性別</th></tr>
+    <tr><td><%= @student.gender %></td></tr>
+    <tr><th scope="col">生年月日/th></tr>
+    <tr><td><%= @student.birthday %></td></tr>
+</table>

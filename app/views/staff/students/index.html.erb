@@ -1,0 +1,5 @@
+<% @students.each do |s| %>
+    <%= s.family_name %>
+    <%= link_to "ゴールシート", staff_goal_sheets_path %> <!- このstudentのシートだけを表示したい ->
+    <%= link_to "デイリーシート", staff_daily_sheets_path %>
+<% end %>
