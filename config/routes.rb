@@ -25,7 +25,11 @@ Rails.application.routes.draw do
     get "/goal_sheets/new", to: "goal_sheets#new"
     post "/goal_sheets/new", to: "goal_sheets#create"
     get "/goal_sheets", to: "goal_sheets#index"
-    get "/goal_sheets/:id", to: "goal_sheets#show"
+    get "/goal_sheets/:id", to: "goal_sheets#show", as: "goal_sheet"
+    get "/daily_sheets/new", to: "daily_sheets#new"
+    post "/daily_sheets/new", to: "daily_sheets#create"
+    get "/daily_sheets", to: "daily_sheets#index"
+    get "/daily_sheets/:id", to: "daily_sheets#show", as: "daily_sheet"
   end
   
 end

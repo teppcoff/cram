@@ -9,7 +9,7 @@ StudentMember.create!(
             birthday: "2005-11-05",
             password: "password",
             school_type: "high_school",
-            school_year: "first_year"        
+            school_year: "first_year"
         }
     ]
 )

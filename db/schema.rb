@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_18_063442) do
+ActiveRecord::Schema.define(version: 2021_10_18_160222) do
+
+  create_table "daily_sheets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "student_member_id"
+    t.bigint "staff_member_id"
+    t.bigint "subject_id"
+    t.date "study_date", null: false
+    t.integer "period", null: false
+    t.text "message"
+    t.text "information"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["staff_member_id"], name: "index_daily_sheets_on_staff_member_id"
+    t.index ["student_member_id"], name: "index_daily_sheets_on_student_member_id"
+    t.index ["subject_id"], name: "index_daily_sheets_on_subject_id"
+  end
+
+  create_table "daily_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "daily_sheet_id"
+    t.bigint "textbook_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["daily_sheet_id"], name: "index_daily_texts_on_daily_sheet_id"
+    t.index ["textbook_id"], name: "index_daily_texts_on_textbook_id"
+  end
 
   create_table "goal_sheets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "student_member_id"
@@ -86,6 +110,18 @@ ActiveRecord::Schema.define(version: 2021_10_18_063442) do
     t.index ["subject_id"], name: "index_takes_on_subject_id"
   end
 
+  create_table "textbooks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "text_type", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "daily_sheets", "staff_members"
+  add_foreign_key "daily_sheets", "student_members"
+  add_foreign_key "daily_sheets", "subjects"
+  add_foreign_key "daily_texts", "daily_sheets"
+  add_foreign_key "daily_texts", "textbooks"
   add_foreign_key "goal_sheets", "staff_members"
   add_foreign_key "goal_sheets", "student_members"
   add_foreign_key "takes", "student_members"

@@ -38,7 +38,7 @@
     </div>
     <div class="field">
         <%= f.label :subjects, "科目:" %>
-        <%= collection_check_boxes(:student_member, :subject_ids, Subject.all, :id, :name ) do |t|  %>
+        <%= collection_check_boxes(:student_member, :subject_ids, Subject.all, :id, :name) do |t|  %>
         <% t.label { t.check_box + t.text } %>
         <% end %>
     </div>
