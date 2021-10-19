@@ -1,0 +1,8 @@
+<%= @daily_sheets.each do |sheet| %>
+    <%= link_to "#{sheet.student_member.family_name}", staff_daily_sheet_path(sheet.id) %>
+    <%= sheet.staff_member.family_name %>
+    <%= sheet.study_date %>
+    <%= sheet.period %>
+    <%= sheet.message %>
+    <%= sheet.information %>
+<% end %>

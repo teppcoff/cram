@@ -29,3 +29,8 @@ ja:
       employment_status:
         permanent: "正社員"
         part_time: "アルバイト"
+    textbook:
+      type:
+        schoolbook: "教科書"
+        workbook: "問題集"
+        previous_exam_question: "過去問題集"
