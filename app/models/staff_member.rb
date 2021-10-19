@@ -1,5 +1,7 @@
 class StaffMember < ApplicationRecord
     has_secure_password
+    
+    has_many :student_members
     has_many :goal_sheets, dependent: :destroy
     has_many :daily_sheets, dependent: :destroy
 

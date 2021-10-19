@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     post "/daily_sheets/new", to: "daily_sheets#create"
     get "/daily_sheets", to: "daily_sheets#index"
     get "/daily_sheets/:id", to: "daily_sheets#show", as: "daily_sheet"
+    get "/student_members", to: "students#index"
+    get "/student_members/:id", to: "students#show", as: "student_member"
   end
   
 end
