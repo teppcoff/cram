@@ -10,7 +10,8 @@ StudentMember.create!(
             password: "password",
             school_type: "high_school",
             school_year: "first_year",
-            staff_member_id: 1
+            staff_member_id: 1,
+            parent_member_id: 1
         }
     ]
 )

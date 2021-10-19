@@ -2,6 +2,7 @@ class StudentMember < ApplicationRecord
     has_secure_password
 
     belongs_to :staff_member
+    belongs_to :parent_member
     has_many :takes, dependent: :destroy
     has_many :subjects, :through => :takes
     has_many :goal_sheets, dependent: :destroy
