@@ -17,7 +17,7 @@ class Staff::DailySheetsController < Staff::Base
     def index
         @daily_sheets = current_staff.daily_sheets
     end
-
+    
     def show
         @daily_sheet = DailySheet.find(params[:id])
         @textbooks = @daily_sheet.textbooks

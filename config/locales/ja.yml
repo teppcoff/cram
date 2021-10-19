@@ -1,5 +1,5 @@
 ja:
-  enum:
+  enums:
     student_member:
       gender:
         male: "男性"
