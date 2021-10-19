@@ -16,7 +16,7 @@
         <%= f.number_field :period, min: 1, max: 5, class: "form-control" %>
     </div>
     <div class="field">
-        <%= f.label :subjects, "科目:" %>
+        <%= f.label :subject, "科目:" %>
         <%= f.collection_select :subject_id, Subject.all, :id, :name %>
     </div>
     <div class="field">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_19_045833) do
+ActiveRecord::Schema.define(version: 2021_10_19_102436) do
 
   create_table "daily_sheets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "student_member_id"
@@ -94,6 +94,8 @@ ActiveRecord::Schema.define(version: 2021_10_19_045833) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "staff_member_id"
+    t.bigint "parent_member_id"
+    t.index ["parent_member_id"], name: "index_student_members_on_parent_member_id"
     t.index ["staff_member_id"], name: "index_student_members_on_staff_member_id"
   end
 
@@ -126,6 +128,7 @@ ActiveRecord::Schema.define(version: 2021_10_19_045833) do
   add_foreign_key "daily_texts", "textbooks"
   add_foreign_key "goal_sheets", "staff_members"
   add_foreign_key "goal_sheets", "student_members"
+  add_foreign_key "student_members", "parent_members"
   add_foreign_key "student_members", "staff_members"
   add_foreign_key "takes", "student_members"
   add_foreign_key "takes", "subjects"

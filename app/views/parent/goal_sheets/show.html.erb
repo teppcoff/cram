@@ -1,0 +1,16 @@
+<table class="table">
+    <tr><th scope="col">担当講師</th></tr>
+    <tr><td><%= @goal_sheet.staff_member.full_name %></td></tr>
+    <tr><th scope="col">生徒</th></tr>
+    <tr><td><%= @student.full_name %></td></tr>
+    <tr><th scope="col">シート名</th></tr>
+    <tr><td><%= @goal_sheet.name %></td></tr>
+    <tr><th scope="col">履修科目</th></tr>
+        <% @subjects.each do |t| %>
+            <td><%= t.name %></td>
+        <% end %>
+    <tr><th scope="col">授業回数</th></tr>
+    <tr><td><%= @goal_sheet.number_of_lessons %></td></tr>
+    <tr><th scope="col">追記事項</th></tr>
+    <tr><td><%= @goal_sheet.description %></td></tr>
+</table>
