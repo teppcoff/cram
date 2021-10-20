@@ -1,0 +1,3 @@
+<% @goal_sheets.each do |g| %>
+    <%= link_to "#{g.name}", student_goal_sheet_path(g.id) %>
+<% end %>
