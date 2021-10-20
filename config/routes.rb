@@ -13,11 +13,15 @@ Rails.application.routes.draw do
   end
 
   namespace :student do
-    root "sessions#new"
+    root "tops#home"
     get "/signup", to: "acounts#new"
     post "/signup", to: "acounts#create"
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
+    get "/goal_sheets", to: "goal_sheets#index"
+    get "/goal_sheets/:id", to: "goal_sheets#show", as: "goal_sheet"
+    get "/daily_sheets", to: "daily_sheets#index"
+    get "/daily_sheets/:id", to: "daily_sheets#show", as: "daily_sheet"
   end
 
   namespace :staff do

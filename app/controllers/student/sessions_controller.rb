@@ -9,7 +9,7 @@ class Student::SessionsController < Student::Base
         @student = StudentMember.find_by(family_name_kana: session_params[:family_name_kana], given_name_kana: session_params[:given_name_kana])
         if @student&.authenticate(session_params[:password])
             session[:student_id] = @student.id
-            redirect_to "#", notice: "ログインしました" #show
+            redirect_to student_root_path, notice: "ログインしました"
         else
             render "new" 
         end
