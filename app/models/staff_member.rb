@@ -5,6 +5,8 @@ class StaffMember < ApplicationRecord
     has_many :goal_sheets, dependent: :destroy
     has_many :daily_sheets, dependent: :destroy
 
+    has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
+
     enum employment_status: { permanent: 1, part_time: 2 }
 
     def full_name

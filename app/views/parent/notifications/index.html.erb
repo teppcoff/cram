@@ -1,0 +1,11 @@
+<% if @notifications.exists? %>
+    <%= puts "通知あり" %>
+    <% @notifications.each do |notification| %>
+        <% case notification.action %>
+        <% when "create_daily_sheet" then %>
+        <%= "新しいデイリーシートがあります" =%>
+        <% end %>
+    <% end %>
+    <% else %>
+        <%= puts "新しい通知はありません" %>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_19_102436) do
+ActiveRecord::Schema.define(version: 2021_10_20_011744) do
 
   create_table "daily_sheets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "student_member_id"
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 2021_10_19_102436) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["staff_member_id"], name: "index_goal_sheets_on_staff_member_id"
     t.index ["student_member_id"], name: "index_goal_sheets_on_student_member_id"
+  end
+
+  create_table "notifications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
+    t.integer "daily_sheet_id"
+    t.integer "goal_sheet_id"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "parent_members", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

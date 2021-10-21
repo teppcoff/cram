@@ -12,6 +12,7 @@ class Staff::DailySheetsController < Staff::Base
         else
             render "new"
         end
+        @daily_sheet.create_notification_daily_sheet!(current_staff)
     end
 
     def index
