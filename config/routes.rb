@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get "/goal_sheets/:id", to: "goal_sheets#show", as: "goal_sheet"
     get "/daily_sheets", to: "daily_sheets#index"
     get "/daily_sheets/:id", to: "daily_sheets#show", as: "daily_sheet"
+    get "/notifications", to: "notifications#index"
   end
 
   namespace :student do
