@@ -1,3 +1,9 @@
 <%= link_to "ゴールシート", parent_goal_sheets_path %>
 <%= link_to "デイリーシート", parent_daily_sheets_path %>
-<%= link_to "通知", parent_notifications_path %>
+<%= link_to parent_notifications_path do %>
+    <% if unchecked_notifications.any? %>
+        <i class="fas fa-bell">通知があります</i>
+    <% else %>
+        <%= "新しい通知はありません" %>
+    <% end %>
+<% end %>

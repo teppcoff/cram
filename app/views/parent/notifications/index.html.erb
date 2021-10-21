@@ -1,5 +1,5 @@
-<% if @notifications.exists? %>
-    <%= puts "通知あり" %>
+<% if @notifications.where(checked: false).exists? %>
+    <%= puts "通知を確認してください" %>
     <% @notifications.each do |notification| %>
         <% case notification.action %>
         <% when "create_daily_sheet" then %>
@@ -7,5 +7,5 @@
         <% end %>
     <% end %>
     <% else %>
-        <%= puts "新しい通知はありません" %>
+        <%= "新しい通知はありません" %>
 <% end %>
