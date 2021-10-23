@@ -4,10 +4,9 @@ class Staff::DailySheetsController < Staff::Base
         @daily_sheet = DailySheet.new
     end
     
-    #textがshowで取得出来ない
     def create
         @daily_sheet = DailySheet.new(daily_sheet_params)
-        if @daily_sheet.save
+        if @daily_sheet.save!
             redirect_to staff_daily_sheets_path, notice: "登録しました"
         else
             render "new"
@@ -22,6 +21,25 @@ class Staff::DailySheetsController < Staff::Base
     def show
         @daily_sheet = DailySheet.find(params[:id])
         @textbooks = @daily_sheet.textbooks
+    end
+
+    def edit
+        @daily_sheet = DailySheet.find(params[:id])
+    end
+
+    def update
+        @daily_sheet = DailySheet.find(params[:id])
+        if @daily_sheet.update(daily_sheet_params)
+            redirect_to staff_daily_sheet_path(@daily_sheet.id), notice: "シートを更新しました"
+        else
+            render "edit"
+        end
+    end
+
+    def destroy
+        @daily_sheet = DailySheet.find(params[:id])
+        @daily_sheet.destroy
+        redirect_to staff_daily_sheets_path, notice: "シートを削除しました"
     end
 
     private

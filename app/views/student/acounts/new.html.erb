@@ -38,6 +38,14 @@
         <% end %>
     </div>
     <div class="form-group">
+        <%= f.label :staff_member_id, "担当講師:" %>
+        <%= f.collection_select :staff_member_id, StaffMember.all, :id, :full_name, :include_blank => true %>
+    </div>
+    <div class="form-group">
+        <%= f.label :parent_member_id, "保護者:" %>
+        <%= f.collection_select :parent_member_id, ParentMember.all, :id, :full_name, :include_blank => true %>
+    </div>
+    <div class="form-group">
         <%= f.label :password, "パスワード" %>
         <%= f.text_field :password, class: "form-control" %>
     </div>   

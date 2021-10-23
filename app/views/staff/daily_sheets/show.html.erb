@@ -18,4 +18,6 @@
     <tr><th scope="col">連絡事項</th></tr>
     <tr><td><%= @daily_sheet.information %></td></tr>
 </table>
+<%= button_to "編集", staff_daily_sheets_edit_path(@daily_sheet), method: "get" %>
+<%= button_to "削除", { controller: "daily_sheets", action: "destroy" }, method: "delete" %>
 <%= button_to "一覧", staff_daily_sheets_path, method: "get" %>

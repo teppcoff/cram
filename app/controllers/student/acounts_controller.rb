@@ -8,8 +8,8 @@ class Student::AcountsController < Student::Base
     
     def create
         @student = StudentMember.new(student_params)
-        if @student.save
-            redirect_to student_login_path, notice: "登録しました"
+        if @student.save!
+            redirect_to student_path(@student.id), notice: "登録しました"
             #そのままログインする
         else
             render "new", notice: "登録に失敗しました"
@@ -28,7 +28,7 @@ class Student::AcountsController < Student::Base
     def update
         @student = StudentMember.find(params[:id])
         if @student.update(student_params)
-            redirect_to student_path, notice: "ユーザー情報を更新しました"
+            redirect_to student_root_path, notice: "ユーザー情報を更新しました"
         else
             render "edit"
         end
@@ -44,7 +44,7 @@ class Student::AcountsController < Student::Base
 
         def student_params
             params.require(:student_member).permit(:family_name, :given_name, :family_name_kana, :given_name_kana, :gender, :birthday,
-            :school_type, :school_year, { subject_ids: [] }, :password, :password_confirmation)
+            :school_type, :school_year, { subject_ids: [] }, :staff_member_id, :parent_member_id, :password, :password_confirmation)
         end
 
 end
