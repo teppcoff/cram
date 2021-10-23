@@ -9,13 +9,37 @@ class Staff::AcountsController < Staff::Base
         def create
             @staff = StaffMember.new(staff_params)
             if @staff.save
-                redirect_to staff_login_path, notice: "登録しました"
+                redirect_to staff_root_path, notice: "登録しました"
                 #そのままログインする
             else
                 render "new"
             end
         end
-    
+
+        def show
+            @staff = StaffMember.find(params[:id])
+        end
+
+        def edit
+            @staff = StaffMember.find(params[:id])
+        end
+
+        def update
+            @staff = StaffMember.find(params[:id])
+            if @staff.update(staff_params)
+                redirect_to staff_path, notice: "ユーザー情報を更新しました"
+            else
+                render "edit"
+            end
+        end
+
+        def destroy
+            @staff = StaffMember.find(params[:id])
+            @staff.destroy
+            redirect_to staff_login_path, notice: "ユーザーを削除しました"
+        end
+
+                
         private
     
             def staff_params

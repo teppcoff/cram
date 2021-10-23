@@ -1,5 +1,4 @@
 <table class="table">
-    <% @students.each do |s| %>
     <thead>
         <tr>
         <th scope="col">生徒ID</th>
@@ -10,6 +9,7 @@
         <th scope="col">デイリーシート</th>
         </tr>
     </thead>
+    <% @students.each do |s| %>
     <tbody>
         <tr>
         <th scope="row"><%= s.id %></th>

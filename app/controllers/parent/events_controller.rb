@@ -2,8 +2,10 @@ class Parent::EventsController < Parent::Base
 
   def index
     @students = current_parent.student_members
-    @students.each do |s|
-      @events = s.events
+    @events = Array.new
+    @students.each do |student|
+      @events.push(student.events)
+      @events.flatten!
     end
   end
 

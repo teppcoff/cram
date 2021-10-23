@@ -1,0 +1,22 @@
+<table class="table">
+    <tr><th scope="col">性</th></tr>
+    <tr><td><%= @staff.family_name %></td></tr>
+    <tr><th scope="col">名</th></tr>
+    <tr><td><%= @staff.given_name %></td></tr>
+    <tr><th scope="col">性</th></tr>
+    <tr><td><%= @staff.family_name %></td></tr>
+    <tr><th scope="col">性（フリガナ）</th></tr>
+    <tr><td><%= @staff.family_name_kana %></td></tr>
+    <tr><th scope="col">名（フリガナ）</th></tr>
+    <tr><td><%= @staff.given_name_kana %></td></tr>
+    <tr><th scope="col">性別</th></tr>
+    <tr><td><%= @staff.gender_i18n %></td></tr>
+    <tr><th scope="col">生年月日</th></tr>
+    <tr><td><%= @staff.birthday %></td></tr>
+    <tr><th scope="col">メールアドレス</th></tr>
+    <tr><td><%= @staff.email %></td></tr>
+    <tr><th scope="col">雇用形態</th></tr>
+    <tr><td><%= @staff.employment_status_i18n %></td></tr>
+</table>
+<%= button_to "編集する", staff_edit_path(@staff.id), method: "get" %>
+<%= button_to "削除する", { controller: "acounts", action: "destroy" }, method: "delete" %>

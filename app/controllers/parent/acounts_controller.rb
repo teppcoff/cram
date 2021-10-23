@@ -9,11 +9,34 @@ class Parent::AcountsController < Parent::Base
     def create
         @parent = ParentMember.new(parent_params)
         if @parent.save
-            redirect_to parent_login_path, notice: "登録しました"
+            redirect_to parent_root_path, notice: "登録しました"
             #そのままログインする
         else
             render "new"
         end
+    end
+
+    def show
+        @parent = ParentMember.find(params[:id])
+    end
+
+    def edit
+        @parent = ParentMember.find(params[:id])
+    end
+
+    def update
+        @parent = ParentMember.find(params[:id])
+        if @parent.update(parent_params)
+            redirect_to parent_path, notice: "ユーザー情報を更新しました"
+        else
+            render "edit"
+        end
+    end
+
+    def destroy
+        @parent = ParentMember.find(params[:id])
+        @parent.destroy
+        redirect_to parent_login_path, notice: "ユーザーを削除しました"
     end
 
     private

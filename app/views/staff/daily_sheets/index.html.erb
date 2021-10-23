@@ -1,8 +1,22 @@
-<%= @daily_sheets.each do |sheet| %>
-    <%= link_to "#{sheet.student_member.full_name}", staff_daily_sheet_path(sheet.id) %>
-    <%= sheet.staff_member.family_name %>
-    <%= sheet.study_date %>
-    <%= sheet.period %>
-    <%= sheet.message %>
-    <%= sheet.information %>
-<% end %>
+<table class="table">
+        <thead>
+            <tr>
+            <th scope="col">生徒名</th>
+            <th scope="col">日付</th>
+            <th scope="col">時限</th>
+            <th scope="col">科目</th>
+            <th scope="col">詳細</th>
+            </tr>
+        </thead>
+        <%= @daily_sheets.each do |sheet| %>
+        <tbody>
+            <tr>
+            <td><%= sheet.student_member.full_name %></td>
+            <td><%= sheet.study_date %></td>
+            <td><%= sheet.period %></td>
+            <td><%= sheet.subject.name %></td>
+            <td><%= button_to "表示", staff_daily_sheet_path(sheet.id), method: "get" %></td>
+            </tr>
+        </tbody>
+        <% end %>
+</table>
