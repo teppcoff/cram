@@ -15,6 +15,11 @@ class Staff::SessionsController < Staff::Base
         end
     end
 
+    def destroy
+        reset_session
+        redirect_to staff_login_path, notice: "ログアウトしました"
+    end
+
     private
 
         def session_params

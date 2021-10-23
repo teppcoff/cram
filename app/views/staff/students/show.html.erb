@@ -1,8 +1,8 @@
 <table class="table">
     <tr><th scope="col">担当講師</th></tr>
-    <tr><td><%= @student.staff_member.family_name %></td></tr>
+    <tr><td><%= @student.staff_member.full_name %></td></tr>
     <tr><th scope="col">生徒</th></tr>
-    <tr><td><%= @student.family_name %></td></tr>
+    <tr><td><%= @student.full_name %></td></tr>
     <tr><th scope="col">学年</th></tr>
     <tr><td><%= @student.full_school_year %></td></tr>
     <tr><th scope="col">履修科目</th></tr>
@@ -14,3 +14,5 @@
     <tr><th scope="col">生年月日</th></tr>
     <tr><td><%= @student.birthday %></td></tr>
 </table>
+<%= button_to "デイリーシート作成", { controller: "staff/daily_sheets", action: "new" }, { method: :get } %>
+<%= button_to "ゴールシート作成", { controller: "staff/goal_sheets", action: "new" }, { method: :get } %>

@@ -1,10 +1,10 @@
-<%= link_to "ゴールシート", parent_goal_sheets_path %>
-<%= link_to "デイリーシート", parent_daily_sheets_path %>
-<%= link_to parent_notifications_path do %>
+<%= button_to "ゴールシート", parent_goal_sheets_path, method: "get" %>
+<%= button_to "デイリーシート", parent_daily_sheets_path, method: "get" %>
+<%= button_to parent_notifications_path, method: "get" do %>
     <% if unchecked_notifications.any? %>
         <i class="fas fa-bell">通知があります</i>
     <% else %>
         <%= "新しい通知はありません" %>
     <% end %>
 <% end %>
-<%= link_to "予定表", parent_events_path %>
+<%= button_to "予定表", parent_events_path, method: "get" %>

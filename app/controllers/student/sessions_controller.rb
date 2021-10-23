@@ -15,6 +15,11 @@ class Student::SessionsController < Student::Base
         end
     end
 
+    def destroy
+        reset_session
+        redirect_to student_login_path, notice: "ログアウトしました"
+    end
+
     private
 
         def session_params

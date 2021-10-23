@@ -1,0 +1,28 @@
+<table class="table">
+    <tr><th scope="col">性</th></tr>
+    <tr><td><%= @student.family_name %></td></tr>
+    <tr><th scope="col">名</th></tr>
+    <tr><td><%= @student.given_name %></td></tr>
+    <tr><th scope="col">性</th></tr>
+    <tr><td><%= @student.family_name %></td></tr>
+    <tr><th scope="col">性（フリガナ）</th></tr>
+    <tr><td><%= @student.family_name_kana %></td></tr>
+    <tr><th scope="col">名（フリガナ）</th></tr>
+    <tr><td><%= @student.given_name_kana %></td></tr>
+    <tr><th scope="col">性別</th></tr>
+    <tr><td><%= @student.gender_i18n %></td></tr>
+    <tr><th scope="col">生年月日</th></tr>
+    <tr><td><%= @student.birthday %></td></tr>
+    <tr><th scope="col">学校</th></tr>
+    <tr><td><%= @student.school_type_i18n %></td></tr>
+    <tr><th scope="col">学年</th></tr>
+    <tr><td><%= @student.school_year_i18n %></td></tr>
+    <tr><th scope="col">科目</th></tr>
+    <tr>
+    <% @subjects.each do |subject| %>
+        <td><%= subject.name %></td>
+    <% end %>
+    </tr>
+</table>
+<%= button_to "編集する", student_edit_path(@student.id), method: "get" %>
+<%= button_to "削除する", { controller: "acounts", action: "destroy" }, method: "delete" %>

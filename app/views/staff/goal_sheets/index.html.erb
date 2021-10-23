@@ -1,3 +1,6 @@
-<%= @goal_sheets.each do |sheet| %>
-    <%= link_to "#{sheet.name}", staff_goal_sheet_path(sheet.id) %>
-<% end %>
+<table class="table">
+    <tr><th scope="col">名称</th></tr>
+    <%= @goal_sheets.each do |sheet| %>
+    <tr><td><%= link_to "#{sheet.name}", staff_goal_sheet_path(sheet.id) %></td></tr>
+    <% end %>
+</table>

@@ -15,6 +15,11 @@ class Parent::SessionsController < Parent::Base
         end
     end
 
+    def destroy
+        reset_session
+        redirect_to parent_login_path, notice: "ログアウトしました"
+    end
+
     private
 
         def session_params

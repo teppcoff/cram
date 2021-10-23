@@ -1,3 +1,7 @@
-<% @goal_sheets.each do |g| %>
-    <%= link_to "#{g.name}", student_goal_sheet_path(g.id) %>
-<% end %>
+<table class="table">
+    <th scope="col">名称</th>
+    <% @goal_sheets.each do |sheet| %>
+        <tr><td><%= link_to "#{sheet.name}", student_goal_sheet_path(sheet.id) %></td></tr>
+    <% end %>
+</table>
+<%= button_to "トップに戻る", student_root_path, method: "get" %>

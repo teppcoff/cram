@@ -4,6 +4,8 @@
         <% case notification.action %>
         <% when "create_daily_sheet" then %>
         <%= "新しいデイリーシートがあります" =%>
+        <% when "create_goal_sheet" then %>
+        <%= "新しいゴールシートがあります" =%>
         <% end %>
     <% end %>
     <% else %>

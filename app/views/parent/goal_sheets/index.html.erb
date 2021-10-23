@@ -1,6 +1,10 @@
-<% @students.each do |s| %>
+<table class="table">
+    <th scope="col">名称</th>
+    <% @students.each do |s| %>
     <% sheets = s.goal_sheets %>
     <% sheets.each do |sheet| %>
-        <%= link_to "#{sheet.name}", parent_goal_sheet_path(sheet.id) %>
+        <tr><td><%= link_to "#{sheet.name}", parent_goal_sheet_path(sheet.id) %></td></tr>
     <% end %>
 <% end %>
+</table>
+<%= button_to "トップに戻る", parent_root_path, method: "get" %>

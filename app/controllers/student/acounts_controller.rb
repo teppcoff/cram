@@ -16,6 +16,30 @@ class Student::AcountsController < Student::Base
         end
     end
 
+    def show
+        @student = StudentMember.find(params[:id])
+        @subjects = @student.subjects
+    end
+
+    def edit
+        @student = StudentMember.find(params[:id])
+    end
+
+    def update
+        @student = StudentMember.find(params[:id])
+        if @student.update(student_params)
+            redirect_to student_path, notice: "ユーザー情報を更新しました"
+        else
+            render "edit"
+        end
+    end
+
+    def destroy
+        @student = StudentMember.find(params[:id])
+        @student.destroy
+        redirect_to student_login_path, notice: "ユーザーを削除しました"
+    end
+
     private
 
         def student_params

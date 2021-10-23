@@ -17,13 +17,8 @@
     </div> 
     <div class="group">
         <%= f.label :gender, "性別:" %>
-        <%= f.label :男性 %>
-        <%= f.radio_button :gender, :male %>
-        <%= f.label :女性 %>
-        <%= f.radio_button :gender, :female %>
-        <%= f.label :その他 %>
-        <%= f.radio_button :gender, :others %>
-    </div>
+        <%= f.select :gender, StudentMember.genders_i18n.keys.map{|k| [I18n.t("enum.student_member.gender.#{k}"), k]} %>
+    </div> 
     <div class="group">
         <%= f.label :birthday, "生年月日:" %>
         <%= f.date_select :birthday, start_year: Time.now.year, end_year: 1920, class: "form-control" %>

@@ -8,6 +8,7 @@ class Staff::GoalSheetsController < Staff::Base
         @goal_sheet = GoalSheet.new(goal_sheet_params)
         if @goal_sheet.save
             redirect_to staff_goal_sheets_path, notice: "登録しました"
+            @goal_sheet.create_notification_goal_sheet!(current_staff)
         else
             render "new"
         end
