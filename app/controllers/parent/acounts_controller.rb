@@ -27,7 +27,7 @@ class Parent::AcountsController < Parent::Base
     def update
         @parent = ParentMember.find(params[:id])
         if @parent.update(parent_params)
-            redirect_to parent_path, notice: "ユーザー情報を更新しました"
+            redirect_to parent_root_path, notice: "ユーザー情報を更新しました"
         else
             render "edit"
         end

@@ -24,6 +24,25 @@ class Staff::GoalSheetsController < Staff::Base
         @subjects = @student.subjects
     end
 
+    def edit
+        @goal_sheet = GoalSheet.find(params[:id])
+    end
+
+    def update
+        @goal_sheet = GoalSheet.find(params[:id])
+        if @goal_sheet.update(goal_sheet_params)
+            redirect_to staff_goal_sheet_path(@goal_sheet.id), notice: "シートを更新しました"
+        else
+            render "edit"
+        end
+    end
+
+    def destroy
+        @goal_sheet = GoalSheet.find(params[:id])
+        @goal_sheet.destroy
+        redirect_to staff_goal_sheets_path, notice: "シートを削除しました"
+    end
+
     private
 
         def goal_sheet_params
