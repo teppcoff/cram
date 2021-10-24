@@ -9,7 +9,14 @@ document.addEventListener('turbolinks:load', function() {
     plugins: [ dayGridPlugin, interactionPlugin ],
     initialView: 'dayGridMonth',
     events: '/staff/events.json',
-
+    locale: 'ja',
+    timeZone: 'Asia/Tokyo',
+    firstDay: 1,
+    titleFormat: { // will produce something like "Tuesday, September 18, 2018"
+        month: 'long',
+        year: 'numeric'
+    },
+    display: 'background',
     headerToolbar: {
         center: 'addEventButton'
     },

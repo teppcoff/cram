@@ -31,7 +31,7 @@ class Staff::EventsController < Staff::Base
   private
 
     def event_params
-      params.require(:event).permit(:title, :starts_at, :ends_at, :staff_member_id, :student_member_id)
+      params.require(:event).permit(:title, :period, :starts_at, :ends_at, :staff_member_id, :student_member_id)
     end
 
 end

@@ -21,4 +21,17 @@ class StudentMember < ApplicationRecord
         self.school_type_i18n + " " + self.school_year_i18n
     end
 
+    scope :search, -> (search_params) do
+        return if search_params.blank?
+
+        family_name_is(search_params[:family_name])
+            .given_name_is(search_params[:given_name])
+            .family_name_kana_is(search_params[:family_name_kana])
+            .given_name_kana_is(search_params[:given_name_kana])
+    end
+
+        scope :family_name_is, -> (family_name) { where(family_name: family_name) if family_name.present? }
+        scope :given_name_is, -> (given_name) { where(given_name: given_name) if given_name.present? }
+        scope :family_name_kana_is, -> (family_name_kana) { where(family_name_kana: family_name_kana) if family_name_kana.present? }
+        scope :given_name_kana_is, -> (given_name_kana) { where(given_name_kana: given_name_kana) if given_name_kana.present? }
 end

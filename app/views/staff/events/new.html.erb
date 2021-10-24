@@ -4,6 +4,10 @@
         <%= f.text_field :title, class: "form-control" %>
     </div>
     <div class="form-group">
+        <%= f.label :period, "時限:" %>
+        <%= f.number_field :period, min: 1, max: 5, class: "form-control" %>
+    </div>
+    <div class="form-group">
         <%= f.label :starts_at, "開始時刻:" %>
         <%= f.datetime_select :starts_at, class: "form-control" %>
     </div>

@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2021_10_21_160932) do
     t.string "title"
     t.datetime "starts_at"
     t.datetime "ends_at"
+    t.integer "period"
     t.bigint "student_member_id"
     t.bigint "staff_member_id"
     t.datetime "created_at", precision: 6, null: false
@@ -118,6 +119,8 @@ ActiveRecord::Schema.define(version: 2021_10_21_160932) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "staff_member_id"
     t.bigint "parent_member_id"
+    t.index ["family_name_kana"], name: "index_student_members_on_family_name_kana"
+    t.index ["given_name_kana"], name: "index_student_members_on_given_name_kana"
     t.index ["parent_member_id"], name: "index_student_members_on_parent_member_id"
     t.index ["staff_member_id"], name: "index_student_members_on_staff_member_id"
   end
