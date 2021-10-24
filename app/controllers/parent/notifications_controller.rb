@@ -5,6 +5,6 @@ class Parent::NotificationsController < Parent::Base
         @notifications.where(checked: false).each do |notification|
           notification.update(checked: true)
         end
-      end
+    end
 
 end

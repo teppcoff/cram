@@ -1,7 +1,7 @@
 class Staff::StudentsController < Staff::Base
 
     def index
-        @students = current_staff.student_members
+        @students = current_staff.student_members.page(params[:page]).per(10)
     end
 
     def show

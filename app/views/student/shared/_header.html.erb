@@ -1,6 +1,6 @@
 <% if current_student %>
 <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
-    <%= link_to "CramApp", "#", id: "logo", class: "navbar-brand" %>
+    <%= link_to "CramApp", student_root_path, id: "logo", class: "navbar-brand" %>
     <ul class="navbar-nav ml-auto">
     <!- 一度目のページ遷移後、ドロップダウンが開かなくなる ->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">

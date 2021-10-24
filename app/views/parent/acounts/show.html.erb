@@ -3,8 +3,6 @@
     <tr><td><%= @parent.family_name %></td></tr>
     <tr><th scope="col">名</th></tr>
     <tr><td><%= @parent.given_name %></td></tr>
-    <tr><th scope="col">性</th></tr>
-    <tr><td><%= @parent.family_name %></td></tr>
     <tr><th scope="col">性（フリガナ）</th></tr>
     <tr><td><%= @parent.family_name_kana %></td></tr>
     <tr><th scope="col">名（フリガナ）</th></tr>
@@ -16,5 +14,7 @@
     <tr><th scope="col">メールアドレス</th></tr>
     <tr><td><%= @parent.email %></td></tr>
 </table>
-<%= button_to "編集する", parent_edit_path(@parent.id), method: "get" %>
-<%= button_to "削除する", { controller: "acounts", action: "destroy" }, method: "delete" %>
+<div class="btn-group">
+    <%= button_to "編集", parent_edit_path(@parent.id), method: "get", class: "btn btn-outline-primary" %>
+    <%= button_to "削除", { controller: "acounts", action: "destroy" }, method: "delete", class: "btn btn-outline-danger" %>
+</div>

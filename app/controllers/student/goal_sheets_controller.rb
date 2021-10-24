@@ -1,7 +1,7 @@
 class Student::GoalSheetsController < Student::Base
 
     def index
-        @goal_sheets = current_student.goal_sheets
+        @goal_sheets = current_student.goal_sheets.page(params[:page]).per(10)
     end
 
     def show

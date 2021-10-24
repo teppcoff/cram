@@ -6,16 +6,16 @@ class Staff::DailySheetsController < Staff::Base
     
     def create
         @daily_sheet = DailySheet.new(daily_sheet_params)
-        if @daily_sheet.save!
+        if @daily_sheet.save
             redirect_to staff_daily_sheets_path, notice: "登録しました"
+            @daily_sheet.create_notification_daily_sheet!(current_staff)
         else
             render "new"
         end
-        @daily_sheet.create_notification_daily_sheet!(current_staff)
     end
 
     def index
-        @daily_sheets = current_staff.daily_sheets
+        @daily_sheets = current_staff.daily_sheets.page(params[:page]).per(10)
     end
     
     def show

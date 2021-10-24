@@ -15,8 +15,9 @@
             <td><%= sheet.study_date %></td>
             <td><%= sheet.period %></td>
             <td><%= sheet.subject.name %></td>
-            <td><%= button_to "表示", staff_daily_sheet_path(sheet.id), method: "get" %></td>
+            <td><%= button_to "表示", staff_daily_sheet_path(sheet.id), method: "get", class: "btn btn-outline-info" %></td>
             </tr>
         </tbody>
         <% end %>
 </table>
+<%= paginate @daily_sheets %>

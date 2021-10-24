@@ -10,5 +10,8 @@
     <tr><th scope="col">終了時刻</th></tr>
     <tr><td><%= @event.ends_at %></td></tr>
 </table>
-<%= button_to "削除する", {controller: "staff/events", action: "destroy"}, {method: :delete} %>
-<%= button_to "戻る", {controller: "staff/events", action: "index"}, {method: :get} %>
+<div class="btn-group">
+    <%= button_to "削除", {controller: "staff/events", action: "destroy"}, method: :delete,
+    data: { confirm: " イベント「#{@event.title}」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger" %>
+    <%= button_to "戻る", {controller: "staff/events", action: "index"}, method: :get, class: "btn btn-outline-secondary" %>
+</div>

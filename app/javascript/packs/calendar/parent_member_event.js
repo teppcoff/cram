@@ -8,7 +8,6 @@ document.addEventListener('turbolinks:load', function() {
   let calendar = new Calendar(calendarEl, {
     plugins: [ dayGridPlugin, interactionPlugin ],
     initialView: 'dayGridMonth',
-    selectable: true,
     events: '/parent/events.json',
 
     eventClick: function(info) {

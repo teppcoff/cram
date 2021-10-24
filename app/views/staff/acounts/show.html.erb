@@ -18,5 +18,8 @@
     <tr><th scope="col">雇用形態</th></tr>
     <tr><td><%= @staff.employment_status_i18n %></td></tr>
 </table>
-<%= button_to "編集する", staff_edit_path(@staff.id), method: "get" %>
-<%= button_to "削除する", { controller: "acounts", action: "destroy" }, method: "delete" %>
+<div class="btn-group">
+        <%= button_to "編集", staff_edit_path(@staff.id), method: "get", class: "btn btn-outline-primary" %>
+        <%= button_to "削除", { controller: "acounts", action: "destroy" }, method: "delete",
+            data: { confirm: "ユーザー「#{@staff.full_name}」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger" %>
+</div>

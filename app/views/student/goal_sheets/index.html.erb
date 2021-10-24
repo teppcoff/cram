@@ -4,4 +4,5 @@
         <tr><td><%= link_to "#{sheet.name}", student_goal_sheet_path(sheet.id) %></td></tr>
     <% end %>
 </table>
-<%= button_to "トップに戻る", student_root_path, method: "get" %>
+<%= button_to "トップに戻る", student_root_path, method: "get", class: "btn btn-outline-secondary" %>
+<%= paginate @goal_sheets %>

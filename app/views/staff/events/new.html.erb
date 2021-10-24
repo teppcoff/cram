@@ -19,5 +19,5 @@
         <%= f.label :staff_member_id, "担当講師:" %>
         <%= f.collection_select :staff_member_id, StaffMember.all, :id, :full_name, :include_blank => true %>
     </div>
-    <%= f.submit "登録" %>
+    <%= f.submit "登録", class: "btn btn-outline-success" %>
 <% end %> 
