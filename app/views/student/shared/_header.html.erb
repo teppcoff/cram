@@ -13,7 +13,7 @@
                     ゴールシート
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><%= link_to "ゴールシート一覧", student_goal_sheets_path, class: "dropdown-item" %></li>
+                    <li><%= link_to "ゴールシート一覧", student_goal_sheets_path, data: { turbolinks: :false }, class: "dropdown-item" %></li>
                     </ul>
                 </li>
                 </ul>
@@ -28,7 +28,7 @@
                     デイリーシート
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><%= link_to "デイリーシート一覧", student_daily_sheets_path, class: "dropdown-item" %></li>
+                    <li><%= link_to "デイリーシート一覧", student_daily_sheets_path, data: { turbolinks: :false }, class: "dropdown-item" %></li>
                     </ul>
                 </li>
                 </ul>
@@ -44,8 +44,8 @@
                         <i class="fas fa-user fa-fw fa-la"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><%= link_to "ユーザー情報", student_path(current_student), class: "dropdown-item" %></li>
-                    <li><%= link_to "ログアウト", student_logout_path, method: "delete", class: "dropdown-item" %></li>
+                    <li><%= link_to "ユーザー情報", student_path(current_student), data: { turbolinks: :false }, class: "dropdown-item" %></li>
+                    <li><%= link_to "ログアウト", student_logout_path, method: "delete", data: { confirm: "ログアウトします。本当によろしいですか？", turbolinks: :false }, class: "dropdown-item" %></li>
                     </ul>
                 </li>
                 </ul>

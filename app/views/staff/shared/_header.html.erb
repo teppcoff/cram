@@ -13,8 +13,8 @@
                     ゴールシート
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><%= link_to "ゴールシート作成", staff_goal_sheets_new_path, class: "dropdown-item" %></li>
-                    <li><%= link_to "ゴールシート一覧", staff_goal_sheets_path, class: "dropdown-item" %></li>
+                    <li><%= link_to "ゴールシート作成", staff_goal_sheets_new_path, data: { turbolinks: :false }, class: "dropdown-item" %></li>
+                    <li><%= link_to "ゴールシート一覧", staff_goal_sheets_path, data: { turbolinks: :false }, class: "dropdown-item" %></li>
                     </ul>
                 </li>
                 </ul>
@@ -29,8 +29,8 @@
                     デイリーシート
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><%= link_to "デイリーシート作成", staff_daily_sheets_new_path, class: "dropdown-item" %></li>
-                    <li><%= link_to "デイリーシート一覧", staff_daily_sheets_path, class: "dropdown-item" %></li>
+                    <li><%= link_to "デイリーシート作成", staff_daily_sheets_new_path, data: { turbolinks: :false }, class: "dropdown-item" %></li>
+                    <li><%= link_to "デイリーシート一覧", staff_daily_sheets_path, data: { turbolinks: :false }, class: "dropdown-item" %></li>
                     </ul>
                 </li>
                 </ul>
@@ -47,8 +47,8 @@
                         <i class="fas fa-user fa-fw fa-la"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><%= link_to "ユーザー情報", staff_path(current_staff), class: "dropdown-item" %></li>
-                    <li><%= link_to "ログアウト", staff_logout_path, method: "delete", class: "dropdown-item" %></li>
+                    <li><%= link_to "ユーザー情報", staff_path(current_staff), data: { turbolinks: :false }, class: "dropdown-item" %></li>
+                    <li><%= link_to "ログアウト", staff_logout_path, method: "delete", data: { confirm: "ログアウトします。本当によろしいですか？", turbolinks: :false }, class: "dropdown-item" %></li>
                     </ul>
                 </li>
                 </ul>
