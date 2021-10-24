@@ -15,7 +15,7 @@ class Staff::GoalSheetsController < Staff::Base
     end
 
     def index
-        @goal_sheets = current_staff.goal_sheets
+        @goal_sheets = current_staff.goal_sheets.page(params[:page]).per(10)
     end
 
     def show

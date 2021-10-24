@@ -19,9 +19,10 @@
                     <td><%= d.period %></td>
                     <td><%= d.message %></td>
                     <td><%= d.information %></td>
-                    <td><%= link_to "確認する", student_daily_sheet_path(d.id) %></td>
+                    <td><%= link_to "表示", student_daily_sheet_path(d.id), class: "btn btn-outline-info" %></td>
                 </tr>
         <% end %>
     </tbody>
 </table>
-<%= button_to "トップに戻る", student_root_path, method: "get" %>
+<%= button_to "トップに戻る", student_root_path, method: "get", class: "btn btn-outline-secondary" %>
+<%= paginate @daily_sheets %>

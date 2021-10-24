@@ -12,7 +12,7 @@
             <%= f.text_field :password %>
         </div>
         <div>
-            <%= f.submit "ログイン" %>
+            <%= f.submit "ログイン", class: "btn btn-outline-info" %>
         </div>
 <% end %>
-<a>または<%= link_to "新規登録", student_signup_path %></a>
+<a>または<%= link_to "新規登録", student_signup_path, class: "text-info" %></a>

@@ -24,5 +24,7 @@
     <% end %>
     </tr>
 </table>
-<%= button_to "編集する", student_edit_path(@student.id), method: "get" %>
-<%= button_to "削除する", { controller: "acounts", action: "destroy" }, method: "delete" %>
+<div class="btn-group">
+    <%= button_to "編集", student_edit_path(@student.id), method: "get", class: "btn btn-outline-primary" %>
+    <%= button_to "削除", { controller: "acounts", action: "destroy" }, method: "delete", class: "btn btn-outline-danger" %>
+</div>

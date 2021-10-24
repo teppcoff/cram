@@ -11,4 +11,4 @@
     <tr><td><%= @event.ends_at %></td></tr>
 </table>
 
-<%= button_to "戻る", {controller: "parent/events", action: "index"}, {method: :get} %>
+<%= button_to "戻る", {controller: "parent/events", action: "index"}, method: :get, class: "btn btn-outline-secondary" %>

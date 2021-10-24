@@ -1,7 +1,7 @@
 class Student::DailySheetsController < Student::Base
 
     def index
-        @daily_sheets = current_student.daily_sheets
+        @daily_sheets = current_student.daily_sheets.page(params[:page]).per(10)
     end
     
     def show

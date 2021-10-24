@@ -7,12 +7,14 @@
     <tr><td><%= @student.full_school_year %></td></tr>
     <tr><th scope="col">履修科目</th></tr>
         <% @subjects.each do |s| %>
-            <td><%= s.name_i18n %></td>
+            <td><%= s.name %></td>
         <% end %>
     <tr><th scope="col">性別</th></tr>
     <tr><td><%= @student.gender_i18n %></td></tr>
     <tr><th scope="col">生年月日</th></tr>
     <tr><td><%= @student.birthday %></td></tr>
 </table>
-<%= button_to "デイリーシート作成", { controller: "staff/daily_sheets", action: "new" }, { method: :get } %>
-<%= button_to "ゴールシート作成", { controller: "staff/goal_sheets", action: "new" }, { method: :get } %>
+<div class="btn-group">
+    <%= button_to "デイリーシート作成", { controller: "staff/daily_sheets", action: "new" }, method: :get, class: "btn btn-outline-info" %>
+    <%= button_to "ゴールシート作成", { controller: "staff/goal_sheets", action: "new" }, method: :get, class: "btn btn-outline-info" %>
+</div>

@@ -1,13 +1,5 @@
-<% if @notifications.where(checked: false).exists? %>
-    <%= puts "通知を確認してください" %>
-    <% @notifications.each do |notification| %>
-        <% case notification.action %>
-        <% when "create_daily_sheet" then %>
-        <%= "新しいデイリーシートがあります" =%>
-        <% when "create_goal_sheet" then %>
-        <%= "新しいゴールシートがあります" =%>
-        <% end %>
-    <% end %>
-    <% else %>
-        <%= "新しい通知はありません" %>
+<% if @notifications.exists? %>
+    <%= render @notifications %>
+<% else %>
+    <p>通知はありません</p>
 <% end %>
