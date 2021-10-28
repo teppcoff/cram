@@ -1,5 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe StudentMember, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe StudentMember do
+  describe "#create" do
+    it "given_name_kanaは全角カタカナであること" do
+      student_member = build(:student_member, given_name_kana: "太郎")
+      expect(student_member.valid?).to be_falsey
+    end
+  end
 end
