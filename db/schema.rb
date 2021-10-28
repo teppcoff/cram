@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2021_10_21_160932) do
     t.string "email", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_parent_members_on_email", unique: true
   end
 
   create_table "semesters", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -103,6 +104,7 @@ ActiveRecord::Schema.define(version: 2021_10_21_160932) do
     t.integer "employment_status", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_staff_members_on_email", unique: true
   end
 
   create_table "student_members", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
