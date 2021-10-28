@@ -15,5 +15,7 @@ class CreateStaffMembers < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+
+    add_index :staff_members, :email, unique: true
   end
 end

@@ -9,3 +9,4 @@
         新しい<%= link_to "ゴールシート", parent_goal_sheet_path(sheet_id), class: "alert-link" %>があります
     </div>
 <% end %>
+<%= paginate @notifications %>
