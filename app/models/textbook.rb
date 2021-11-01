@@ -1,4 +1,6 @@
 class Textbook < ApplicationRecord
+
+    validates :name, presence: true
     has_many :daily_texts, dependent: :destroy
     has_many :daily_sheets, :through => :daily_texts
     
