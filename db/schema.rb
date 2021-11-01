@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 2021_10_21_160932) do
   end
 
   create_table "events", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "title"
-    t.datetime "starts_at"
-    t.datetime "ends_at"
+    t.string "title", null: false
+    t.datetime "starts_at", null: false
+    t.datetime "ends_at", null: false
     t.integer "period"
     t.bigint "student_member_id"
     t.bigint "staff_member_id"

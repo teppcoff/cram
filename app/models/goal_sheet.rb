@@ -1,4 +1,9 @@
 class GoalSheet < ApplicationRecord
+
+    validates :name, presence: true
+    validates :number_of_lessons, presence: true
+    validates :description, presence: true
+
     belongs_to :student_member
     belongs_to :staff_member
 

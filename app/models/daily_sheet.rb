@@ -1,4 +1,10 @@
 class DailySheet < ApplicationRecord
+
+    validates :study_date, presence: true
+    validates :message, presence: true
+    validates :information, presence: true
+    validates :period, presence: true
+
     belongs_to :student_member
     belongs_to :staff_member
     belongs_to :subject
