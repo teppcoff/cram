@@ -1,0 +1,42 @@
+<div class="form-group">
+    <%= f.label :family_name, "性" %>
+    <%= f.text_field :family_name, class: "form-control" %>
+</div>   
+<div class="form-group">
+    <%= f.label :given_name, "名" %>
+    <%= f.text_field :given_name, class: "form-control" %>
+</div>   
+<div class="form-group">
+    <%= f.label :family_name_kana, "性（フリガナ）" %>
+    <%= f.text_field :family_name_kana, class: "form-control" %>
+</div>   
+<div class="form-group">
+    <%= f.label :given_name_kana, "名（フリガナ）" %>
+    <%= f.text_field :given_name_kana, class: "form-control" %>
+</div> 
+<div class="form-group">
+    <%= f.label :gender, "性別:" %>
+    <%= f.select :gender, StudentMember.genders_i18n.keys.map{|k| [I18n.t("enum.student_member.gender.#{k}"), k]} %>
+</div> 
+<div class="form-group">
+    <%= f.label :birthday, "生年月日:" %>
+    <%= f.date_select :birthday, start_year: Time.now.year, end_year: 1900, class: "form-control" %>
+</div> 
+<div class="form-group">
+    <%= f.label :school_type, "学校:" %>
+    <%= f.select :school_type, StudentMember.school_types_i18n.keys.map{|k| [I18n.t("enum.student_member.school_type.#{k}"), k]} %>
+</div> 
+<div class="form-group">
+    <%= f.label :school_year, "学年:" %>
+    <%= f.select :school_year, StudentMember.school_years_i18n.keys.map{|k| [I18n.t("enum.student_member.school_year.#{k}"), k]} %>
+</div>
+<div class="form-group">
+    <%= f.label :subjects, "科目:" %>
+    <%= collection_check_boxes(:student_member, :subject_ids, Subject.all, :id, :name) do |t|  %>
+    <% t.label { t.check_box + t.text } %>
+    <% end %>
+</div>
+<div class="form-group">
+    <%= f.label :staff_member_id, "担当講師:" %>
+    <%= f.collection_select :staff_member_id, StaffMember.all, :id, :full_name, :include_blank => true %>
+</div>
