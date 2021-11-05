@@ -1,37 +1,4 @@
 <%= form_with model: @daily_sheet, url: staff_daily_sheets_new_path, local: true do |f| %>
-    <div class="form-group">
-        <%= f.label :student_member_id, "生徒:" %>
-        <%= f.collection_select :student_member_id, StudentMember.all, :id, :full_name, prompt: "選択する" %>
-    </div>
-    <div class="form-group">
-        <%= f.label :staff_member_id, "担当講師:" %>
-        <%= f.collection_select :staff_member_id, StaffMember.all, :id, :full_name,　selected: current_staff %>
-    </div>
-    <div class="form-group">
-        <%= f.label :study_date, "日付:" %>
-        <%= f.date_select :study_date, {default: Date.today}, class: "form-control" %>
-    </div> 
-    <div class="form-group">
-        <%= f.label :period, "時限:" %>
-        <%= f.number_field :period, min: 1, max: 5, class: "form-control" %>
-    </div>
-    <div class="field">
-        <%= f.label :subject, "科目:" %>
-        <%= f.collection_select :subject_id, Subject.all, :id, :name, prompt: "選択する" %>
-    </div>
-    <div class="field">
-        <%= f.label :textbooks, "テキスト:" %>
-        <%= collection_check_boxes(:daily_sheet, :textbook_ids, Textbook.all, :id, :name) do |t|  %>
-        <% t.label { t.check_box + t.text } %>
-        <% end %>
-    </div>
-    <div class="form-group">
-        <%= f.label :message, "メッセージ:" %>
-        <%= f.text_area :message, class: "form-control", placeholder: "例）よく集中できていました。期末テストに向けて頑張りましょう" %>
-    </div>
-    <div class="form-group">
-        <%= f.label :information, "連絡事項:" %>
-        <%= f.text_area :information, class: "form-control", placeholder: "例）次回小テストを行うので、該当範囲の復習をしてきてください。" %>
-    </div>
+    <%= render partial: "form", locals: { f: f } %>
     <%= f.submit "作成", class: "btn btn-outline-success" %>
 <% end %> 
