@@ -4,7 +4,7 @@
 </div>
 <div class="form-group">
     <%= f.label :staff_member_id, "担当講師:" %>
-    <%= f.collection_select :staff_member_id, StaffMember.all, :id, :full_name,　selected: current_staff %>
+    <%= f.collection_select :staff_member_id, StaffMember.all, :id, :full_name, selected: current_staff %>
 </div>
 <div class="form-group">
     <%= f.label :study_date, "日付:" %>
@@ -20,9 +20,7 @@
 </div>
 <div class="field">
     <%= f.label :textbooks, "テキスト:" %>
-    <%= collection_check_boxes(:daily_sheet, :textbook_ids, Textbook.all, :id, :name) do |t|  %>
-    <% t.label { t.check_box + t.text } %>
-    <% end %>
+    <%= f.collection_select :textbook_id, Textbook.all, :id, :name, prompt: "選択する" %>
 </div>
 <div class="form-group">
     <%= f.label :message, "メッセージ:" %>

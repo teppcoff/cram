@@ -44,6 +44,9 @@ Subject.create!(
         },
         {
             name: "高校社会"
+        },
+        {
+            name: "その他"
         }
     ]
 )

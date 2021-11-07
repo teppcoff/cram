@@ -28,5 +28,5 @@
 </div> 
 <div class="group">
     <%= f.label :employment_status, "雇用形態:" %>
-    <%= f.select :employment_status, StaffMember.employment_statuses_i18n.keys.map{|k| [I18n.t("enum.staff_member.employment_status.#{k}"), k]} %>
+    <%= f.select :employment_status, StaffMember.employment_statuses_i18n.keys.map{|k| [I18n.t("enum.staff_member.employment_status.#{k}"), k]}, prompt: "選択する" %>
 </div>
