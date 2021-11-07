@@ -1,0 +1,22 @@
+<table class="table">
+        <thead>
+            <tr>
+            <th scope="col">タイトル</th>
+            <th scope="col">テキストタイプ</th>
+            <th scope="col">科目</th>
+            </tr>
+        </thead>
+        <%= @textbooks.each do |text| %>
+        <tbody>
+            <tr>
+            <td><%= text.name %></td>
+            <td><%= text.text_type_i18n %></td>
+            <td><%= text.subject.name %></td>
+            </tr>
+        </tbody>
+        <% end %>
+</table>
+<div class="btn-group">
+    <%= link_to "新規登録", staff_textbooks_new_path, class: "btn btn-outline-success" %>
+</div>
+<%= paginate @textbooks %>

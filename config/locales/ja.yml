@@ -30,7 +30,7 @@ ja:
         permanent: "正社員"
         part_time: "アルバイト"
     textbook:
-      type:
+      text_type:
         schoolbook: "教科書"
         workbook: "問題集"
         previous_exam_question: "過去問題集"
@@ -65,7 +65,7 @@ ja:
         permanent: "正社員"
         part_time: "アルバイト"
     textbook:
-      type:
+      text_type:
         schoolbook: "教科書"
         workbook: "問題集"
         previous_exam_question: "過去問題集"
