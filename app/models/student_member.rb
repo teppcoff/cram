@@ -1,8 +1,13 @@
 class StudentMember < ApplicationRecord
 
     VALID_KANA_REGEX = /\A[ァ-ヶー－]+\z/
+    validates :family_name, presence: true
+    validates :given_name, presence: true
     validates :family_name_kana, presence: true, format: { with: VALID_KANA_REGEX }
     validates :given_name_kana, presence: true, format: { with: VALID_KANA_REGEX }
+    validates :school_type, presence: true
+    validates :school_year, presence: true
+    validates :gender, presence: true
 
     has_secure_password
 

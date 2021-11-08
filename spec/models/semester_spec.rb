@@ -1,5 +1,17 @@
 require 'rails_helper'
 
-RSpec.describe Semester, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Semester do
+  describe "#create" do
+
+    it "factorybotが成功すること" do
+      semester = build(:semester)
+      expect(semester).to be_valid
+    end
+
+    it "nameが必要であること" do
+      semester = build(:semester, name: nil)
+      expect(semester.valid?).to be_falsey
+    end
+
+  end
 end

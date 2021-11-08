@@ -12,5 +12,6 @@ describe Event do
       event = build(:event, title: nil)
       expect(event.valid?).to be_falsey
     end
+    
   end
 end
