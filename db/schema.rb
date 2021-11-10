@@ -40,13 +40,16 @@ ActiveRecord::Schema.define(version: 2021_10_21_160932) do
     t.string "title", null: false
     t.datetime "starts_at", null: false
     t.datetime "ends_at", null: false
-    t.integer "period"
+    t.integer "period", null: false
+    t.integer "participation"
     t.bigint "student_member_id"
     t.bigint "staff_member_id"
+    t.bigint "subject_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["staff_member_id"], name: "index_events_on_staff_member_id"
     t.index ["student_member_id"], name: "index_events_on_student_member_id"
+    t.index ["subject_id"], name: "index_events_on_subject_id"
   end
 
   create_table "goal_sheets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -158,6 +161,7 @@ ActiveRecord::Schema.define(version: 2021_10_21_160932) do
   add_foreign_key "daily_texts", "textbooks"
   add_foreign_key "events", "staff_members"
   add_foreign_key "events", "student_members"
+  add_foreign_key "events", "subjects"
   add_foreign_key "goal_sheets", "staff_members"
   add_foreign_key "goal_sheets", "student_members"
   add_foreign_key "student_members", "parent_members"

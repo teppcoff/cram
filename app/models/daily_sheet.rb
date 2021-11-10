@@ -27,5 +27,5 @@ class DailySheet < ApplicationRecord
         )
         notification.save if notification.valid?
     end
-
+    
 end

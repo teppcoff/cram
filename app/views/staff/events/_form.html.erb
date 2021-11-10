@@ -1,0 +1,28 @@
+<div class="form-group">
+    <%= f.label :title, "概要:" %>
+    <%= f.text_field :title, class: "form-control", placeholder: "例）3限英語" %>
+</div>
+<div class="form-group">
+    <%= f.label :period, "時限:" %>
+    <%= f.number_field :period, min: 1, max: 5, class: "form-control" %>
+</div>
+<div class="field">
+    <%= f.label :subject, "科目:" %>
+    <%= f.collection_select :subject_id, Subject.all, :id, :name, prompt: "選択する" %>
+</div>
+<div class="form-group">
+    <%= f.label :starts_at, "開始時刻:" %>
+    <%= f.datetime_select :starts_at, class: "form-control" %>
+</div>
+<div class="form-group">
+    <%= f.label :ends_at, "終了時刻:" %>
+    <%= f.datetime_select :ends_at, class: "form-control" %>
+</div>
+<div class="form-group">
+    <%= f.label :student_member_id, "生徒:" %>
+    <%= f.collection_select :student_member_id, StudentMember.all, :id, :full_name, prompt: "選択する" %>
+</div>
+<div class="form-group">
+    <%= f.label :staff_member_id, "担当講師:" %>
+    <%= f.collection_select :staff_member_id, StaffMember.all, :id, :full_name, selected: current_staff %>
+</div>

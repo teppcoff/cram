@@ -30,7 +30,7 @@ document.addEventListener('turbolinks:load', function() {
     },
     eventClick: function(info) {
         alert('授業: ' + info.event.title);
-        if (confirm('詳細を確認する?(削除もこちらから)')) {
+        if (confirm('詳細を確認(出欠登録・削除もこちらから)')) {
             window.location.href = '../staff/events/show/' +info.event.id+ '/';
         }
     }
