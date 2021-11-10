@@ -4,8 +4,10 @@ class CreateEvents < ActiveRecord::Migration[6.1]
       t.string :title, null: false
       t.datetime :starts_at, null: false
       t.datetime :ends_at, null: false
+      t.date :starts_on, null: false
+      t.date :ends_on, null: false 
       t.integer :period, null: false
-      t.integer :participation
+      t.integer :repeats_on, null: false
       t.references :student_member, index: true, foreign_key: true
       t.references :staff_member, index: true, foreign_key: true
       t.references :subject, index: true, foreign_key: true

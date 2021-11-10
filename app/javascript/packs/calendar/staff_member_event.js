@@ -12,7 +12,10 @@ document.addEventListener('turbolinks:load', function() {
     locale: 'ja',
     timeZone: 'Asia/Tokyo',
     firstDay: 1,
-    titleFormat: { // will produce something like "Tuesday, September 18, 2018"
+    contentHeight: 'auto',
+    eventDisplay: 'block',
+    editable: true,
+    titleFormat: {
         month: 'long',
         year: 'numeric'
     },
@@ -22,7 +25,7 @@ document.addEventListener('turbolinks:load', function() {
     },
     customButtons: {
         addEventButton: {
-            text: 'add event',
+            text: '授業予定を追加',
             click: function(event, jsEvent, view){
                 window.location.href = '../staff/events/new';
             }
@@ -30,7 +33,7 @@ document.addEventListener('turbolinks:load', function() {
     },
     eventClick: function(info) {
         alert('授業: ' + info.event.title);
-        if (confirm('詳細を確認(出欠登録・削除もこちらから)')) {
+        if (confirm('詳細を確認(削除もこちらから)')) {
             window.location.href = '../staff/events/show/' +info.event.id+ '/';
         }
     }

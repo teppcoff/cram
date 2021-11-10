@@ -9,6 +9,16 @@ document.addEventListener('turbolinks:load', function() {
     plugins: [ dayGridPlugin, interactionPlugin ],
     initialView: 'dayGridMonth',
     events: '/parent/events.json',
+    locale: 'ja',
+    timeZone: 'Asia/Tokyo',
+    firstDay: 1,
+    contentHeight: 'auto',
+    eventDisplay: 'block',
+    editable: true,
+    titleFormat: {
+        month: 'long',
+        year: 'numeric'
+    },
 
     eventClick: function(info) {
         alert('授業: ' + info.event.title);

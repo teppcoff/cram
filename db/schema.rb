@@ -40,8 +40,10 @@ ActiveRecord::Schema.define(version: 2021_10_21_160932) do
     t.string "title", null: false
     t.datetime "starts_at", null: false
     t.datetime "ends_at", null: false
+    t.date "starts_on", null: false
+    t.date "ends_on", null: false
     t.integer "period", null: false
-    t.integer "participation"
+    t.integer "repeats_on", null: false
     t.bigint "student_member_id"
     t.bigint "staff_member_id"
     t.bigint "subject_id"
