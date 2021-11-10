@@ -15,7 +15,12 @@ class Staff::DailySheetsController < Staff::Base
     end
 
     def index
-        @daily_sheets = current_staff.daily_sheets.page(params[:page]).per(10)
+        @search_params = daily_sheet_search_params
+        @daily_sheets = if @search_params.nil? 
+            current_staff.daily_sheets.page(params[:page]).per(10)
+        else
+            DailySheet.search(@search_params).page(params[:page]).per(10)
+        end
     end
     
     def show
@@ -46,6 +51,10 @@ class Staff::DailySheetsController < Staff::Base
 
         def daily_sheet_params
             params.require(:daily_sheet).permit(:study_date, :period, :message, :information, :student_member_id, :staff_member_id, :subject_id, { textbook_ids: [] })
+        end
+
+        def daily_sheet_search_params
+            params.fetch(:search, {}).permit(:student_member_id)
         end
         
 end
