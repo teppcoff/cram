@@ -38,10 +38,14 @@ class StudentMember < ApplicationRecord
             .given_name_is(search_params[:given_name])
             .family_name_kana_is(search_params[:family_name_kana])
             .given_name_kana_is(search_params[:given_name_kana])
+            .school_type_is(search_params[:school_type])
+            .school_year_is(search_params[:school_year])
     end
 
         scope :family_name_is, -> (family_name) { where(family_name: family_name) if family_name.present? }
         scope :given_name_is, -> (given_name) { where(given_name: given_name) if given_name.present? }
         scope :family_name_kana_is, -> (family_name_kana) { where(family_name_kana: family_name_kana) if family_name_kana.present? }
         scope :given_name_kana_is, -> (given_name_kana) { where(given_name_kana: given_name_kana) if given_name_kana.present? }
+        scope :school_type_is, -> (school_type) { where(school_type: school_type) if school_type.present? }
+        scope :school_year_is, -> (school_year) { where(school_year: school_year) if school_year.present? }
 end

@@ -15,7 +15,12 @@ class Staff::GoalSheetsController < Staff::Base
     end
 
     def index
-        @goal_sheets = current_staff.goal_sheets.page(params[:page]).per(10)
+        @search_params = goal_sheet_search_params
+        @goal_sheets = if @search_params.nil? 
+            current_staff.goal_sheets.page(params[:page]).per(10)
+        else
+            GoalSheet.search(@search_params).page(params[:page]).per(10)
+        end
     end
 
     def show
@@ -47,6 +52,10 @@ class Staff::GoalSheetsController < Staff::Base
 
         def goal_sheet_params
             params.require(:goal_sheet).permit(:name, :number_of_lessons, :description, :staff_member_id, :student_member_id)
+        end
+
+        def goal_sheet_search_params
+            params.fetch(:search, {}).permit(:student_member_id)
         end
 
 end
