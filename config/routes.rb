@@ -85,6 +85,8 @@ Rails.application.routes.draw do
     post "/events/new", to: "events#create"
     get "/events/show/:id", to: "events#show", as: "event"
     delete "/events/show/:id", to: "events#destroy", as: "event_destroy"
+    get "/events/edit/:id", to: "events#edit", as: "events_edit"
+    patch "/events/edit/:id", to: "events#update"
 
     get "/textbooks", to: "textbooks#index"
     get "/textbooks/new", to: "textbooks#new"

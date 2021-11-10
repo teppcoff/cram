@@ -4,8 +4,12 @@ class StaffMember < ApplicationRecord
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     VALID_KANA_REGEX = /\A[ァ-ヶー－]+\z/
     validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX }
+    validates :family_name, presence: true
+    validates :given_name, presence: true
     validates :family_name_kana, presence: true, format: { with: VALID_KANA_REGEX }
     validates :given_name_kana, presence: true, format: { with: VALID_KANA_REGEX }
+    validates :employment_status, presence: true
+    validates :gender, presence: true
 
     has_secure_password
     has_many :student_members

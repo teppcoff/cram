@@ -1,5 +1,8 @@
 class Notification < ApplicationRecord
 
+    validates :visitor_id, presence: true
+    validates :visited_id, presence: true
+
     default_scope -> { order(created_at: :desc) }
 
     belongs_to :daily_sheet, optional: true

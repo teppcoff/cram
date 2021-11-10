@@ -1,0 +1,22 @@
+<%= form_with model: @event, url: staff_events_edit_path, local: true do |f| %>
+    <%= render partial: "form", locals: { f: f } %>
+    <div class="group">
+        <%= f.label :participation, "出欠:" %>
+        <div>
+            <%= f.radio_button :participation, "attendance" %>
+            <%= f.label :participation, "出席", value: "attendance" %>
+        </div>
+        <div>
+            <%= f.radio_button :participation, "absence" %>
+            <%= f.label :participation, "欠席", value: "absence" %>
+        </div>
+        <div>
+            <%= f.radio_button :participation, "late" %>
+            <%= f.label :participation, "遅刻", value: "late" %>
+        </div>
+    </div>
+    <div class="btn-group">
+        <%= f.submit "更新", class: "btn btn-outline-success" %>
+    </div>
+<% end %> 
+<%= button_to "戻る", staff_event_path(@event.id), method: :get, class: "btn btn-outline-secondary" %>

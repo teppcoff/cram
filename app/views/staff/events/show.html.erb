@@ -11,8 +11,11 @@
     <tr><td><%= @event.starts_at %></td></tr>
     <tr><th scope="col">終了時刻</th></tr>
     <tr><td><%= @event.ends_at %></td></tr>
+    <tr><th scope="col">出欠</th></tr>
+    <tr><td><%= @event.participation_i18n %></td></tr>
 </table>
 <div class="btn-group">
+    <%= button_to "出欠記録・編集", staff_events_edit_path(@event.id), method: :get, class: "btn btn-outline-primary" %>
     <%= button_to "削除", {controller: "staff/events", action: "destroy"}, method: :delete,
     data: { confirm: " イベント「#{@event.title}」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger" %>
     <%= button_to "戻る", {controller: "staff/events", action: "index"}, method: :get, class: "btn btn-outline-secondary" %>

@@ -1,20 +1,22 @@
 Event.create!(
     [
         {
-            title: "サンプル授業",
-            starts_at: DateTime.now,
-            ends_at: DateTime.now,
+            title: "1限英語",
+            starts_at: "2021-11-05 16:00:00",
+            ends_at: "2021-11-05 17:00:00",
             period: 1,
             staff_member_id: 1,
-            student_member_id: 1
+            student_member_id: 1,
+            subject_id: 6
         },
         {
-            title: "サンプル授業2",
-            starts_at: DateTime.now,
-            ends_at: DateTime.now,
+            title: "2限数学",
+            starts_at: "2021-11-05 17:10:00",
+            ends_at: "2021-11-05 18:10:00",
             period: 2,
             staff_member_id: 1,
-            student_member_id: 2
+            student_member_id: 2,
+            subject_id: 7
         }
     ]
 )
