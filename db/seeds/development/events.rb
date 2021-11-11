@@ -7,10 +7,10 @@ Event.create!(
             starts_on: "2021-11-05",
             ends_on: "2021-12-03",
             repeats_on: 5,
-            period: 1,
+            period_id: 1,
             staff_member_id: 1,
             student_member_id: 1,
-            subject_id: 6
+            subject_id: 6,
         },
         {
             title: "2限数学",
@@ -19,7 +19,7 @@ Event.create!(
             starts_on: "2021-11-05",
             ends_on: "2021-12-03",
             repeats_on: 5,
-            period: 2,
+            period_id: 2,
             staff_member_id: 1,
             student_member_id: 2,
             subject_id: 7
