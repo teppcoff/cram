@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_21_160932) do
+ActiveRecord::Schema.define(version: 2021_11_11_061935) do
 
   create_table "daily_sheets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "student_member_id"
@@ -42,13 +42,14 @@ ActiveRecord::Schema.define(version: 2021_10_21_160932) do
     t.datetime "ends_at", null: false
     t.date "starts_on", null: false
     t.date "ends_on", null: false
-    t.integer "period", null: false
     t.integer "repeats_on", null: false
+    t.bigint "period_id"
     t.bigint "student_member_id"
     t.bigint "staff_member_id"
     t.bigint "subject_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["period_id"], name: "index_events_on_period_id"
     t.index ["staff_member_id"], name: "index_events_on_staff_member_id"
     t.index ["student_member_id"], name: "index_events_on_student_member_id"
     t.index ["subject_id"], name: "index_events_on_subject_id"
@@ -89,6 +90,14 @@ ActiveRecord::Schema.define(version: 2021_10_21_160932) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_parent_members_on_email", unique: true
+  end
+
+  create_table "periods", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "number_of_period", null: false
+    t.datetime "start_of_period", null: false
+    t.datetime "end_of_period", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "semesters", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -161,6 +170,7 @@ ActiveRecord::Schema.define(version: 2021_10_21_160932) do
   add_foreign_key "daily_sheets", "subjects"
   add_foreign_key "daily_texts", "daily_sheets"
   add_foreign_key "daily_texts", "textbooks"
+  add_foreign_key "events", "periods"
   add_foreign_key "events", "staff_members"
   add_foreign_key "events", "student_members"
   add_foreign_key "events", "subjects"
