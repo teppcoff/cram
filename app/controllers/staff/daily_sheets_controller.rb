@@ -25,7 +25,6 @@ class Staff::DailySheetsController < Staff::Base
     
     def show
         @daily_sheet = DailySheet.find(params[:id])
-        @textbooks = @daily_sheet.textbooks
     end
 
     def edit
@@ -50,7 +49,7 @@ class Staff::DailySheetsController < Staff::Base
     private
 
         def daily_sheet_params
-            params.require(:daily_sheet).permit(:study_date, :period, :message, :information, :student_member_id, :staff_member_id, :subject_id, { textbook_ids: [] })
+            params.require(:daily_sheet).permit(:study_date, :period, :message, :information, :participation, :student_member_id, :staff_member_id, :subject_id, :textbook_id)
         end
 
         def daily_sheet_search_params

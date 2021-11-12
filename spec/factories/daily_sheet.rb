@@ -3,9 +3,11 @@ FactoryBot.define do
         association :staff_member
         association :student_member
         association :subject
+        association :textbook
         study_date { "2021-11-01" }
         period { 2 }
         message { "よくできました" }
         information { "特にありません" }
+        participation { "attendant" }
     end
 end

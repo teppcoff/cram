@@ -9,5 +9,7 @@
         <%= f.label :password_confirmation, "パスワード（確認）" %>
         <%= f.password_field :password_confirmation, class: "form-control" %>
     </div>
-    <%= f.submit "登録", class: "btn btn-outline-success" %>
+    <div class="form-submit">
+        <%= f.submit "登録", class: "btn btn-outline-success" %>
+    </div>
 <% end %>

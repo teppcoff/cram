@@ -6,7 +6,6 @@ class Student::DailySheetsController < Student::Base
     
     def show
         @daily_sheet = DailySheet.find(params[:id])
-        @textbooks = @daily_sheet.textbooks
     end
 
 

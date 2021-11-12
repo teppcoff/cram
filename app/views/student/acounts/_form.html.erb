@@ -44,7 +44,7 @@
     <%= f.label :parent_member_id, "保護者:" %>
     <%= f.collection_select :parent_member_id, ParentMember.all, :id, :full_name, :include_blank => true %>
 </div>
-<div class="group">
+<div class="form-group">
     <%= f.label :email, "メールアドレス:" %>
     <%= f.text_field :email, class: "form-control" %>
 </div>

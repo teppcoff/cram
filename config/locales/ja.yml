@@ -41,6 +41,7 @@ ja:
         period: 時限
         student_member: 生徒
         subject: 科目
+        participation: 出欠
       event:
         title: 概要（表示名）
         starts_at: 開始時刻
@@ -292,8 +293,8 @@ ja:
         schoolbook: "教科書"
         workbook: "問題集"
         previous_exam_question: "過去問題集"
-    event:
+    daily_sheet:
       participation:
-        attendance: "出席"
-        absence: "欠席"
+        attendant: "出席"
+        absent: "欠席"
         late: "遅刻"

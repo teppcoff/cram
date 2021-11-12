@@ -1,5 +1,8 @@
 <%= form_with(model: @textbook, url: staff_textbooks_new_path, local: true) do |f| %>
     <%= render "layouts/error_messages", model: f.object %>
     <%= render partial: "form", locals: { f: f } %>
-    <%= f.submit "作成", class: "btn btn-outline-success" %>
+    <div class="form-submit">
+        <%= f.submit "作成", class: "btn btn-outline-success" %>
+    </div>
 <% end %> 
+<%= link_to "戻る", staff_textbooks_path, class: "btn btn-outline-secondary" %>

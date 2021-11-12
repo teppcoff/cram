@@ -16,24 +16,18 @@ ActiveRecord::Schema.define(version: 2021_11_11_061935) do
     t.bigint "student_member_id"
     t.bigint "staff_member_id"
     t.bigint "subject_id"
+    t.bigint "textbook_id"
     t.date "study_date", null: false
     t.integer "period", null: false
-    t.text "message"
-    t.text "information"
+    t.text "message", null: false
+    t.text "information", null: false
+    t.integer "participation", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["staff_member_id"], name: "index_daily_sheets_on_staff_member_id"
     t.index ["student_member_id"], name: "index_daily_sheets_on_student_member_id"
     t.index ["subject_id"], name: "index_daily_sheets_on_subject_id"
-  end
-
-  create_table "daily_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "daily_sheet_id"
-    t.bigint "textbook_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["daily_sheet_id"], name: "index_daily_texts_on_daily_sheet_id"
-    t.index ["textbook_id"], name: "index_daily_texts_on_textbook_id"
+    t.index ["textbook_id"], name: "index_daily_sheets_on_textbook_id"
   end
 
   create_table "events", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -169,8 +163,7 @@ ActiveRecord::Schema.define(version: 2021_11_11_061935) do
   add_foreign_key "daily_sheets", "staff_members"
   add_foreign_key "daily_sheets", "student_members"
   add_foreign_key "daily_sheets", "subjects"
-  add_foreign_key "daily_texts", "daily_sheets"
-  add_foreign_key "daily_texts", "textbooks"
+  add_foreign_key "daily_sheets", "textbooks"
   add_foreign_key "events", "periods"
   add_foreign_key "events", "staff_members"
   add_foreign_key "events", "student_members"

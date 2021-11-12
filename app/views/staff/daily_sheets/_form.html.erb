@@ -24,9 +24,17 @@
 </div>
 <div class="form-group">
     <%= f.label :message, "メッセージ:" %>
-    <%= f.text_area :message, class: "form-control", placeholder: "例）よく集中できていました。期末テストに向けて頑張りましょう" %>
+    <%= f.text_area :message, maxlength: 300, class: "form-control", placeholder: "例）よく集中できていました。期末テストに向けて頑張りましょう" %>
 </div>
 <div class="form-group">
     <%= f.label :information, "連絡事項:" %>
-    <%= f.text_area :information, class: "form-control", placeholder: "例）次回小テストを行うので、該当範囲の復習をしてきてください。" %>
+    <%= f.text_area :information, maxlength: 300, class: "form-control", placeholder: "例）次回小テストを行うので、該当範囲の復習をしてきてください。" %>
+</div>
+<div class="form-group">
+    <%= f.radio_button :participation, :attendant %>
+    <%= f.label :participation, "出席" %>
+    <%= f.radio_button :participation, :absent %>
+    <%= f.label :participation, "欠席" %>
+    <%= f.radio_button :participation, :late %>
+    <%= f.label :participation, "遅刻" %>
 </div>

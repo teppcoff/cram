@@ -1,6 +1,6 @@
 <%= form_with model: @event, url: staff_events_edit_path, local: true do |f| %>
     <%= render "form", f: f %>
-    <div class="btn-group">
+    <div class="form-submit">
         <%= f.submit "更新", class: "btn btn-outline-success" %>
     </div>
 <% end %> 
