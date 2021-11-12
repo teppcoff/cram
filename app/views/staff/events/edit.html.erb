@@ -1,5 +1,44 @@
 <%= form_with model: @event, url: staff_events_edit_path, local: true do |f| %>
-    <%= render partial: "form", locals: { f: f } %>
+    <div class="form-group">
+        <%= f.label :student_member_id, "生徒:" %>
+        <%= f.collection_select :student_member_id, StudentMember.all, :id, :full_name, prompt: "選択する" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :staff_member_id, "担当講師:" %>
+        <%= f.collection_select :staff_member_id, StaffMember.all, :id, :full_name, selected: current_staff %>
+    </div>
+    <div class="form-group">
+        <%= f.label :period_id, "時限:" %>
+        <%= f.number_field :period_id, min: 1, max: 5, id: "js-period", class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :subject, "科目:" %>
+        <%= f.collection_select :subject_id, Subject.all, :id, :name, prompt: "選択する" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :starts_at, "開始時刻:" %>
+        <%= f.time_select :starts_at, id: "start_time_form" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :ends_at, "終了時刻:" %>
+        <%= f.time_select :ends_at, id: "end_time_form" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :starts_on, "初回授業日:" %>
+        <%= f.date_select :starts_on, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :ends_on, "最終回授業日:" %>
+        <%= f.date_select :ends_on, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :repeats_on, "曜日:" %>
+        <%= f.select :repeats_on, { "日": 0, "月": 1, "火": 2, "水": 3, "木": 4, "金": 5, "土": 6}, prompt: "選択する" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :title, "概要:" %>
+        <%= f.text_field :title, class: "form-control", placeholder: "例）3限英語" %>
+    </div>
     <div class="btn-group">
         <%= f.submit "更新", class: "btn btn-outline-success" %>
     </div>
