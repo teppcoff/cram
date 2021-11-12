@@ -8,6 +8,7 @@ StaffMember.create!(
             gender: "male",
             birthday: "2000-11-05",
             password: "password",
+            password_confirmation: "password",
             email: "teppei@example.com",
             employment_status: "part_time"     
         }

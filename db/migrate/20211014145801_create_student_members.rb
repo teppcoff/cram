@@ -11,6 +11,7 @@ class CreateStudentMembers < ActiveRecord::Migration[6.1]
       t.string :password_digest, null: false
       t.integer :school_type, null: false #小中高の区分
       t.integer :school_year, null: false #学年(年次のみ)
+      t.string :email, null: false
 
       t.timestamps
     end

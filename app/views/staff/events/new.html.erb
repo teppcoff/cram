@@ -1,6 +1,7 @@
 <%= form_with model: @event, url: staff_events_new_path, local: true do |f| %>
+    <%= render "layouts/error_messages", model: f.object %>
     <%= render "form", f: f %>
-    <div class="btn-group">
+    <div class="form-submit">
         <%= f.submit "登録", class: "btn btn-outline-success" %>
     </div>
 <% end %> 

@@ -1,29 +1,31 @@
 <div class="search-form mb-5">
     <%= form_with scope: "search", url: staff_student_members_path, method: "get", local: true do |f| %>
-        <div class="form-group mb-1">
+        <div class="form-group">
             <%= f.label :family_name, "性:" %>
             <%= f.text_field :family_name, value: @search_params[:family_name], id: "js-family_name" %>
         </div>   
-        <div class="form-group mb-1">
+        <div class="form-group">
             <%= f.label :given_name, "名:" %>
             <%= f.text_field :given_name, value: @search_params[:given_name], id: "js-given_name" %>
         </div>
-        <div class="form-group mb-1">
+        <div class="form-group">
             <%= f.label :family_name_kana, "性（カナ）:" %>
             <%= f.text_field :family_name_kana, value: @search_params[:family_name_kana], id: "js-family_name_kana" %>
         </div>   
-        <div class="form-group mb-1">
+        <div class="form-group">
             <%= f.label :given_name_kana, "名（カナ）:" %>
             <%= f.text_field :given_name_kana, value: @search_params[:given_name_kana], id: "js-given_name_kana" %>
         </div>
-        <div class="form-group mb-1">
+        <div class="form-group">
             <%= f.label :school_type, "学校:" %>
-            <%= f.select :school_type, StudentMember.school_types_i18n.keys.map{|k| [I18n.t("enum.student_member.school_type.#{k}"), k]}, prompt: "選択する", id: "js-school_type" %>
+            <%= f.select :school_type, StudentMember.school_types_i18n.keys.map{|k| [I18n.t("enums.student_member.school_type.#{k}"), k]}, prompt: "選択する", id: "js-school_type" %>
         </div> 
-        <div class="form-group mb-1">
+        <div class="form-group">
             <%= f.label :school_year, "学年:" %>
-            <%= f.select :school_year, StudentMember.school_years_i18n.keys.map{|k| [I18n.t("enum.student_member.school_year.#{k}"), k]}, prompt: "選択する", id: "js-school_year" %>
+            <%= f.select :school_year, StudentMember.school_years_i18n.keys.map{|k| [I18n.t("enums.student_member.school_year.#{k}"), k]}, prompt: "選択する", id: "js-school_year" %>
         </div>
-        <%= f.submit "検索", class: "btn btn-outline-primary", id: "js-search_student" %>
+        <div class="form-submit">
+            <%= f.submit "検索", class: "btn btn-outline-primary", id: "js-search_student" %>
+        </div>
     <% end %>
 </div>

@@ -1,4 +1,7 @@
 <%= form_with model: @student, url: student_edit_path, local: true do |f| %>
+    <%= render "layouts/error_messages", model: f.object %>
     <%= render partial: "form", locals: { f: f } %>
-    <%= f.submit "更新", class: "btn btn-outline-success" %>
+    <div class="form-submit">
+        <%= f.submit "更新", class: "btn btn-outline-success" %>
+    </div>
 <% end %>

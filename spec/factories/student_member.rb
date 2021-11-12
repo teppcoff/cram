@@ -2,6 +2,7 @@ FactoryBot.define do
     factory :student_member do
         association :staff_member
         association :parent_member
+        sequence(:email) { |n| "student#{n}@example.com" }
         family_name { "山田" }
         given_name { "太郎" } 
         family_name_kana { "ヤマダ" }

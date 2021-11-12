@@ -8,11 +8,10 @@ class Student::AcountsController < Student::Base
     
     def create
         @student = StudentMember.new(student_params)
-        if @student.save!
-            redirect_to student_path(@student.id), notice: "登録しました"
-            #そのままログインする
+        if @student.save
+            redirect_to student_path(@student.id), notice: "ようこそ、#{@student.full_name}さん!"
         else
-            render "new", notice: "登録に失敗しました"
+            render "new"
         end
     end
 

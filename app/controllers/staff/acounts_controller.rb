@@ -9,8 +9,7 @@ class Staff::AcountsController < Staff::Base
         def create
             @staff = StaffMember.new(staff_params)
             if @staff.save
-                redirect_to staff_root_path, notice: "登録しました"
-                #そのままログインする
+                redirect_to staff_root_path, notice: "ようこそ、#{@staff.full_name}さん!"
             else
                 render "new"
             end

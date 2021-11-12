@@ -10,13 +10,13 @@
     <tr><th scope="col">科目</th></tr>
     <tr><td><%= @daily_sheet.subject.name %></td></tr>
     <tr><th scope="col">テキスト</th></tr>
-        <% @textbooks.each do |t| %>
-            <td><%= t.name %></td>
-        <% end %>
+    <tr><td><%= @daily_sheet.textbook.name %></td></tr>
     <tr><th scope="col">メッセージ</th></tr>
     <tr><td><%= @daily_sheet.message %></td></tr>
     <tr><th scope="col">連絡事項</th></tr>
     <tr><td><%= @daily_sheet.information %></td></tr>
+    <tr><th scope="col">出欠</th></tr>
+    <tr><td><%= @daily_sheet.participation_i18n %></td></tr>
 </table>
 <div class="btn-group">
     <%= button_to "編集", staff_daily_sheets_edit_path(@daily_sheet), method: "get", class: "btn btn-outline-primary" %>

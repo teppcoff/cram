@@ -16,7 +16,4 @@
     <tr><th scope="col">生年月日</th></tr>
     <tr><td><%= @student.birthday %></td></tr>
 </table>
-<div class="btn-group">
-    <%= button_to "デイリーシート作成", { controller: "staff/daily_sheets", action: "new" }, method: :get, class: "btn btn-outline-info" %>
-    <%= button_to "ゴールシート作成", { controller: "staff/goal_sheets", action: "new" }, method: :get, class: "btn btn-outline-info" %>
-</div>
+<%= link_to "戻る", staff_student_members_path, class: "btn btn-outline-secondary" %>

@@ -8,6 +8,7 @@ ParentMember.create!(
             gender: "male",
             birthday: "1980-11-05",
             password: "password",
+            password_confirmation: "password",
             email: "shinichi@example.com"
         }
     ]

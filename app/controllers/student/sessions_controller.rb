@@ -6,11 +6,12 @@ class Student::SessionsController < Student::Base
     end
 
     def create
-        @student = StudentMember.find_by(family_name_kana: session_params[:family_name_kana], given_name_kana: session_params[:given_name_kana])
+        @student = StudentMember.find_by(email: session_params[:email])
         if @student&.authenticate(session_params[:password])
             session[:student_id] = @student.id
-            redirect_to student_root_path, notice: "ログインしました"
+            redirect_to student_root_path, notice: "ログインしました。ようこそ #{@student.full_name} さん!"
         else
+            flash.now[:danger] = "メールアドレスまたはパスワードが正しくありません"
             render "new" 
         end
     end
@@ -23,7 +24,7 @@ class Student::SessionsController < Student::Base
     private
 
         def session_params
-            params.require(:session).permit(:family_name_kana, :given_name_kana, :password)
+            params.require(:session).permit(:email, :password)
         end
 
 end

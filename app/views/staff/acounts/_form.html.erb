@@ -16,17 +16,17 @@
 </div> 
 <div class="group">
     <%= f.label :gender, "性別:" %>
-    <%= f.select :gender, StaffMember.genders_i18n.keys.map{|k| [I18n.t("enum.staff_member.gender.#{k}"), k]} %>
+    <%= f.select :gender, StaffMember.genders_i18n.keys.map{|k| [I18n.t("enums.staff_member.gender.#{k}"), k]} %>
 </div> 
-<div class="group">
+<div class="form-group">
     <%= f.label :birthday, "生年月日:" %>
     <%= f.date_select :birthday, start_year: Time.now.year, end_year: 1900, class: "form-control" %>
 </div> 
-<div class="group">
+<div class="form-group">
     <%= f.label :email, "メールアドレス:" %>
     <%= f.text_field :email, class: "form-control" %>
 </div> 
-<div class="group">
+<div class="form-group">
     <%= f.label :employment_status, "雇用形態:" %>
-    <%= f.select :employment_status, StaffMember.employment_statuses_i18n.keys.map{|k| [I18n.t("enum.staff_member.employment_status.#{k}"), k]}, prompt: "選択する" %>
+    <%= f.select :employment_status, StaffMember.employment_statuses_i18n.keys.map{|k| [I18n.t("enums.staff_member.employment_status.#{k}"), k]}, prompt: "選択する" %>
 </div>
