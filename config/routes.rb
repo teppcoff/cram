@@ -88,6 +88,7 @@ Rails.application.routes.draw do
     get "/events/edit/:id", to: "events#edit", as: "events_edit"
     patch "/events/edit/:id", to: "events#update"
     get "/events/set_period"
+    get "/events/set_subject"
 
     get "/textbooks", to: "textbooks#index"
     get "/textbooks/new", to: "textbooks#new"

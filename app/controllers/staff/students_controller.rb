@@ -2,10 +2,10 @@ class Staff::StudentsController < Staff::Base
 
     def index
         @search_params = student_member_search_params
-        @students = if @search_params.nil? 
+        @students = if @search_params.nil?
             current_staff.student_members.page(params[:page]).per(10)
         else
-            StudentMember.search(@search_params).page(params[:page]).per(10)
+            @students = StudentMember.search(@search_params).page(params[:page]).per(10)
         end
     end
 

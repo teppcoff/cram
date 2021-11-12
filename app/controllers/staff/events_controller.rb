@@ -12,6 +12,15 @@ class Staff::EventsController < Staff::Base
     period = Period.find(params[:period_id])
     @start_time = period.start_of_period.strftime("%H:%M")
     @end_time = period.end_of_period.strftime("%H:%M")
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def set_subject
+    subject = Subject.find(params[:subject_id])
+    @subject_of_title = subject.name
+    period = Period.find(params[:period_id])
     @period_of_title = "#{period.number_of_period}" + "限"
     respond_to do |format|
       format.js
