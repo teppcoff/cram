@@ -6,8 +6,6 @@
         <th scope="col">氏名</th>
         <th scope="col">学年</th>
         <th scope="col">性別</th>
-        <th scope="col">ゴールシート</th>
-        <th scope="col">デイリーシート</th>
         </tr>
     </thead>
     <% @students.each do |s| %>
@@ -17,8 +15,6 @@
         <td><%= link_to "#{s.full_name}", staff_student_member_path(s.id), class: "text-info" %></td>
         <td><%= s.full_school_year %></td>
         <td><%= s.gender_i18n %></td>
-        <td><%= link_to "ゴールシート", staff_goal_sheets_path, class: "text-info" %></td>  <!- このstudentのシートだけを表示したい ->
-        <td><%= link_to "デイリーシート", staff_daily_sheets_path, class: "text-info" %></td>
         </tr>
     </tbody>
     <% end %>

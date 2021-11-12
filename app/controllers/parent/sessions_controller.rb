@@ -9,8 +9,9 @@ class Parent::SessionsController < Parent::Base
         @parent = ParentMember.find_by(email: session_params[:email])
         if @parent&.authenticate(session_params[:password])
             session[:parent_id] = @parent.id
-            redirect_to parent_root_path, notice: "ログインしました"
+            redirect_to parent_root_path, notice: "ログインしました。ようこそ #{@parent.full_name} さん!"
         else
+            flash.now[:danger] = "メールアドレスまたはパスワードが正しくありません"
             render "new" 
         end
     end

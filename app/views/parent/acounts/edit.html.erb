@@ -1,4 +1,5 @@
 <%= form_with model: @parent, url: parent_edit_path, local: true do |f| %>
+    <%= render "layouts/error_messages", model: f.object %>
     <%= render partial: "form", locals: { f: f } %>
     <%= f.submit "更新", class: "btn btn-outline-success" %>
 <% end %>

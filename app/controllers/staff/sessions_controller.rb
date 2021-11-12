@@ -9,8 +9,9 @@ class Staff::SessionsController < Staff::Base
         @staff = StaffMember.find_by(email: session_params[:email])
         if @staff&.authenticate(session_params[:password])
             session[:staff_id] = @staff.id
-            redirect_to staff_daily_sheets_new_path, notice: "ログインしました" #show
+            redirect_to staff_daily_sheets_new_path, notice: "ログインしました。ようこそ #{@staff.full_name} さん!"
         else
+            flash.now[:danger] = "メールアドレスまたはパスワードが正しくありません"
             render "new" 
         end
     end

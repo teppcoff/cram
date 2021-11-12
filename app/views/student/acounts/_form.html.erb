@@ -16,7 +16,7 @@
 </div> 
 <div class="form-group">
     <%= f.label :gender, "性別:" %>
-    <%= f.select :gender, StudentMember.genders_i18n.keys.map{|k| [I18n.t("enum.student_member.gender.#{k}"), k]} %>
+    <%= f.select :gender, StudentMember.genders_i18n.keys.map{|k| [I18n.t("enums.student_member.gender.#{k}"), k]} %>
 </div> 
 <div class="form-group">
     <%= f.label :birthday, "生年月日:" %>
@@ -24,11 +24,11 @@
 </div> 
 <div class="form-group">
     <%= f.label :school_type, "学校:" %>
-    <%= f.select :school_type, StudentMember.school_types_i18n.keys.map{|k| [I18n.t("enum.student_member.school_type.#{k}"), k]} %>
+    <%= f.select :school_type, StudentMember.school_types_i18n.keys.map{|k| [I18n.t("enums.student_member.school_type.#{k}"), k]} %>
 </div> 
 <div class="form-group">
     <%= f.label :school_year, "学年:" %>
-    <%= f.select :school_year, StudentMember.school_years_i18n.keys.map{|k| [I18n.t("enum.student_member.school_year.#{k}"), k]} %>
+    <%= f.select :school_year, StudentMember.school_years_i18n.keys.map{|k| [I18n.t("enums.student_member.school_year.#{k}"), k]} %>
 </div>
 <div class="form-group">
     <%= f.label :subjects, "科目:" %>
@@ -39,4 +39,12 @@
 <div class="form-group">
     <%= f.label :staff_member_id, "担当講師:" %>
     <%= f.collection_select :staff_member_id, StaffMember.all, :id, :full_name, :include_blank => true %>
+</div>
+<div class="form-group">
+    <%= f.label :parent_member_id, "保護者:" %>
+    <%= f.collection_select :parent_member_id, ParentMember.all, :id, :full_name, :include_blank => true %>
+</div>
+<div class="group">
+    <%= f.label :email, "メールアドレス:" %>
+    <%= f.text_field :email, class: "form-control" %>
 </div>

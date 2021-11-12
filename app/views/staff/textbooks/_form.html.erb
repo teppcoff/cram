@@ -4,7 +4,7 @@
 </div>
 <div class="form-group">
     <%= f.label :text_type, "テキストタイプ:" %>
-    <%= f.select :text_type, Textbook.text_types_i18n.keys.map{|k| [I18n.t("enum.textbook.text_type.#{k}"), k]}, prompt: "選択する" %>
+    <%= f.select :text_type, Textbook.text_types_i18n.keys.map{|k| [I18n.t("enums.textbook.text_type.#{k}"), k]}, prompt: "選択する" %>
 </div>
 <div class="form-group">
     <%= f.label :subject, "科目:" %>
