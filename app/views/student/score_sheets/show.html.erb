@@ -1,0 +1,22 @@
+<h4><%= "#{@score_sheet.examination.name}" + "テスト" %></h4>
+<table class="table mt-3">
+    <thead>
+    <tr>
+        <th scope="col">科目</th>
+        <th scope="col">点数</th>
+    </tr>
+    </thead>
+    <tbody>
+        <% @scores.each do |score| %>
+        <tr>
+            <td><%= score.subject.name %></td>
+            <td><%= score.point %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<div class="btn-group">
+    <%= button_to "編集する", edit_student_score_sheet_path, method: "get", class: "btn btn-outline-secondary mx-2" %>
+    <%= button_to "削除", { controller: "score_sheets", action: "destroy" }, method: "delete",
+    data: { confirm: " シート「#{@score_sheet.examination.name}」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger" %>
+</div>

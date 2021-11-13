@@ -50,6 +50,8 @@ ja:
         student_member: 生徒
         subject: 科目
         period: 時限
+      score_sheet:
+        examination: テスト名
 
     errors:
       messages:

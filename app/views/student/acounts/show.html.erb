@@ -27,6 +27,6 @@
     <tr><td><%= @student.parent_member.full_name %></td></tr>
 </table>
 <div class="btn-group">
-    <%= button_to "編集", student_edit_path(@student.id), method: "get", class: "btn btn-outline-primary" %>
+    <%= button_to "編集", student_edit_path(@student.id), method: "get", class: "btn btn-outline-primary mx-2" %>
     <%= button_to "削除", { controller: "acounts", action: "destroy" }, method: "delete", class: "btn btn-outline-danger" %>
 </div>

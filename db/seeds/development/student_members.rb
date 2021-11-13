@@ -14,7 +14,8 @@ StudentMember.create!(
             email: "ichiro@example.com",
             subject_ids: [ 11, 12 ],
             staff_member_id: 1,
-            parent_member_id: 1
+            parent_member_id: 1,
+            school_id: 1
         },
         {
             family_name: "田中",
@@ -30,7 +31,8 @@ StudentMember.create!(
             email: "jiiro@example.com",
             subject_ids: [ 7, 8 ],
             staff_member_id: 1,
-            parent_member_id: 1
+            parent_member_id: 1,
+            school_id: 2
         }
     ]
 )

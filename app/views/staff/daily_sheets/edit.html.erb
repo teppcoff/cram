@@ -1,4 +1,4 @@
-<%= form_with model: @daily_sheet, url: staff_daily_sheets_edit_path, local: true do |f| %>
+<%= form_with model: @daily_sheet, url: staff_daily_sheet_path, local: true do |f| %>
     <%= render partial: "form", locals: { f: f } %>
     <div class="form-submit">
         <%= f.submit "更新", class: "btn btn-outline-success" %>

@@ -1,6 +1,6 @@
 table_names = %w(
-  subjects parent_members staff_members student_members semesters periods goal_sheets 
-  textbooks daily_sheets notifications events
+  schools subjects parent_members staff_members student_members semesters periods goal_sheets 
+  textbooks daily_sheets notifications events examinations score_sheets scores
 )
 
 table_names.each do |table_name|

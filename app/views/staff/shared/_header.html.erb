@@ -13,7 +13,7 @@
                     ゴールシート
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><%= link_to "ゴールシート作成", staff_goal_sheets_new_path, data: { turbolinks: :false }, class: "dropdown-item" %></li>
+                    <li><%= link_to "ゴールシート作成", new_staff_goal_sheet_path, data: { turbolinks: :false }, class: "dropdown-item" %></li>
                     <li><%= link_to "ゴールシート一覧", staff_goal_sheets_path, data: { turbolinks: :false }, class: "dropdown-item" %></li>
                     </ul>
                 </li>
@@ -30,7 +30,7 @@
                     デイリーシート
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><%= link_to "デイリーシート作成", staff_daily_sheets_new_path, data: { turbolinks: :false }, class: "dropdown-item" %></li>
+                    <li><%= link_to "デイリーシート作成", new_staff_daily_sheet_path, data: { turbolinks: :false }, class: "dropdown-item" %></li>
                     <li><%= link_to "デイリーシート一覧", staff_daily_sheets_path, data: { turbolinks: :false }, class: "dropdown-item" %></li>
                     </ul>
                 </li>

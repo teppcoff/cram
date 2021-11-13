@@ -1,0 +1,7 @@
+<div class="nested-fields">
+    <%= f.label :subject_id, "科目:" %>
+    <%= f.collection_select :subject_id, Subject.all, :id, :name, class: "form-form-inline", prompt: "選択する" %>
+    <%= f.label :point, "点数:" %>
+    <%= f.number_field :point, min:0, max: 100, class: "form-form-inline" %>
+    <%= link_to_remove_association "削除", f, class: "btn btn-secondary btn-sm" %>
+</div>

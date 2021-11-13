@@ -15,7 +15,7 @@
     <tr><td><%= @goal_sheet.description %></td></tr>
 </table>
 <div class="btn-group">
-    <%= button_to "編集", staff_goal_sheets_edit_path(@goal_sheet), method: "get", class: "btn btn-outline-primary" %>
+    <%= button_to "編集", edit_staff_goal_sheet_path(@goal_sheet), method: "get", class: "btn btn-outline-primary" %>
     <%= button_to "削除", { controller: "goal_sheets", action: "destroy" }, method: "delete",
         data: { confirm: " シート「#{@goal_sheet.name}」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger" %>
     <%= button_to "一覧", staff_goal_sheets_path, method: "get", class: "btn btn-outline-secondary" %>

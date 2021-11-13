@@ -1,4 +1,4 @@
-class Staff::StudentsController < Staff::Base
+class Staff::StudentMembersController < Staff::Base
 
     def index
         @search_params = student_member_search_params
