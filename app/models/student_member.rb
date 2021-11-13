@@ -17,11 +17,13 @@ class StudentMember < ApplicationRecord
 
     belongs_to :staff_member
     belongs_to :parent_member
+    belongs_to :school
     has_many :takes, dependent: :destroy
     has_many :subjects, :through => :takes
     has_many :goal_sheets, dependent: :destroy
     has_many :daily_sheets, dependent: :destroy
     has_many :events, dependent: :destroy
+    has_many :score_sheets, dependent: :destroy
 
     enum gender: { male: 1, female: 2, others: 3 }
     enum school_type: { elementary_school: 1, junior_high_school: 2, high_school: 3 }

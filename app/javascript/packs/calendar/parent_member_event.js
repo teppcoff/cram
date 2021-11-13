@@ -23,7 +23,7 @@ document.addEventListener('turbolinks:load', function() {
     eventClick: function(info) {
         alert('授業: ' + info.event.title);
         if (confirm('詳細を確認する?')) {
-            window.location.href = '../parent/events/show/' +info.event.id+ '/';
+            window.location.href = '../parent/events/' +info.event.id+ '/';
         }
     }
   });

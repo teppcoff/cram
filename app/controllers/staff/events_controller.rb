@@ -17,16 +17,6 @@ class Staff::EventsController < Staff::Base
     end
   end
 
-  def set_subject
-    subject = Subject.find(params[:subject_id])
-    @subject_of_title = subject.name
-    period = Period.find(params[:period_id])
-    @period_of_title = "#{period.number_of_period}" + "限"
-    respond_to do |format|
-      format.js
-    end
-  end
-
   def create
     @event = Event.new(event_params)
     if @event.save

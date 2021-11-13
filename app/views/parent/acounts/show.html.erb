@@ -15,6 +15,6 @@
     <tr><td><%= @parent.email %></td></tr>
 </table>
 <div class="btn-group">
-    <%= button_to "編集", parent_edit_path(@parent.id), method: "get", class: "btn btn-outline-primary" %>
+    <%= button_to "編集", parent_edit_path(@parent.id), method: "get", class: "btn btn-outline-primary mx-2" %>
     <%= button_to "削除", { controller: "acounts", action: "destroy" }, method: "delete", class: "btn btn-outline-danger" %>
 </div>

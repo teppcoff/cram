@@ -13,8 +13,8 @@
     <tr><td><%= @event.ends_at.strftime("%H:%M") %></td></tr>
 </table>
 <div class="btn-group">
-    <%= button_to "出欠記録・編集", staff_events_edit_path(@event.id), method: :get, class: "btn btn-outline-primary" %>
+    <%= button_to "出欠記録・編集", edit_staff_event_path(@event.id), method: :get, class: "btn btn-outline-primary" %>
     <%= button_to "削除", {controller: "staff/events", action: "destroy"}, method: :delete,
-    data: { confirm: " イベント「#{@event.title}」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger" %>
+    data: { confirm: " イベント「#{@event.title}」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger mx-2" %>
     <%= button_to "戻る", {controller: "staff/events", action: "index"}, method: :get, class: "btn btn-outline-secondary" %>
 </div>

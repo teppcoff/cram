@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_11_061935) do
+ActiveRecord::Schema.define(version: 2021_11_13_073738) do
 
   create_table "daily_sheets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "student_member_id"
@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(version: 2021_11_11_061935) do
     t.index ["staff_member_id"], name: "index_events_on_staff_member_id"
     t.index ["student_member_id"], name: "index_events_on_student_member_id"
     t.index ["subject_id"], name: "index_events_on_subject_id"
+  end
+
+  create_table "examinations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "school_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["school_id"], name: "index_examinations_on_school_id"
   end
 
   create_table "goal_sheets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -94,6 +102,32 @@ ActiveRecord::Schema.define(version: 2021_11_11_061935) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "schools", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "school_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "score_sheets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "student_member_id"
+    t.bigint "examination_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["examination_id"], name: "index_score_sheets_on_examination_id"
+    t.index ["student_member_id"], name: "index_score_sheets_on_student_member_id"
+  end
+
+  create_table "scores", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "point", null: false
+    t.bigint "score_sheet_id"
+    t.bigint "subject_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["score_sheet_id"], name: "index_scores_on_score_sheet_id"
+    t.index ["subject_id"], name: "index_scores_on_subject_id"
+  end
+
   create_table "semesters", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -130,9 +164,11 @@ ActiveRecord::Schema.define(version: 2021_11_11_061935) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "staff_member_id"
     t.bigint "parent_member_id"
+    t.bigint "school_id"
     t.index ["family_name_kana"], name: "index_student_members_on_family_name_kana"
     t.index ["given_name_kana"], name: "index_student_members_on_given_name_kana"
     t.index ["parent_member_id"], name: "index_student_members_on_parent_member_id"
+    t.index ["school_id"], name: "index_student_members_on_school_id"
     t.index ["staff_member_id"], name: "index_student_members_on_staff_member_id"
   end
 
@@ -168,9 +204,15 @@ ActiveRecord::Schema.define(version: 2021_11_11_061935) do
   add_foreign_key "events", "staff_members"
   add_foreign_key "events", "student_members"
   add_foreign_key "events", "subjects"
+  add_foreign_key "examinations", "schools"
   add_foreign_key "goal_sheets", "staff_members"
   add_foreign_key "goal_sheets", "student_members"
+  add_foreign_key "score_sheets", "examinations"
+  add_foreign_key "score_sheets", "student_members"
+  add_foreign_key "scores", "score_sheets"
+  add_foreign_key "scores", "subjects"
   add_foreign_key "student_members", "parent_members"
+  add_foreign_key "student_members", "schools"
   add_foreign_key "student_members", "staff_members"
   add_foreign_key "takes", "student_members"
   add_foreign_key "takes", "subjects"

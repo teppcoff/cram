@@ -31,7 +31,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem "bcrypt"
 gem "rails-i18n"
 gem "kaminari"
-gem "enum_help" #enumを日本語化
+gem "enum_help"
+gem "cocoon"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

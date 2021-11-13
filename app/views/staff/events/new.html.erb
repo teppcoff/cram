@@ -1,4 +1,4 @@
-<%= form_with model: @event, url: staff_events_new_path, local: true do |f| %>
+<%= form_with model: @event, url: staff_events_path, local: true do |f| %>
     <%= render "layouts/error_messages", model: f.object %>
     <%= render "form", f: f %>
     <div class="form-submit">

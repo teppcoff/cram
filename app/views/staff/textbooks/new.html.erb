@@ -1,4 +1,4 @@
-<%= form_with(model: @textbook, url: staff_textbooks_new_path, local: true) do |f| %>
+<%= form_with(model: @textbook, url: staff_textbooks_path, local: true) do |f| %>
     <%= render "layouts/error_messages", model: f.object %>
     <%= render partial: "form", locals: { f: f } %>
     <div class="form-submit">
