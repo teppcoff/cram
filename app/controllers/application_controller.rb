@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
             if params[:controller].match(%r{\A(parent|student|staff)/})
                 Regexp.last_match[1]
             else
-                "student"
+                "top"
             end
         end
 end

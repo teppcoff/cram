@@ -1,7 +1,0 @@
-<%= form_with(model: @goal_sheet, url: staff_goal_sheets_path, local: true) do |f| %>
-    <%= render "layouts/error_messages", model: f.object %>
-    <%= render partial: "form", locals: { f: f } %>
-    <div class="form-submit">
-        <%= f.submit "作成", class: "btn btn-outline-success" %>
-    </div>
-<% end %> 

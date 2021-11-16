@@ -3,9 +3,7 @@
     <%= link_to "CramApp", student_root_path, id: "logo", class: "navbar-brand" %>
     <ul class="navbar-nav ml-auto">
 
-        <%= link_to "ゴールシート一覧", student_goal_sheets_path, data: { turbolinks: :false }, class: "nav-link" %>
-
-        <%= link_to "デイリーシート一覧", student_daily_sheets_path, data: { turbolinks: :false }, class: "nav-link" %>
+        <%= link_to "デイリーシート", student_daily_sheets_path, data: { turbolinks: :false }, class: "nav-link" %>
 
         <%= link_to "予定表", student_events_path, 'data-no-turbolink' => true, class: "nav-link" %>
 

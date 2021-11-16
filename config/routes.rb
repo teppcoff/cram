@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+
+  root to: "tops#home"
   
   namespace :parent do
-    root "tops#home"
+    root "daily_sheets#index"
     get "/signup", to: "acounts#new"
     post "/signup", to: "acounts#create"
     get "/show/:id", to: "acounts#show"
@@ -15,14 +17,13 @@ Rails.application.routes.draw do
 
     get "/notifications", to: "notifications#index"
 
-    resources :goal_sheets, only: [:index, :show]
     resources :daily_sheets, only: [:index, :show]
     resources :events, only: [:index, :show]
     resources :score_sheets, only: [:index, :show]
   end
 
   namespace :student do
-    root "tops#home"
+    root "events#index"
     get "/signup", to: "acounts#new"
     post "/signup", to: "acounts#create"
     get "/show/:id", to: "acounts#show"
@@ -34,14 +35,13 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
 
-    resources :goal_sheets, only: [:index, :show]
     resources :daily_sheets, only: [:index, :show]
     resources :events, only: [:index, :show]
     resources :score_sheets
   end
 
   namespace :staff do
-    root "goal_sheets#new"
+    root "events#index"
     get "/signup", to: "acounts#new"
     post "/signup", to: "acounts#create"
     get "/show/:id", to: "acounts#show"
@@ -56,7 +56,6 @@ Rails.application.routes.draw do
     get "/events/set_period", to: "events#set_period"
     resources :events
 
-    resources :goal_sheets
     resources :daily_sheets
     resources :student_members, only: [:index, :show]
     resources :textbooks

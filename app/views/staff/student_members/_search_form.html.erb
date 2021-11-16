@@ -17,13 +17,9 @@
             <%= f.text_field :given_name_kana, value: @search_params[:given_name_kana], id: "js-given_name_kana" %>
         </div>
         <div class="form-group">
-            <%= f.label :school_type, "学校:" %>
+            <%= f.label :school_type, "学年:" %>
             <%= f.select :school_type, StudentMember.school_types_i18n.keys.map{|k| [I18n.t("enums.student_member.school_type.#{k}"), k]}, prompt: "選択する", id: "js-school_type" %>
         </div> 
-        <div class="form-group">
-            <%= f.label :school_year, "学年:" %>
-            <%= f.select :school_year, StudentMember.school_years_i18n.keys.map{|k| [I18n.t("enums.student_member.school_year.#{k}"), k]}, prompt: "選択する", id: "js-school_year" %>
-        </div>
         <div class="form-submit">
             <%= f.submit "検索", class: "btn btn-outline-primary", id: "js-search_student" %>
         </div>

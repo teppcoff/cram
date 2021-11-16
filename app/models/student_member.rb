@@ -20,7 +20,6 @@ class StudentMember < ApplicationRecord
     belongs_to :school
     has_many :takes, dependent: :destroy
     has_many :subjects, :through => :takes
-    has_many :goal_sheets, dependent: :destroy
     has_many :daily_sheets, dependent: :destroy
     has_many :events, dependent: :destroy
     has_many :score_sheets, dependent: :destroy
