@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :goal_sheets, only: [:index, :show]
     resources :daily_sheets, only: [:index, :show]
     resources :events, only: [:index, :show]
+    resources :score_sheets, only: [:index, :show]
   end
 
   namespace :student do
@@ -59,6 +60,7 @@ Rails.application.routes.draw do
     resources :daily_sheets
     resources :student_members, only: [:index, :show]
     resources :textbooks
+    resources :score_sheets, only: [:index, :show]
   end
   
 end

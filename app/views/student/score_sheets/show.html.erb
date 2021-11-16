@@ -16,7 +16,8 @@
     </tbody>
 </table>
 <div class="btn-group">
-    <%= button_to "編集する", edit_student_score_sheet_path, method: "get", class: "btn btn-outline-secondary mx-2" %>
+    <%= button_to "一覧", student_score_sheets_path, method: "get", class: "btn btn-outline-secondary" %>
+    <%= button_to "編集する", edit_student_score_sheet_path, method: "get", class: "btn btn-outline-primary mx-2" %>
     <%= button_to "削除", { controller: "score_sheets", action: "destroy" }, method: "delete",
     data: { confirm: " シート「#{@score_sheet.examination.name}」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger" %>
 </div>

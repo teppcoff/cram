@@ -1,13 +1,11 @@
 class Parent::GoalSheetsController < Parent::Base
 
     def index
-        @students = current_parent.student_members
-        @goal_sheets = Array.new
-        @students.each do |student|
-            @goal_sheets.push(student.goal_sheets)
-        end
-        @goal_sheets.flatten!
-        @goal_sheets = Kaminari.paginate_array(@goal_sheets).page(params[:page]).per(10)
+        students = current_parent.student_members
+        goal_sheets = Array.new
+        students.each { |student| goal_sheets.push(student.goal_sheets) }
+        goal_sheets.flatten! 
+        @goal_sheets = Kaminari.paginate_array(goal_sheets).page(params[:page]).per(10)
     end
 
     def show

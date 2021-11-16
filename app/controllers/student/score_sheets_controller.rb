@@ -45,7 +45,7 @@ class Student::ScoreSheetsController < Student::Base
     private
 
         def score_sheet_params
-            params.require(:score_sheet).permit(:student_member_id, :examination_id,
+            params.require(:score_sheet).permit(:student_member_id, :staff_member_id, :examination_id,
             score_attributes: [ :subject_id, :point, :_destroy ])
         end
 end

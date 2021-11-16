@@ -1,5 +1,5 @@
 table_names = %w(
-  schools subjects parent_members staff_members student_members semesters periods goal_sheets 
+  schools subjects staff_members parent_members student_members semesters periods goal_sheets 
   textbooks daily_sheets notifications events examinations score_sheets scores
 )
 
