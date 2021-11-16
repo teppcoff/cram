@@ -30,11 +30,6 @@ ja:
         password_confirmation: パスワード（確認）
         staff_member: 担当講師
         parent_member: 保護者
-      goal_sheet:
-        name: 名称
-        number_of_lessons: 授業回数
-        description: 追記事項
-        student_member: 生徒
       daily_sheet:
         message: メッセージ
         information: 連絡事項
@@ -53,6 +48,9 @@ ja:
         period: 時限
       score_sheet:
         examination: テスト名
+      post:
+        title: タイトル
+        content: 本文
 
     errors:
       messages:
