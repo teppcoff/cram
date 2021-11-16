@@ -1,0 +1,16 @@
+<div class="form-group">
+    <%= f.label :title, "タイトル" %>
+    <%= f.text_field :title, class: "form-control" %>
+</div>
+<div class="form-group">
+    <%= f.label :content, "本文" %>
+    <%= f.text_area :content, class: "form-control" %>
+</div>
+<div class="form-group">
+    <%= f.label :important, "重要事項ならチェック:" %>
+    <%= f.check_box :important %>
+</div>
+<div class="form-group">
+    <%= f.label :staff_member_id, "投稿者:" %>
+    <%= f.collection_select :staff_member_id, StaffMember.all, :id, :full_name, selected: current_staff %>
+</div>

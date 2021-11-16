@@ -1,0 +1,7 @@
+<%= form_with model: @post, url: staff_post_path, local: true do |f| %>
+    <%= render "layouts/error_messages", model: f.object %>
+    <%= render partial: "form", locals: { f: f } %>
+    <div class="form-submit">
+        <%= f.submit "更新", class: "btn btn-outline-success" %>
+    </div>
+<% end %>

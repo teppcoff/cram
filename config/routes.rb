@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "tops#home"
   
   namespace :parent do
-    root "daily_sheets#index"
+    root "posts#index"
     get "/signup", to: "acounts#new"
     post "/signup", to: "acounts#create"
     get "/show/:id", to: "acounts#show"
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :daily_sheets, only: [:index, :show]
     resources :events, only: [:index, :show]
     resources :score_sheets, only: [:index, :show]
+    resources :posts, only: [:index, :show]
   end
 
   namespace :student do
@@ -38,6 +39,7 @@ Rails.application.routes.draw do
     resources :daily_sheets, only: [:index, :show]
     resources :events, only: [:index, :show]
     resources :score_sheets
+    resources :posts, only: [:index, :show] 
   end
 
   namespace :staff do
@@ -60,6 +62,7 @@ Rails.application.routes.draw do
     resources :student_members, only: [:index, :show]
     resources :textbooks
     resources :score_sheets, only: [:index, :show]
+    resources :posts
   end
   
 end
