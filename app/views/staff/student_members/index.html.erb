@@ -5,16 +5,18 @@
         <th scope="col">生徒ID</th>
         <th scope="col">氏名</th>
         <th scope="col">学年</th>
+        <th scope="col">学校</th>
         <th scope="col">性別</th>
         </tr>
     </thead>
-    <% @students.each do |s| %>
+    <% @students.each do |student| %>
     <tbody>
         <tr>
-        <th scope="row"><%= s.id %></th>
-        <td><%= link_to "#{s.full_name}", staff_student_member_path(s.id), class: "text-info" %></td>
-        <td><%= s.full_school_year %></td>
-        <td><%= s.gender_i18n %></td>
+        <th scope="row"><%= student.id %></th>
+        <td><%= link_to "#{student.full_name}", staff_student_member_path(student.id), class: "text-info" %></td>
+        <td><%= student.full_school_year %></td>
+        <td><%= student.school.name %></td>
+        <td><%= student.gender_i18n %></td>
         </tr>
     </tbody>
     <% end %>

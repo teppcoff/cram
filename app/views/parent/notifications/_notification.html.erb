@@ -1,12 +1,8 @@
-<% sheet_id = notification.daily_sheet_id.nil? ? notification.goal_sheet_id : notification.daily_sheet_id %>
+<% sheet_id = notification.daily_sheet_id %>
 <% case notification.action %>
     <% when "create_daily_sheet" then %>
     <div class="alert alert-primary" role="alert">
         新しい<%= link_to "デイリーシート", parent_daily_sheet_path(sheet_id), class: "alert-link" %>があります
-    </div>
-    <% when "create_goal_sheet" then %>
-    <div class="alert alert-primary" role="alert">
-        新しい<%= link_to "ゴールシート", parent_goal_sheet_path(sheet_id), class: "alert-link" %>があります
     </div>
 <% end %>
 <%= paginate @notifications %>
