@@ -111,10 +111,12 @@ ActiveRecord::Schema.define(version: 2021_11_13_073738) do
 
   create_table "score_sheets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "student_member_id"
+    t.bigint "staff_member_id"
     t.bigint "examination_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["examination_id"], name: "index_score_sheets_on_examination_id"
+    t.index ["staff_member_id"], name: "index_score_sheets_on_staff_member_id"
     t.index ["student_member_id"], name: "index_score_sheets_on_student_member_id"
   end
 
@@ -208,6 +210,7 @@ ActiveRecord::Schema.define(version: 2021_11_13_073738) do
   add_foreign_key "goal_sheets", "staff_members"
   add_foreign_key "goal_sheets", "student_members"
   add_foreign_key "score_sheets", "examinations"
+  add_foreign_key "score_sheets", "staff_members"
   add_foreign_key "score_sheets", "student_members"
   add_foreign_key "scores", "score_sheets"
   add_foreign_key "scores", "subjects"

@@ -10,7 +10,7 @@ Event.create!(
             period_id: 1,
             staff_member_id: 1,
             student_member_id: 1,
-            subject_id: 6,
+            subject_id: 6
         },
         {
             title: "2限数学",

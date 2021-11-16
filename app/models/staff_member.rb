@@ -20,6 +20,7 @@ class StaffMember < ApplicationRecord
     has_many :daily_sheets, dependent: :destroy
     has_many :events
     has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
+    has_many :score_sheets
 
     enum employment_status: { permanent: 1, part_time: 2 }
     enum gender: { male: 1, female: 2, others: 3 }

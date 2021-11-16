@@ -42,6 +42,7 @@ ja:
         student_member: 生徒
         subject: 科目
         participation: 出欠
+        textbook: テキスト
       event:
         title: 概要（表示名）
         starts_at: 開始時刻

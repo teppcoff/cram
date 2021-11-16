@@ -11,15 +11,15 @@
         </tr>
     </thead>
     <tbody>
-        <%= @daily_sheets.each do |d| %>
+        <%= @daily_sheets.each do |sheet| %>
                 <tr>
-                    <td><%= d.student_member.full_name %></td>
-                    <td><%= d.staff_member.full_name %></td>
-                    <td><%= d.study_date %></td>
-                    <td><%= d.period %></td>
-                    <td><%= d.message %></td>
-                    <td><%= d.information %></td>
-                    <td><%= link_to "表示", student_daily_sheet_path(d.id), class: "btn btn-outline-info" %></td>
+                    <td><%= sheet.student_member.full_name %></td>
+                    <td><%= sheet.staff_member.full_name %></td>
+                    <td><%= sheet.study_date %></td>
+                    <td><%= sheet.period %></td>
+                    <td><%= sheet.message %></td>
+                    <td><%= sheet.information %></td>
+                    <td><%= link_to "表示", student_daily_sheet_path(sheet.id), class: "btn btn-outline-info" %></td>
                 </tr>
         <% end %>
     </tbody>

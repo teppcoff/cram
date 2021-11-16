@@ -25,4 +25,8 @@
 <div class="form-group">
     <%= f.label :email, "メールアドレス:" %>
     <%= f.text_field :email, class: "form-control" %>
-</div> 
+</div>
+<div class="form-group">
+    <%= f.label :staff_member_id, "担当講師:" %>
+    <%= f.collection_select :staff_member_id, StaffMember.all, :id, :full_name, :include_blank => true %>
+</div>
