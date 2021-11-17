@@ -12,9 +12,9 @@
     <tr><th scope="col">生年月日</th></tr>
     <tr><td><%= @student.birthday %></td></tr>
     <tr><th scope="col">学校</th></tr>
-    <tr><td><%= @student.school_type_i18n %></td></tr>
+    <tr><td><%= @student.school.name %></td></tr>
     <tr><th scope="col">学年</th></tr>
-    <tr><td><%= @student.school_year_i18n %></td></tr>
+    <tr><td><%= @student.full_school_year %></td></tr>
     <tr><th scope="col">科目</th></tr>
     <tr>
     <% @subjects.each do |subject| %>

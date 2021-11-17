@@ -1,5 +1,17 @@
 require 'rails_helper'
 
-RSpec.describe Post, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Post do
+  describe "#create" do
+
+    it "factorybotが成功すること" do
+      post = build(:post)
+      expect(post).to be_valid
+    end
+
+    it "contentが必要であること" do
+      post = build(:post, content: nil)
+      expect(post.valid?).to be_falsey
+    end
+
+  end
 end

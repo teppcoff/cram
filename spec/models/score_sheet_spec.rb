@@ -1,5 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe ScoreSheet, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe ScoreSheet do
+  describe "#create" do
+
+    it "factorybotが成功すること" do
+      score_sheet = build(:score_sheet)
+      expect(score_sheet).to be_valid
+    end
+
+  end
 end
