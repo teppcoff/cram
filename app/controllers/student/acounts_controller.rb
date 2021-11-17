@@ -43,7 +43,7 @@ class Student::AcountsController < Student::Base
 
         def student_params
             params.require(:student_member).permit(:family_name, :given_name, :family_name_kana, :given_name_kana, :gender, :birthday,
-            :school_type, :school_year, { subject_ids: [] }, :staff_member_id, :parent_member_id, :password, :password_confirmation)
+            :school_id, :school_type, :school_year, { subject_ids: [] }, :email, :staff_member_id, :parent_member_id, :password, :password_confirmation)
         end
 
 end

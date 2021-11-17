@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   namespace :student do
-    root "events#index"
+    root "posts#index"
     get "/signup", to: "acounts#new"
     post "/signup", to: "acounts#create"
     get "/show/:id", to: "acounts#show"

@@ -5,6 +5,8 @@
     <tr><td><%= @student.full_name %></td></tr>
     <tr><th scope="col">保護者</th></tr>
     <tr><td><%= @student.parent_member.full_name %></td></tr>
+    <tr><th scope="col">学校</th></tr>
+    <tr><td><%= @student.school.name %></td></tr>
     <tr><th scope="col">学年</th></tr>
     <tr><td><%= @student.full_school_year %></td></tr>
     <tr><th scope="col">履修科目</th></tr>

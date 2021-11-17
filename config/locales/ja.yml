@@ -30,6 +30,9 @@ ja:
         password_confirmation: パスワード（確認）
         staff_member: 担当講師
         parent_member: 保護者
+        school: 学校
+        school_type: 学年1
+        school_year: 学年2
       daily_sheet:
         message: メッセージ
         information: 連絡事項
