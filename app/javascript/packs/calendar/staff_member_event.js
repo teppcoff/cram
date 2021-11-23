@@ -11,7 +11,6 @@ document.addEventListener('turbolinks:load', function() {
     events: '/staff/events.json',
     locale: 'ja',
     timeZone: 'Asia/Tokyo',
-    themeSystem: 'bootstrap',
     firstDay: 1,
     contentHeight: 'auto',
     eventDisplay: 'block',
