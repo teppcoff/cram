@@ -35,13 +35,13 @@ gem "enum_help"
 gem "cocoon"
 
 group :production do
-  gem 'pg', '~> 1.2', '>= 1.2.3'
+  gem 'pg'
 end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'mysql2', '~> 0.5'
+  gem 'mysql2'
 end
 
 group :development do
