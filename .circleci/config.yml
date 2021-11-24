@@ -1,13 +1,33 @@
-version: 2.1
-orbs:
-  heroku-container: pbrisbin/heroku-container@1.0.0
+# Orb 'pbrisbin/heroku-container@1.0.0' resolved to 'pbrisbin/heroku-container@1.0.0'
+version: 2
+jobs:
+  heroku-container/push-and-release:
+    docker:
+    - image: cimg/base:stable
+    steps:
+    - checkout
+    - run:
+        command: |
+          if [[ $(command -v heroku) == "" ]]; then
+            curl https://cli-assets.heroku.com/install.sh | sh
+          else
+            echo "Heroku is already installed. No operation was performed."
+          fi
+        name: Install Heroku CLI (If not installed)
+    - setup_remote_docker:
+        version: 18.09.3
+    - run:
+        command: heroku container:login
+    - run:
+        command: docker push registry.heroku.com/cramapp/web
+    - run:
+        command: heroku container:release web -a cramapp
 workflows:
   build_and_release:
     jobs:
-      - heroku-container/push-and-release:
-          app-name: cramapp
-          # masterブランチへのpushでのみ反応
-          filters:
-                branches:
-                    only:
-                    - master
+    - heroku-container/push-and-release:
+        filters:
+          branches:
+            only:
+            - master
+  version: 2
