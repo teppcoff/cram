@@ -11,7 +11,7 @@
         </tr>
     </thead>
     <tbody>
-        <%= @daily_sheets.each do |sheet| %>
+        <% @daily_sheets.each do |sheet| %>
                 <tr>
                     <td><%= sheet.student_member.full_name %></td>
                     <td><%= sheet.staff_member.full_name %></td>

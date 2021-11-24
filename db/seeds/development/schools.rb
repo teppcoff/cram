@@ -9,7 +9,7 @@ School.create!(
             school_type: "junior_high_school"
         },
         {
-            name: "第三中学校",
+            name: "第三高校",
             school_type: "high_school"
         }
     ]

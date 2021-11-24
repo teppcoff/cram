@@ -9,7 +9,7 @@
             <th scope="col">詳細</th>
             </tr>
         </thead>
-        <%= @daily_sheets.each do |sheet| %>
+        <% @daily_sheets.each do |sheet| %>
         <tbody>
             <tr>
             <td><%= sheet.student_member.full_name %></td>

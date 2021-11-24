@@ -1,3 +1,4 @@
+=begin
 Notification.create!(
     {
         visitor_id: 1,
@@ -7,3 +8,4 @@ Notification.create!(
         checked: false
     }
 )
+=end

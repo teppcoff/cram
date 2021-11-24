@@ -10,6 +10,17 @@ ParentMember.create!(
             password: "password",
             password_confirmation: "password",
             email: "shinichi@example.com"
+        },
+        {
+            family_name: "鈴木",
+            given_name: "良子",
+            family_name_kana: "スズキ",
+            given_name_kana: "リョウコ",
+            gender: "female",
+            birthday: "1980-11-05",
+            password: "password",
+            password_confirmation: "password",
+            email: "ryoko@example.com"
         }
     ]
 )
