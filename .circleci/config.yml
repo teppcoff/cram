@@ -21,7 +21,7 @@ jobs:
     - run:
         command: docker buildx build . --platform linux/amd64 -t teppcoff/cramapp:latest
     - run:
-    　　 command: docker tag teppcoff/cramapp registry.heroku.com/cramapp/web
+        command: docker tag teppcoff/cramapp registry.heroku.com/cramapp/web
     - run:
         command: docker push registry.heroku.com/cramapp/web
     - run:
