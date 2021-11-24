@@ -5,8 +5,12 @@
     個別指導塾の学習記録や授業予定などを管理するアプリケーションです。
 
 ## URL
+    https://cramapp.herokuapp.com/
 
 ## テスト用アカウント
+    生徒: [email] ichiro@example.com [password] password
+    保護者: [email] shinichi@example.com [password] password
+    講師: [email] taro@example.com [password] password
 
 ## 利用方法
     講師：日々の学習記録を作成したり、授業予定を登録したりできます。
