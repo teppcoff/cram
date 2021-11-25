@@ -183,7 +183,7 @@ ActiveRecord::Schema.define(version: 2021_11_16_110122) do
   create_table "textbooks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.integer "text_type", null: false
-    t.bigint "subject_id", null: false
+    t.bigint "subject_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["subject_id"], name: "index_textbooks_on_subject_id"
@@ -209,4 +209,5 @@ ActiveRecord::Schema.define(version: 2021_11_16_110122) do
   add_foreign_key "student_members", "staff_members"
   add_foreign_key "takes", "student_members"
   add_foreign_key "takes", "subjects"
+  add_foreign_key "textbooks", "subjects"
 end
