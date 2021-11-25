@@ -3,7 +3,7 @@ Textbook.create!(
         {
             name: "小一国語教科書",
             text_type: "schoolbook",
-            subject_id: 0
+            subject_id: 1
         },
         {
             name: "小二算数問題集",
@@ -28,7 +28,7 @@ Textbook.create!(
         {
             name: "小六国語教科書",
             text_type: "schoolbook",
-            subject_id: 0
+            subject_id: 5
         },
         {
             name: "中一数学問題集",
