@@ -1,4 +1,5 @@
 class Staff::Base < ApplicationController
+  
     before_action :login_required
     layout "staff"
     helper_method :current_staff

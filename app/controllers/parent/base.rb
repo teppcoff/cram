@@ -1,4 +1,5 @@
 class Parent::Base < ApplicationController
+
     before_action :login_required
     layout "parent"
     helper_method :current_parent

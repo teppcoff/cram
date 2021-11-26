@@ -18,4 +18,4 @@
     <tr><th scope="col">生年月日</th></tr>
     <tr><td><%= @student.birthday %></td></tr>
 </table>
-<%= link_to "戻る", staff_student_members_path, class: "btn btn-outline-secondary" %>
+<%= button_to "戻る", staff_student_members_path, method: "get", class: "btn btn-outline-secondary" %>

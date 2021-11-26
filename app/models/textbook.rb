@@ -7,4 +7,5 @@ class Textbook < ApplicationRecord
     has_many :daily_sheets
     
     enum text_type: { schoolbook: 1, workbook: 2, previous_exam_question: 3 }
+
 end

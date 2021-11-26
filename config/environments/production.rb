@@ -2,9 +2,8 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
 
-  #エラー文を表示させる
   config.consider_all_requests_local = true 
-  
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.

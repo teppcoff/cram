@@ -5,6 +5,7 @@ class ScoreSheet < ApplicationRecord
     belongs_to :staff_member
     has_many :scores, dependent: :destroy
 
+    #score_sheetを作成する際にscoreも作成する
     accepts_nested_attributes_for :scores, allow_destroy: true
 
     scope :search, -> (search_params) do

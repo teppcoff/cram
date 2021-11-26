@@ -1,4 +1,5 @@
 class Student::Base < ApplicationController
+  
     before_action :login_required
     layout "student"
     helper_method :current_student

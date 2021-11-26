@@ -8,5 +8,4 @@ class Student::DailySheetsController < Student::Base
         @daily_sheet = DailySheet.find(params[:id])
     end
 
-
 end
