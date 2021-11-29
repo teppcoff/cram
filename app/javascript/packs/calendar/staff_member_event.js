@@ -31,6 +31,8 @@ document.addEventListener('turbolinks:load', function() {
             }
         }
     },
+
+    //イベントをクリックで詳細確認・編集
     eventClick: function(info) {
         alert('授業: ' + info.event.title);
         if (confirm('詳細を確認(削除もこちらから)')) {
