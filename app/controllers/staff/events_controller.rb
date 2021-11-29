@@ -9,6 +9,7 @@ class Staff::EventsController < Staff::Base
     end
 
     def set_period
+      # 時限を選択すると対応する開始・終了時刻が取得される
       period = Period.find(params[:period_id])
       @start_time = period.start_of_period.strftime("%H:%M")
       @end_time = period.end_of_period.strftime("%H:%M")

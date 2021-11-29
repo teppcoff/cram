@@ -1,3 +1,4 @@
+<%# "js-"から始まる:idはajaxで使うためのもの %>
 <div class="form-group">
     <%= f.label :student_member_id, "生徒:" %>
     <%= f.collection_select :student_member_id, StudentMember.all, :id, :full_name, prompt: "選択する" %>

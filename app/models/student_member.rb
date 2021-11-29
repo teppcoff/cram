@@ -34,6 +34,7 @@ class StudentMember < ApplicationRecord
 
     def full_school_year
         self.school_type_i18n + " " + self.school_year_i18n
+        # 例)「中学校」+「3年生」で「中学校3年生」取得できる
     end
 
     scope :search, -> (search_params) do

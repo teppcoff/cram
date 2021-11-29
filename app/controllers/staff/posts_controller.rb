@@ -4,10 +4,6 @@ class Staff::PostsController < Staff::Base
         @posts = Post.all.page(params[:page]).per(10)
     end
 
-    def show
-        @post = Post.find(params[:id])
-    end
-
     def new
         @post = Post.new
     end
@@ -19,6 +15,10 @@ class Staff::PostsController < Staff::Base
         else
             render "new"
         end
+    end
+
+    def show
+        @post = Post.find(params[:id])
     end
 
     def edit

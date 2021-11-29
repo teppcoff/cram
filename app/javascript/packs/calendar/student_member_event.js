@@ -20,6 +20,7 @@ document.addEventListener('turbolinks:load', function() {
         year: 'numeric'
     },
 
+    //イベントをクリックで詳細確認
     eventClick: function(info) {
         alert('授業: ' + info.event.title);
         if (confirm('詳細を確認する?')) {
