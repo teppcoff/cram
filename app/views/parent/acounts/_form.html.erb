@@ -16,7 +16,7 @@
 </div> 
 <div class="form-group">
     <%= f.label :gender, "性別:" %>
-    <%= f.select :gender, ParentMember.genders_i18n.keys.map{|k| [I18n.t("enums.parent_member.gender.#{k}"), k]} %>
+    <%= f.select :gender, ParentMember.genders_i18n.keys.map{|k| [I18n.t("enums.parent_member.gender.#{k}"), k]}, id: "gender" %>
 </div> 
 <div class="form-group">
     <%= f.label :birthday, "生年月日:" %>
@@ -28,5 +28,5 @@
 </div>
 <div class="form-group">
     <%= f.label :staff_member_id, "担当講師:" %>
-    <%= f.collection_select :staff_member_id, StaffMember.all, :id, :full_name, :include_blank => true %>
+    <%= f.collection_select :staff_member_id, StaffMember.all, :id, :full_name, :include_blank => true, id: "teacher" %>
 </div>
