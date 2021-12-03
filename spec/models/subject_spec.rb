@@ -1,17 +1,18 @@
 require 'rails_helper'
 
-describe Subject do
-  describe "#create" do
-
-    it "factorybotが成功すること" do
-      subject = build(:subject)
-      expect(subject).to be_valid
-    end
-
-    it "nameが必要であること" do
-      subject = build(:subject, name: nil)
-      expect(subject.valid?).to be_falsey
-    end
-
+RSpec.describe Subject, type: :model do
+  
+  before do
+    @subject = FactoryBot.build(:subject)
   end
+
+  it "factorybotが成功すること" do
+    expect(@subject).to be_valid
+  end
+
+  it "nameが必要であること" do
+    @subject.name = " "
+    expect(@subject).to be_invalid
+  end
+
 end

@@ -2,7 +2,7 @@ import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 
-document.addEventListener('turbolinks:load', function() {
+document.addEventListener('DOMContentLoaded', function() {
   let calendarEl = document.getElementById('calendar');
 
   let calendar = new Calendar(calendarEl, {
@@ -20,6 +20,7 @@ document.addEventListener('turbolinks:load', function() {
         year: 'numeric'
     },
 
+    //イベントをクリックで詳細確認
     eventClick: function(info) {
         alert('授業: ' + info.event.title);
         if (confirm('詳細を確認する?')) {

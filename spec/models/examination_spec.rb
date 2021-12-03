@@ -1,17 +1,18 @@
 require 'rails_helper'
 
-describe Examination do
-  describe "#create" do
+RSpec.describe Examination, type: :model do
 
-    it "factoryが成功すること" do
-      examination = build(:examination)
-      expect(examination).to be_valid
-    end
-
-    it "nameが必要であること" do
-      examination = build(:examination, name: nil)
-      expect(examination.valid?).to be_falsey
-    end
-    
+  before do
+    @examination= FactoryBot.build(:examination)
   end
+
+  it "factoryが成功すること" do
+    expect(@examination).to be_valid
+  end
+
+  it "nameが必要であること" do
+    @examination.name = " "
+    expect(@examination).to be_invalid
+  end
+
 end

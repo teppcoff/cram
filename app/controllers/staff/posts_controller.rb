@@ -11,7 +11,7 @@ class Staff::PostsController < Staff::Base
     def create
         @post = Post.new(post_params)
         if @post.save
-            redirect_to staff_posts_path
+            redirect_to staff_posts_path, notice: "お知らせを投稿しました"
         else
             render "new"
         end

@@ -26,7 +26,7 @@ class Staff::AcountsController < Staff::Base
     def update
         @staff = StaffMember.find(params[:id])
         if @staff.update(staff_params)
-            redirect_to staff_path, notice: "ユーザー情報を更新しました"
+            redirect_to staff_path(current_staff.id), notice: "ユーザー情報を更新しました"
         else
             render "edit"
         end

@@ -27,7 +27,7 @@ class Student::AcountsController < Student::Base
     def update
         @student = StudentMember.find(params[:id])
         if @student.update(student_params)
-            redirect_to student_root_path, notice: "ユーザー情報を更新しました"
+            redirect_to student_path(current_student.id), notice: "ユーザー情報を更新しました"
         else
             render "edit"
         end
