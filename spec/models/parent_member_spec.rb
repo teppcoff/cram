@@ -1,22 +1,23 @@
 require 'rails_helper'
 
-describe ParentMember do
-  describe "#create" do
+RSpec.describe ParentMember, type: :model do
 
-    it "factorybotが成功すること" do
-      parent_member = build(:parent_member)
-      expect(parent_member).to be_valid
-    end
-
-    it "emailが必要であること" do
-      parent_member = build(:parent_member, email: nil)
-      expect(parent_member.valid?).to be_falsey
-    end
-
-    it "family_name_kanaは全角のカタカナであること" do
-      parent_member = build(:parent_member, family_name_kana: "山田")
-      expect(parent_member.valid?).to be_falsey
-    end
-    
+  before do
+    @parent_member = FactoryBot.build(:parent_member)
   end
+
+  it "factorybotが成功すること" do
+    expect(@parent_member).to be_valid
+  end
+
+  it "emailが必要であること" do
+    @parent_member.email = " "
+    expect(@parent_member).to be_invalid
+  end
+
+  it "family_name_kanaは全角のカタカナであること" do
+    @parent_member.family_name_kana = "ﾔﾏﾀﾞ"
+    expect(@parent_member).to be_invalid
+  end
+
 end

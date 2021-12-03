@@ -1,17 +1,18 @@
 require 'rails_helper'
 
-describe Score do
-  describe "#create" do
+RSpec.describe Score, type: :model do
 
-    it "factorybotが成功すること" do
-      score = build(:score)
-      expect(score).to be_valid
-    end
-
-    it "emailが必要であること" do
-      score = build(:score, point: nil)
-      expect(score.valid?).to be_falsey
-    end
-    
+  before do
+    @score = FactoryBot.build(:score)
   end
+
+  it "factorybotが成功すること" do
+    expect(@score).to be_valid
+  end
+
+  it "pointが必要であること" do
+    @score.point = nil
+    expect(@score).to be_invalid
+  end
+
 end

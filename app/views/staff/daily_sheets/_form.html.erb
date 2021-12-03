@@ -14,12 +14,12 @@
     <%= f.label :period, "時限:" %>
     <%= f.number_field :period, min: 1, max: 5, class: "form-control" %>
 </div>
-<div class="field">
-    <%= f.label :subject, "科目:" %>
+<div class="form-group">
+    <%= f.label :subject_id, "科目:" %>
     <%= f.collection_select :subject_id, Subject.all, :id, :name, prompt: "選択する" %>
 </div>
-<div class="field">
-    <%= f.label :textbooks, "テキスト:" %>
+<div class="form-group">
+    <%= f.label :textbook_id, "テキスト:" %>
     <%= f.collection_select :textbook_id, Textbook.all, :id, :name, prompt: "選択する" %>
 </div>
 <div class="form-group">

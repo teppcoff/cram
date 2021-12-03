@@ -1,17 +1,23 @@
 require 'rails_helper'
 
-describe StudentMember do
-  describe "#create" do
+RSpec.describe StudentMember, type: :model do
 
-    it "factorybotが成功すること" do
-      student_member = build(:student_member)
-      expect(student_member).to be_valid
-    end
-
-    it "given_name_kanaは全角カタカナであること" do
-      student_member = build(:student_member, given_name_kana: "太郎")
-      expect(student_member.valid?).to be_falsey
-    end
-    
+  before do
+    @student_member = FactoryBot.build(:student_member)
   end
+
+  it "factorybotが成功すること" do
+    expect(@student_member).to be_valid
+  end
+
+  it "emailが必要であること" do
+    @student_member.email = " "
+    expect(@student_member).to be_invalid
+  end
+
+  it "given_name_kanaは全角カタカナであること" do
+    @student_member.given_name_kana = "ﾀﾛｳ"
+    expect(@student_member).to be_invalid
+  end
+    
 end
