@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     delete "/logout", to: "sessions#destroy"
 
     get "/notifications", to: "notifications#index"
+    
+    get "/classroom", to: "classrooms#show"
 
     resources :daily_sheets, only: [:index, :show]
     resources :events, only: [:index, :show]
@@ -36,8 +38,10 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
 
+    get "/classroom", to: "classrooms#show"
+
     resources :daily_sheets, only: [:index, :show]
-    resources :events, only: [:index, :show]
+    resources :events, only: [:index, :show, :edit, :update]
     resources :score_sheets
     resources :posts, only: [:index, :show] 
   end
@@ -57,6 +61,8 @@ Rails.application.routes.draw do
 
     get "/events/set_period", to: "events#set_period"
     resources :events
+
+    get "/classroom", to: "classrooms#show"
 
     resources :daily_sheets
     resources :student_members, only: [:index, :show]

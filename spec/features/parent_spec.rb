@@ -63,6 +63,11 @@ feature "parent", type: :feature do
             # 本当はカレンダーが表示されていることをテストしたかった
         end
 
+        scenario "教室情報を確認できること" do
+            click_on("教室情報")
+            expect(page).to have_content "住所:"
+        end
+
         scenario "ユーザー情報を確認できること" do
             click_on("ユーザー情報")
             click_on("編集")

@@ -5,6 +5,7 @@
 <div class="form-group">
     <%= f.label :examination_id, "テスト:" %>
     <%= f.collection_select :examination_id, current_student.school.examinations, :id, :name, class: "form-control", prompt: "選択する" %>
+    <%# current_studentが通っている学校のテストのみが選択肢として表示される %>
 </div>
 <div class="form-group">
     <%= f.hidden_field :staff_member_id, value: current_student.staff_member.id %>
@@ -29,4 +30,5 @@
     association_insertion_node: '#score_insertion_point',
     association_insertion_method: 'after'
     } %>
+    <%# ボタンを押すと科目とその点数を入力するフォームが追加される %>
 </div>

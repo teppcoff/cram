@@ -19,6 +19,15 @@ document.addEventListener('DOMContentLoaded', function() {
         month: 'long',
         year: 'numeric'
     },
+    
+    //予約型のeventは色を変える
+    eventDidMount: function(info) {
+      if (info.event.title.includes("講習")) {
+          info.el.style.background='limegreen';
+      } else {
+          info.el.style.background='deepskyblue';
+      }
+    },
 
     //イベントをクリックで詳細確認
     eventClick: function(info) {
