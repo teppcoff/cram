@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     
     //予約型のeventは色を変える
+    //予約型のeventはtitleに"講習"を含んでいる
     eventDidMount: function(info) {
       if (info.event.title.includes("講習")) {
           info.el.style.background='limegreen';

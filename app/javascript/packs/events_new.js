@@ -1,5 +1,5 @@
 jQuery(function ($) {
-    $("#show_caution").hide();
+    $("#js-show_caution").hide();
     $("#js-reservation_type_form").on("click", function() {
         if ($(this).prop("checked")) {
             $("[id=js-hide_form]").hide();
@@ -11,6 +11,7 @@ jQuery(function ($) {
     })
 })
 
+//periodを入力(選択)すると、自動的にstarts_atとends_atが入力される
 jQuery(function ($) {
     $("#js-period_form").on("change", function() {
         var selected_period = $("#js-period_form").val();

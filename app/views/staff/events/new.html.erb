@@ -1,5 +1,9 @@
 <%= form_with model: @event, url: staff_events_path, local: true do |f| %>
     <%= render "layouts/error_messages", model: f.object %>
+    <div class="form-group">
+        <%= f.label :reservation_type, "予約型(生徒を募集する)ならチェック:" %>
+        <%= f.check_box :reservation_type, id: "js-reservation_type_form" %>
+    </div>
     <%= render "form", f: f %>
     <div class="form-submit">
         <%= f.submit "登録", class: "btn btn-outline-success" %>
