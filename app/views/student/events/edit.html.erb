@@ -1,0 +1,26 @@
+<table class="table">
+    <tr><th scope="col">担当講師</th></tr>
+    <tr><td><%= @event.staff_member.full_name %></td></tr>
+    <tr><th scope="col">時限</th></tr>
+    <tr><td><%= @event.period.number_of_period %></td></tr>
+    <tr><th scope="col">科目</th></tr>
+    <tr><td><%= @event.subject.name %></td></tr>
+    <tr><th scope="col">授業概要</th></tr>
+    <tr><td><%= @event.title %></td></tr>
+    <tr><th scope="col">開始時刻</th></tr>
+    <tr><td><%= @event.starts_at.strftime("%H:%M") %></td></tr>
+    <tr><th scope="col">終了時刻</th></tr>
+    <tr><td><%= @event.ends_at.strftime("%H:%M") %></td></tr>
+</table>
+<%= form_with model: @event, url: student_event_path, local: true do |f| %>
+    <div class="form-group" id="js-hide_form">
+        <%= f.label :student_member_id, "予約はこちらから→" %>
+        <%= f.collection_select :student_member_id, StudentMember.all, :id, :full_name, prompt: "自分の名前を選択してください" %>
+    </div>
+    <div class="form-submit">
+        <%= f.submit "予約する", class: "btn btn-outline-success" %>
+    </div>
+<% end %>
+<div class="btn-group">
+    <%= button_to "戻る", {controller: "student/events", action: "index"}, method: :get, class: "btn btn-outline-secondary" %>
+</div>

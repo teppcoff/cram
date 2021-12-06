@@ -95,6 +95,11 @@ feature "student", type: :feature do
             }
         end
 
+        scenario "教室情報を確認できること" do
+            click_on("教室情報")
+            expect(page).to have_content "住所:"
+        end
+
         scenario "ユーザー情報を確認できること" do
             click_on("ユーザー情報")
             click_on("編集")

@@ -35,6 +35,16 @@ Event.create!(
             staff_member_id: 1,
             student_member_id: 3,
             subject_id: 3
+        },
+        {
+            title: "3限講習",
+            starts_at: "2021-12-02 18:20:00",
+            ends_at: "2021-12-02 19:20:00",
+            starts_on: "2021-12-02",
+            ends_on: "2021-12-02",
+            period_id: 3,
+            staff_member_id: 1,
+            subject_id: 3
         }
     ]
 )
