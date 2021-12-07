@@ -4,7 +4,7 @@
 </div>
 <div class="form-group">
     <%= f.label :staff_member_id, "担当講師:" %>
-    <%= f.collection_select :staff_member_id, StaffMember.all, :id, :full_name, selected: current_staff %>
+    <%= f.collection_select :staff_member_id, StaffMember.all, :id, :full_name, selected: current_staff.id %>
 </div>
 <div class="form-group">
     <%= f.label :study_date, "日付:" %>

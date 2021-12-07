@@ -76,6 +76,11 @@ feature "parent", type: :feature do
             expect(page).to have_content "ユーザー情報を更新しました"
         end
 
+        scenario "使い方を確認できること" do
+            click_on("使い方")
+            expect(page).to have_content "CramAppの使い方(保護者)"
+        end
+
         scenario "ログアウトできること" do
             click_on("ログアウト")
             expect {

@@ -1,6 +1,6 @@
 <div class="form-group">
     <%= f.label :student_member_id, "生徒:" %>
-    <%= f.collection_select :student_member_id, StudentMember.all, :id, :full_name, class: "form-control", selected: current_student %>
+    <%= f.collection_select :student_member_id, StudentMember.all, :id, :full_name, class: "form-control", selected: current_student.id %>
 </div>
 <div class="form-group">
     <%= f.label :examination_id, "テスト:" %>
@@ -30,5 +30,5 @@
     association_insertion_node: '#score_insertion_point',
     association_insertion_method: 'after'
     } %>
-    <%# ボタンを押すと科目とその点数を入力するフォームが追加される %>
+    <%# "フォームを追加"ボタンを押すと科目と点数を入力するフォームが追加される %>
 </div>

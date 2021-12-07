@@ -1,3 +1,6 @@
+<div class="title border-bottom mt-4 mb-4">
+    <p class="h5">テキスト新規登録</p>
+</div>
 <%= form_with(model: @textbook, url: staff_textbooks_path, local: true) do |f| %>
     <%= render "layouts/error_messages", model: f.object %>
     <%= render partial: "form", locals: { f: f } %>
