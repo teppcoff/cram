@@ -12,5 +12,5 @@
 </div>
 <div class="form-group">
     <%= f.label :staff_member_id, "投稿者:" %>
-    <%= f.collection_select :staff_member_id, StaffMember.all, :id, :full_name, selected: current_staff %>
+    <%= f.collection_select :staff_member_id, StaffMember.all, :id, :full_name, selected: current_staff.id %>
 </div>

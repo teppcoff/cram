@@ -1,7 +1,6 @@
 body {
     padding-top: 70px;
 }
-
 .notification {
     .notice {
         background-color: lightblue;
@@ -22,4 +21,8 @@ body {
 }
 .created_at {
     text-align: right;
+}
+.nav-item {
+    padding-left: 3px;
+    padding-right: 3px;
 }

@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     
     get "/classroom", to: "classrooms#show"
 
+    get "/how_to_use", to: "how_to_use#show"
+
     resources :daily_sheets, only: [:index, :show]
     resources :events, only: [:index, :show]
     resources :score_sheets, only: [:index, :show]
@@ -39,6 +41,8 @@ Rails.application.routes.draw do
     delete "/logout", to: "sessions#destroy"
 
     get "/classroom", to: "classrooms#show"
+
+    get "/how_to_use", to: "how_to_use#show"
 
     resources :daily_sheets, only: [:index, :show]
     resources :events, only: [:index, :show, :edit, :update]
@@ -63,6 +67,8 @@ Rails.application.routes.draw do
     resources :events
 
     get "/classroom", to: "classrooms#show"
+
+    get "/how_to_use", to: "how_to_use#show"
 
     resources :daily_sheets
     resources :student_members, only: [:index, :show]

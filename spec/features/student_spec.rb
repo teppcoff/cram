@@ -116,5 +116,10 @@ feature "student", type: :feature do
                 expect(page).to have_content "ログアウトしました"
             }
         end
+
+        scenario "使い方を確認できること" do
+            click_on("使い方")
+            expect(page).to have_content "CramAppの使い方(生徒)"
+        end
     end
 end

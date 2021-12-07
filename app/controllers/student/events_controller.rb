@@ -8,7 +8,8 @@ class Student::EventsController < Student::Base
       @event = Event.find(params[:id])
     end
 
-    # 生徒が後から予約するタイプのeventのため
+    # 生徒が後から予約するタイプ(予約型)のeventのためのメソッド
+    # eventのstudent_member_idのみ編集できるようになっている
     def edit
       @event = Event.find(params[:id])
     end

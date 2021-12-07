@@ -78,11 +78,11 @@ Examination.create!(
         },
         {
             name: "第二中学校2年後期期末",
-            school_id: 1
+            school_id: 2
         },
         {
             name: "第二中学校3年前期中間",
-            school_id: 1
+            school_id: 2
         },
         {
             name: "第二中学校3年前期期末",

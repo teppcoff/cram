@@ -1,3 +1,6 @@
+<div class="title border-bottom mt-4 mb-4">
+    <p class="h5">定期テスト結果編集</p>
+</div>
 <%= form_with model: @score_sheet, url: student_score_sheet_path, local: true do |f| %>
     <%= render "layouts/error_messages", model: f.object %>
     <%= render "form", f: f %>

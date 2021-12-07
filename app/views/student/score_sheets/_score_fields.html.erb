@@ -4,4 +4,5 @@
     <%= f.label :point, "点数:" %>
     <%= f.number_field :point, min:0, max: 100, class: "form-form-inline" %>
     <%= link_to_remove_association "削除", f, class: "btn btn-secondary btn-sm" %>
+    <%# "削除"ボタンを押すと追加したフォームが削除される %>
 </div>

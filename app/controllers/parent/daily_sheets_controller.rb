@@ -2,7 +2,8 @@ class Parent::DailySheetsController < Parent::Base
 
     def index
         # 未読のデイリーシートの通知を取得(お知らせ一覧ページのトップで確認可能)
-        # ページネーションのために子供のデイリーシートを配列に入れている(他に良い方法が見つからなかった)
+        # ページネーションのために子供のデイリーシートを配列に入れている
+        # 他に良い方法が見つからなかった
         notifications = current_parent.passive_notifications
         students = current_parent.student_members
         daily_sheets = Array.new
