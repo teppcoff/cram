@@ -1,6 +1,11 @@
 body {
     padding-top: 70px;
 }
+.body-title {
+    border-bottom: dotted 2px lightslategray;
+    margin-top: 4px;
+    margin-bottom: 20px;
+}
 .notification {
     .notice {
         background-color: lightblue;
@@ -25,4 +30,17 @@ body {
 .nav-item {
     padding-left: 3px;
     padding-right: 3px;
+}
+.square {
+    padding:2px 8px;
+	margin:0 5px;
+	background-color:#f9f9f9;
+	border:1px solid #777;
+	border-radius:2px;
+}
+.light-pink {
+    color: lightpink;
+}
+.deep-sky-blue {
+    color: deepskyblue;
 }

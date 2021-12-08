@@ -19,16 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
         month: 'long',
         year: 'numeric'
     },
-
-    //予約型のeventは色を変える
-    //予約型のeventはtitleに"講習"を含んでいる
-    eventDidMount: function(info) {
-        if (info.event.title.includes("講習")) {
-            info.el.style.background='limegreen';
-        } else {
-            info.el.style.background='deepskyblue';
-        }
-    },
     headerToolbar: {
         center: 'addEventButton'
     },
@@ -41,7 +31,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     },
 
-    //イベントをクリックで詳細確認・編集
+    //予約型(reservation_type)のeventで予約されていないものは'lightpink'
+    //予約型(reservation_type)のeventですでに生徒が予約したものは'limegreen'
+    //それ以外のevent(通常授業)は'deepskyblue'
+    eventDidMount: function(info) {
+        if (info.event.extendedProps.student_member_id == null) {
+            info.el.style.background='lightpink'
+        } else if (info.event.extendedProps.event_type == "reservation_type") {
+            info.el.style.background='limegreen';
+        } else {
+            info.el.style.background='deepskyblue';
+        }
+    },
+
+    //eventをクリックで詳細確認・編集
     eventClick: function(info) {
         alert('授業: ' + info.event.title);
         if (confirm('詳細を確認(削除もこちらから)')) {

@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_11_16_110122) do
     t.date "starts_on"
     t.date "ends_on"
     t.integer "repeats_on"
-    t.boolean "reservation_type", default: false
+    t.integer "event_type"
     t.bigint "period_id"
     t.bigint "student_member_id"
     t.bigint "staff_member_id"

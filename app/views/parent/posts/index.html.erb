@@ -1,5 +1,5 @@
 <%# 新しいdaily_sheetがあれば通知が表示される(unchecked_notification) %>
-<div class="container">
+<div class="notification-area">
     <% if unchecked_notifications.any? %>
         <div class="alert alert-info alert-dismissible">
             <a>新しい<%= link_to "デイリーシート", parent_daily_sheets_path, class: "text-decoration-none" %>があります</a>
@@ -7,14 +7,16 @@
     <% end %>
 </div>
 
-<div class="title border-bottom mt-4 mb-4">
+<div class="body-title">
     <p class="h5">お知らせ一覧</p>
 </div>
-<% @posts.each do |post| %>
-    <div class="d-flex flex-row">
-        <p class="col-2">[<%= post.created_at.strftime("%Y-%m-%d") %>]</p>
-        <p class="text-danger"><%= "[重要]" if post.important %></p>
-        <p class="col-9"><%= link_to "#{post.title}", parent_post_path(post.id), id: "show_post" %></p>
-    </div>
-<% end %>
+<div class="body-container">
+    <% @posts.each do |post| %>
+        <div class="d-flex flex-row">
+            <p class="col-2">[<%= post.created_at.strftime("%Y-%m-%d") %>]</p>
+            <p class="text-danger"><%= "[重要]" if post.important %></p>
+            <p class="col-9"><%= link_to "#{post.title}", parent_post_path(post.id), id: "show_post" %></p>
+        </div>
+    <% end %>
+</div>
 <%= paginate @posts %>
