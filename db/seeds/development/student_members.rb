@@ -46,7 +46,7 @@ StudentMember.create!(
             school_type: "elementary_school",
             school_year: "sixth_year",
             email: "hanako@example.com",
-            subject_ids: [ 1, 3 ],
+            subject_ids: [ 1, 2, 3 ],
             staff_member_id: 1,
             parent_member_id: 2,
             school_id: 1

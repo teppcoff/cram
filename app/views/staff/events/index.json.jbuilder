@@ -6,6 +6,8 @@ json.array!(@events) do |event|
     json.daysOfWeek event.repeats_on.to_s
     json.startRecur event.starts_on
     json.endRecur event.ends_on.next_day(1) 
+    json.event_type event.event_type
+    json.student_member_id event.student_member_id
 end
 
 # json.〇〇は送るデータの型

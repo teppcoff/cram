@@ -1,6 +1,25 @@
 body {
     padding-top: 70px;
 }
+.top-title {
+    padding: 0.25em 0.5em;
+    margin: 2em 0;
+    color: #494949;
+    background: transparent;
+    border-left: solid 5px #7db4e6;
+}
 .card-title {
     margin-bottom: 0.75rem;
+}
+@media (max-width: 992px) {
+    .card {
+    margin-bottom: 30px;
+    }
+}
+.test-account {
+    padding: 1em 1em;
+    margin: 2em 0;
+    color: #2c2c2f;
+    background: #cde4ff;
+    border-radius: 10px;
 }

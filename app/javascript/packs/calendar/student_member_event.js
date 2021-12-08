@@ -20,27 +20,28 @@ document.addEventListener('DOMContentLoaded', function() {
         year: 'numeric'
     },
 
-    //予約型のeventは色を変える
-    //予約型のeventはtitleに"講習"を含んでいる
+    //予約型(reservation_type)のeventで予約されていない(予約可能な)ものは'lightpink'
+    //それ以外のevent(通常授業または自分が既に予約したevent)は'deepskyblue'
     eventDidMount: function(info) {
-      if (info.event.title.includes("講習")) {
-          info.el.style.background='limegreen';
+      if (info.event.extendedProps.student_member_id == null) {
+          info.el.style.background='lightpink'
       } else {
           info.el.style.background='deepskyblue';
       }
-  },
+    },
 
     //予約型のeventに予約するためのリンクを表示
-    //イベントをクリックで詳細確認
+    //eventをクリックで詳細確認
     eventClick: function(info) {
-      if (info.event.title.includes("講習")) {
+      if (info.event.extendedProps.student_member_id == null) {
         alert('授業: ' + info.event.title);
-        if (confirm('予約する?')) {
+        if (confirm('これは予約可能な講習です。予約しますか?')) {
             window.location.href = '../student/events/' +info.event.id+ '/edit';
+            return;
         }
       }
       alert('授業: ' + info.event.title);
-      if (confirm('詳細を確認する?')) {
+      if (confirm('詳細を確認しますか?')) {
           window.location.href = '../student/events/' +info.event.id+ '/';
       }
     }

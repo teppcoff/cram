@@ -9,4 +9,5 @@ class Event < ApplicationRecord
     belongs_to :subject
     belongs_to :period
 
+    enum event_type: { ordinary_type: 1, reservation_type: 2 }
 end

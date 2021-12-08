@@ -19,21 +19,12 @@ document.addEventListener('DOMContentLoaded', function() {
         month: 'long',
         year: 'numeric'
     },
-    
-    //予約型のeventは色を変える
-    //予約型のeventはtitleに"講習"を含んでいる
-    eventDidMount: function(info) {
-      if (info.event.title.includes("講習")) {
-          info.el.style.background='limegreen';
-      } else {
-          info.el.style.background='deepskyblue';
-      }
-    },
+    eventColor: 'deepskyblue',
 
-    //イベントをクリックで詳細確認
+    //eventをクリックで詳細確認
     eventClick: function(info) {
         alert('授業: ' + info.event.title);
-        if (confirm('詳細を確認する?')) {
+        if (confirm('詳細を確認しますか?')) {
             window.location.href = '../parent/events/' +info.event.id+ '/';
         }
     }
