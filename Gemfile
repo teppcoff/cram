@@ -28,6 +28,7 @@ group :development, :test do
   gem 'mysql2'
   gem "rspec-rails"
   gem "factory_bot_rails"
+  gem "rails-erd"
 end
 
 group :development do
