@@ -1,7 +1,7 @@
 class Parent::PostsController < Parent::Base
 
     def index
-      @posts = Post.all.page(params[:page]).per(10)
+      @posts = Post.all.page(params[:page]).per(7)
     end
 
     def show

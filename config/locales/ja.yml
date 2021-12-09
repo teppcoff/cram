@@ -302,3 +302,15 @@ ja:
         attendant: "出席"
         absent: "欠席"
         late: "遅刻"
+    event:
+      event_type:
+        ordinary_type: "通常授業"
+        reservation_type: "予約型"
+  
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."

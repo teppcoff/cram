@@ -7,7 +7,7 @@ class Parent::ScoreSheetsController < Parent::Base
         score_sheets = Array.new
         students.each { |student| score_sheets.push(student.score_sheets) }
         score_sheets.flatten! 
-        @score_sheets = Kaminari.paginate_array(score_sheets).page(params[:page]).per(10)
+        @score_sheets = Kaminari.paginate_array(score_sheets).page(params[:page]).per(7)
     end
 
     def show

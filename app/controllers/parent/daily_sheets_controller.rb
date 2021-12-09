@@ -9,7 +9,7 @@ class Parent::DailySheetsController < Parent::Base
         daily_sheets = Array.new
         students.each { |student| daily_sheets.push(student.daily_sheets) }
         daily_sheets.flatten! 
-        @daily_sheets = Kaminari.paginate_array(daily_sheets).page(params[:page]).per(10)
+        @daily_sheets = Kaminari.paginate_array(daily_sheets).page(params[:page]).per(5)
         notifications.each { |n| n.update(checked: true) }
     end
     

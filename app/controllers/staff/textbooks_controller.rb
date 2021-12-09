@@ -14,7 +14,7 @@ class Staff::TextbooksController < Staff::Base
     end
 
     def index
-        @textbooks = Textbook.all.page(params[:page]).per(10)
+        @textbooks = Textbook.all.page(params[:page]).per(8)
     end
 
     def destroy
