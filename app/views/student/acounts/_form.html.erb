@@ -32,9 +32,10 @@
 </div>
 <div class="form-group">
     <%= f.label :school_year, "学年2:" %>
-    <%= f.select :school_year, StudentMember.school_years_i18n.keys.map{|k| [I18n.t("enums.student_member.school_year.#{k}"), k]}, prompt: "選択する" %>
+    <%= f.select :school_year, StudentMember.school_years_i18n.keys.map{|k| [I18n.t("enums.student_member.school_year.#{k}"), k]}, prompt: "選択する", id: "years_for_elementary" %>
 </div>
-<div class="form-group">
+
+<div class="form-group" id="js-subjects_form">
     <%= f.label :subject_ids, "科目:" %>
     <%= collection_check_boxes(:student_member, :subject_ids, Subject.all, :id, :name) do |t|  %>
     <% t.label { t.check_box + t.text } %>

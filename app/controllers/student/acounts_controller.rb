@@ -1,11 +1,20 @@
 class Student::AcountsController < Student::Base
 
-    skip_before_action :login_required, only: [:new, :create]
+    skip_before_action :login_required, only: [:new, :set_school, :create]
 
     def new
         @student = StudentMember.new
     end
     
+    def set_school
+        # 学校を選択すると対応する学年1(小中高)が取得される
+        school = School.find(params[:school_id])
+        @school_type = school.school_type
+        respond_to do |format|
+          format.js
+        end
+    end
+
     def create
         @student = StudentMember.new(student_params)
         if @student.save
