@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   namespace :student do
     root "posts#index"
     get "/signup", to: "acounts#new"
+    get "/signup/set_school", to: "acounts#set_school"
     post "/signup", to: "acounts#create"
     get "/show/:id", to: "acounts#show"
     get "/edit/:id", to: "acounts#edit", as: "edit"

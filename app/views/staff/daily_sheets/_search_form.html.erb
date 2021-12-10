@@ -1,11 +1,9 @@
-<div class="search-form mb-5">
-    <%= form_with scope: "search", url: staff_daily_sheets_path, method: "get", local: true do |f| %>
-        <div class="form-group">
-            <%= f.label :student_member_id, "生徒:" %>
-            <%= f.collection_select :student_member_id, StudentMember.all, :id, :full_name, prompt: "選択する" %>
-        </div>
-        <div class="form-submit">
-            <%= f.submit "検索", class: "btn btn-outline-primary" %>
-        </div>    
-    <% end %>
-</div>
+<%= form_with scope: "search", url: staff_daily_sheets_path, method: "get", local: true do |f| %>
+    <div class="form-group">
+        <%= f.label :student_member_id, "生徒:" %>
+        <%= f.collection_select :student_member_id, StudentMember.all, :id, :full_name, prompt: "選択する", id: "js-select_student" %>
+    </div>
+    <div class="form-submit">
+        <%= f.submit "検索", class: "btn btn-outline-primary", id: "js-search_submit" %>
+    </div>    
+<% end %>
