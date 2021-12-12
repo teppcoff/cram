@@ -21,6 +21,11 @@ Rails.application.routes.draw do
 
     get "/how_to_use", to: "how_to_use#show"
 
+    resources :contacts, only: [:index]
+    post 'contacts/confirm', to: 'contacts#confirm'
+    post 'contacts/back', to: 'contacts#back'
+    post 'contacts/done', to: 'contacts#done'
+
     resources :daily_sheets, only: [:index, :show]
     resources :events, only: [:index, :show]
     resources :score_sheets, only: [:index, :show]
