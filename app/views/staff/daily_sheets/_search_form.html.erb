@@ -4,6 +4,6 @@
         <%= f.collection_select :student_member_id, StudentMember.all, :id, :full_name, prompt: "選択する", id: "js-select_student" %>
     </div>
     <div class="form-submit">
-        <%= f.submit "検索", class: "btn btn-outline-primary", id: "js-search_submit" %>
+        <%= f.submit "検索", class: "btn btn-outline-primary" %>
     </div>    
 <% end %>

@@ -118,6 +118,13 @@ feature "staff", type: :feature do
             expect(page).to have_link "表示する"
         end
 
+        scenario "テストの詳細を確認できること" do
+            click_on("点数表")
+            first(:link, "表示する").click
+            click_on("このテストの情報を確認する")
+            expect(page).to have_content "科目別"
+        end
+
         scenario "予定表を確認できること" do
             click_on("予定表")
             expect(current_path).to eq staff_events_path

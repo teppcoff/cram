@@ -10,8 +10,8 @@ RSpec.describe DailySheet, type: :model do
     expect(@daily_sheet).to be_valid
   end
 
-  it "periodが必要であること" do
-    @daily_sheet.period = nil
+  it "messageが必要であること" do
+    @daily_sheet.message = nil
     expect(@daily_sheet).to be_invalid
   end
 

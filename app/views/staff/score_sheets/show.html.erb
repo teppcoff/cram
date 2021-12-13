@@ -1,4 +1,5 @@
 <h4><%= "#{@score_sheet.examination.name}" + "テスト" %></h4>
+<%= link_to "このテストの情報を確認する", staff_examination_path(@score_sheet.examination.id) %>
 <table class="table mt-3">
     <thead>
     <tr>

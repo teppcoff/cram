@@ -31,12 +31,20 @@ body {
     padding-left: 3px;
     padding-right: 3px;
 }
+#table-title {
+    padding: 0.3rem 0.2rem;
+    border-left: solid 5px #777;
+}
 .square {
     padding:2px 8px;
 	margin:0 5px;
 	background-color:#f9f9f9;
 	border:1px solid #777;
 	border-radius:2px;
+}
+.under_bar {
+    text-decoration: underline;
+    text-decoration-color:#FF0000;
 }
 .light-pink {
     color: lightpink;

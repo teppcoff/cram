@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_12_13_004021) do
 
   create_table "examinations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
+    t.integer "academic_year", null: false
     t.bigint "school_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
