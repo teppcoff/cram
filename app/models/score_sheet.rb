@@ -8,6 +8,10 @@ class ScoreSheet < ApplicationRecord
     #score_sheetを作成する際にscoreも同時に作成する
     accepts_nested_attributes_for :scores, allow_destroy: true
 
+    def total_point
+        self.scores.sum(:point)
+    end
+
     scope :search, -> (search_params) do
         return if search_params.blank?
         student_member_id_is(search_params[:student_member_id])

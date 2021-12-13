@@ -1,0 +1,51 @@
+<div class="body-title">
+    <p class="h5"><%= @examination.name %>(<%= @examination.academic_year %>年度)</p>
+</div>
+<div class="content">
+    <table class="table">
+        <h6 id="table-title">概要</h6>
+        <tr>
+            <th scope="row">受験者数</th>
+            <td><%= @examination.score_sheets.count %>人</td>
+        </tr>
+        <tr>
+            <th scope="row">平均点</th>
+            <td><%= @total_average_point %> / <%= @examination.score_sheets.count * 100 %> 点</td>
+        </tr>
+        <tr>
+            <th scope="row">最高得点</th>
+            <td><%= @highest_total_point %> / <%= @examination.score_sheets.count * 100 %> 点</td>
+        </tr>
+        <tr>
+            <th scope="row">最低得点</th>
+            <td><%= @lowest_total_point %> / <%= @examination.score_sheets.count * 100 %> 点</td>
+        </tr>
+        <tr>
+            <th scope="row">科目</th>
+            <% @subjects.each do |subject| %>
+                <td><%= subject.name %></td>
+            <% end %>
+        </tr>
+    </table>
+    <table class="table">
+        <h6 id="table-title">科目別</h6>
+        <thead>
+            <tr>
+                <th scope="col">科目名</th>
+                <th scope="col">平均点</th>
+                <th scope="col">最高点</th>
+                <th scope="col">最低点</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @subjects.each do |subject| %>
+                <tr>
+                    <th scope="row"><%= subject.name %></th>
+                    <td><%= @examination.calculate_average_of(subject.id) %>点</td>
+                    <td><%= @examination.calculate_highest_point_of(subject.id) %>点</td>
+                    <td><%= @examination.calculate_lowest_point_of(subject.id) %>点</td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

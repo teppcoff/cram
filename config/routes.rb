@@ -76,6 +76,7 @@ Rails.application.routes.draw do
     resources :textbooks
     resources :score_sheets, only: [:index, :show]
     resources :posts
+    resources :examinations, only: [:show]
   end
   
 end
