@@ -2,7 +2,7 @@ DailySheet.create!(
     [
         {
             study_date: "2021-11-05",
-            period: 1,
+            period_id: 1,
             subject_id: 12,
             textbook_id: 11,
             message: "よく頑張っていました。宿題は今日の復習です。",
@@ -13,7 +13,7 @@ DailySheet.create!(
         },
         {
             study_date: "2021-11-12",
-            period: 1,
+            period_id: 1,
             subject_id: 13,
             textbook_id: 12,
             message: "よく頑張っていました。宿題は今日の復習です。",
@@ -24,7 +24,7 @@ DailySheet.create!(
         },
         {
             study_date: "2021-11-19",
-            period: 2,
+            period_id: 2,
             subject_id: 11,
             textbook_id: 13,
             message: "行事で疲れたのか少し眠そうに見えました。宿題はテキストP113~117です。",
@@ -35,7 +35,7 @@ DailySheet.create!(
         },
         {
             study_date: "2021-11-26",
-            period: 2,
+            period_id: 2,
             subject_id: 11,
             textbook_id: 13,
             message: "今回の授業は欠席でした。",
@@ -46,7 +46,7 @@ DailySheet.create!(
         },
         {
             study_date: "2021-11-02",
-            period: 3,
+            period_id: 2,
             subject_id: 4,
             textbook_id: 6,
             message: "漢字の小テストが満点でした。宿題は問題集P10,12,15です。",

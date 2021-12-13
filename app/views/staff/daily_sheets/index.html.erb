@@ -19,7 +19,7 @@
             <tr>
                 <td><%= sheet.student_member.full_name %></td>
                 <td><%= sheet.study_date %></td>
-                <td><%= sheet.period %></td>
+                <td><%= sheet.period.number_of_period %></td>
                 <td><%= sheet.subject.name %></td>
                 <td><%= link_to "表示", staff_daily_sheet_path(sheet.id), method: "get", class: "btn btn-outline-info" %></td>
             </tr>

@@ -9,7 +9,7 @@
     <tr><th scope="col">日付</th></tr>
     <tr><td><%= @daily_sheet.study_date %></td></tr>
     <tr><th scope="col">時限</th></tr>
-    <tr><td><%= @daily_sheet.period %></td></tr>
+    <tr><td><%= @daily_sheet.period.number_of_period %></td></tr>
     <tr><th scope="col">科目</th></tr>
     <tr><td><%= @daily_sheet.subject.name %></td></tr>
     <tr><th scope="col">テキスト</th></tr>

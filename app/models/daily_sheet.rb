@@ -3,7 +3,6 @@ class DailySheet < ApplicationRecord
     validates :study_date, presence: true
     validates :message, presence: true
     validates :information, presence: true
-    validates :period, presence: true
     validates :participation, presence: true
 
     enum participation: { attendant: 1, absent: 2, late: 3 }
@@ -12,6 +11,7 @@ class DailySheet < ApplicationRecord
     belongs_to :staff_member
     belongs_to :subject
     belongs_to :textbook
+    belongs_to :period
 
     has_many :daily_texts, dependent: :destroy
     has_many :textbooks, :through => :daily_texts
