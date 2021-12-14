@@ -35,7 +35,11 @@ class Parent::AcountsController < Parent::Base
     def destroy
         @parent = ParentMember.find(params[:id])
         @parent.destroy
-        redirect_to parent_login_path, notice: "ユーザーを削除しました"
+        if @parent.present?
+            redirect_to parent_path, notice: "#{@parent.errors.messages[:base].join('。')}"
+        else
+            redirect_to parent_login_path, notice: "ユーザーを削除しました"
+        end
     end
 
     private

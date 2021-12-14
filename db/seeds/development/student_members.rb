@@ -40,16 +40,16 @@ StudentMember.create!(
             family_name_kana: "スズキ",
             given_name_kana: "ハナコ",
             gender: "female",
-            birthday: "2010-11-05",
+            birthday: "2006-11-05",
             password: "password",
             password_confirmation: "password",
-            school_type: "elementary_school",
-            school_year: "sixth_year",
+            school_type: "high_school",
+            school_year: "first_year",
             email: "hanako@example.com",
-            subject_ids: [ 1, 2, 3 ],
+            subject_ids: [ 11, 12, 13 ],
             staff_member_id: 1,
             parent_member_id: 2,
-            school_id: 1
+            school_id: 3
         }
     ]
 )

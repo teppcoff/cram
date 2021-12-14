@@ -13,11 +13,11 @@
         <% @textbooks.each do |text| %>
         <tbody>
             <tr>
-            <td><%= text.name %></td>
-            <td><%= text.text_type_i18n %></td>
-            <td><%= text.subject.name %></td>
-            <td><%= link_to "削除", staff_textbook_path(text.id), method: "delete" ,
-                data: { confirm: " テキスト「#{text.name}」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger" %></td>
+                <td><%= text.name %></td>
+                <td><%= text.text_type_i18n %></td>
+                <td><%= text.subject.name %></td>
+                <td><%= link_to "削除", staff_textbook_path(text.id), method: "delete" ,
+                    data: { confirm: " テキスト「#{text.name}」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger" %></td>
             </tr>
         </tbody>
         <% end %>

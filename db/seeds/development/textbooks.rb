@@ -8,27 +8,27 @@ Textbook.create!(
         {
             name: "小二算数問題集",
             text_type: "workbook",
-            subject_id: 1
+            subject_id: 2
         },
         {
             name: "小三英語教科書",
             text_type: "schoolbook",
-            subject_id: 2
+            subject_id: 3
         },
         {
             name: "小四理科問題集",
             text_type: "workbook",
-            subject_id: 3
+            subject_id: 4
         },
         {
             name: "小五社会問題集",
             text_type: "workbook",
-            subject_id: 4
+            subject_id: 5
         },
         {
             name: "小六国語教科書",
             text_type: "schoolbook",
-            subject_id: 5
+            subject_id: 1
         },
         {
             name: "中一数学問題集",
@@ -48,22 +48,22 @@ Textbook.create!(
         {
             name: "高一社会問題集",
             text_type: "workbook",
-            subject_id: 14
+            subject_id: 15
         },
         {
             name: "高二国語教科書",
             text_type: "schoolbook",
-            subject_id: 10
+            subject_id: 11
         },
         {
             name: "高三数学問題集",
             text_type: "workbook",
-            subject_id: 11
+            subject_id: 12
         },
         {
             name: "大阪大学過去問",
             text_type: "previous_exam_question",
-            subject_id: 15
+            subject_id: 16
         }
     ]
 )

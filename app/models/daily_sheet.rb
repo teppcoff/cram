@@ -12,9 +12,6 @@ class DailySheet < ApplicationRecord
     belongs_to :subject
     belongs_to :textbook
     belongs_to :period
-
-    has_many :daily_texts, dependent: :destroy
-    has_many :textbooks, :through => :daily_texts
     has_many :notifications, dependent: :destroy
 
     def create_notification_daily_sheet!(current_staff)

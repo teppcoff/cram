@@ -35,7 +35,11 @@ class Staff::AcountsController < Staff::Base
     def destroy
         @staff = StaffMember.find(params[:id])
         @staff.destroy
-        redirect_to staff_login_path, notice: "ユーザーを削除しました"
+        if @staff.present?
+            redirect_to staff_path, notice: "#{@staff.errors.messages[:base].join('。')}"
+        else
+            redirect_to staff_login_path, notice: "ユーザーを削除しました"
+        end
     end
 
             
