@@ -17,6 +17,7 @@ gem "kaminari"
 gem "enum_help"
 gem "cocoon"
 gem 'dotenv-rails'
+gem 'fiscali'
 
 group :production do
   gem 'pg'
