@@ -10,6 +10,7 @@ ja:
         password: パスワード
         password_confirmation: パスワード（確認）
         gender: 性別
+        student_members: 生徒
       staff_member:
         family_name: 性
         given_name: 名
@@ -19,6 +20,7 @@ ja:
         password: パスワード
         password_confirmation: パスワード（確認）
         employment_status: 雇用形態
+        student_members: 生徒
       student_member:
         family_name: 性
         given_name: 名
@@ -54,6 +56,15 @@ ja:
       post:
         title: タイトル
         content: 本文
+      school:
+        name: 学校名
+        school_type: 学校の区分
+        examinations: 定期テスト
+        student_members: 生徒
+      textbook:
+        daily_sheets: デイリーシート
+        subject: 科目
+        text_type: テキストタイプ
 
     errors:
       messages:
@@ -306,6 +317,11 @@ ja:
       event_type:
         ordinary_type: "通常授業"
         reservation_type: "予約型"
+    school:
+      school_type:
+        elementary_school: "小学校"
+        junior_high_school: "中学校"
+        high_school: "高校"
   
   views:
     pagination:

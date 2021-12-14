@@ -20,7 +20,11 @@ class Staff::TextbooksController < Staff::Base
     def destroy
         @textbook = Textbook.find(params[:id])
         @textbook.destroy
-        redirect_to staff_textbooks_path, notice: "テキストを削除しました"
+        if @textbook.present?
+            redirect_to staff_textbooks_path, notice: "#{@textbook.errors.messages[:base].join('。')}"
+        else
+            redirect_to staff_textbooks_path, notice: "テキストを削除しました"
+        end
     end
 
     private
