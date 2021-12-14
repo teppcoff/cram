@@ -3,6 +3,7 @@ class ScoreSheet < ApplicationRecord
     belongs_to :examination
     belongs_to :student_member
     belongs_to :staff_member
+    has_many :scores, inverse_of: :score_sheet, dependent: :destroy
     has_many :scores, dependent: :destroy
 
     #score_sheetを作成する際にscoreも同時に作成する
