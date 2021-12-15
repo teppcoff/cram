@@ -15,4 +15,9 @@ RSpec.describe School, type: :model do
     expect(@school).to be_invalid
   end
 
+  it "school_typeが必要であること" do
+    @school.school_type = nil
+    expect(@school).to be_invalid
+  end
+
 end

@@ -15,4 +15,14 @@ RSpec.describe Period, type: :model do
     expect(@period).to be_invalid
   end
 
+  it "start_of_periodが必要であること" do
+    @period.number_of_period = nil
+    expect(@period).to be_invalid
+  end
+
+  it "end_of_periodが必要であること" do
+    @period.number_of_period = nil
+    expect(@period).to be_invalid
+  end
+
 end

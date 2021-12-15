@@ -1,6 +1,7 @@
 class Examination < ApplicationRecord
 
-    validates :name, presence: true
+    validates :name, presence: true, length: { maximum: 20 }
+    validates :academic_year, presence: true, numericality: { greater_than: 2000, less_than: 2100 }
     belongs_to :school
     has_many :score_sheets
 
