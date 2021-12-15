@@ -2,23 +2,41 @@
     <p class="h5">担当生徒詳細</p>
 </div>
 <table class="table">
-    <tr><th scope="col">担当講師</th></tr>
-    <tr><td><%= @student.staff_member.full_name %></td></tr>
-    <tr><th scope="col">生徒</th></tr>
-    <tr><td><%= @student.full_name %></td></tr>
-    <tr><th scope="col">保護者</th></tr>
-    <tr><td><%= @student.parent_member.full_name %></td></tr>
-    <tr><th scope="col">学校</th></tr>
-    <tr><td><%= @student.school.name %></td></tr>
-    <tr><th scope="col">学年</th></tr>
-    <tr><td><%= @student.full_school_year %></td></tr>
-    <tr><th scope="col">履修科目</th></tr>
-        <% @subjects.each do |s| %>
-            <td><%= s.name %></td>
-        <% end %>
-    <tr><th scope="col">性別</th></tr>
-    <tr><td><%= @student.gender_i18n %></td></tr>
-    <tr><th scope="col">生年月日</th></tr>
-    <tr><td><%= @student.birthday %></td></tr>
+    <tr>
+        <th scope="col">担当講師</th>
+        <td><%= @student.staff_member.full_name %></td>
+    </tr>
+    <tr>
+        <th scope="col">生徒</th>
+        <td><%= @student.full_name %></td>
+    </tr>
+    <tr>
+        <th scope="col">保護者</th>
+        <td><%= @student.parent_member.full_name %></td>
+    </tr>
+    <tr>
+        <th scope="col">学校</th>
+        <td><%= @student.school.name %></td>
+    </tr>
+    <tr>
+        <th scope="col">学年</th>
+        <td><%= @student.full_school_year %></td>
+    </tr>
+    <tr>
+        <th scope="col">履修科目</th>
+        <td>
+            <% @subjects.each do |s| %>
+                <%= s.name %>
+            <% end %>
+        </td>
+    </tr>
+    <tr>
+        <th scope="col">性別</th>
+        <td><%= @student.gender_i18n %></td>
+    </tr>
+    <tr>
+        <th scope="col">生年月日</th>
+        <td><%= @student.birthday %></td>
+    </tr>
 </table>
 <%= button_to "戻る", staff_student_members_path, method: "get", class: "btn btn-outline-secondary" %>

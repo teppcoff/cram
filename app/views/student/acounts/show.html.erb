@@ -1,30 +1,52 @@
 <table class="table">
-    <tr><th scope="col">性</th></tr>
-    <tr><td><%= @student.family_name %></td></tr>
-    <tr><th scope="col">名</th></tr>
-    <tr><td><%= @student.given_name %></td></tr>
-    <tr><th scope="col">性（フリガナ）</th></tr>
-    <tr><td><%= @student.family_name_kana %></td></tr>
-    <tr><th scope="col">名（フリガナ）</th></tr>
-    <tr><td><%= @student.given_name_kana %></td></tr>
-    <tr><th scope="col">性別</th></tr>
-    <tr><td><%= @student.gender_i18n %></td></tr>
-    <tr><th scope="col">生年月日</th></tr>
-    <tr><td><%= @student.birthday %></td></tr>
-    <tr><th scope="col">学校</th></tr>
-    <tr><td><%= @student.school.name %></td></tr>
-    <tr><th scope="col">学年</th></tr>
-    <tr><td><%= @student.full_school_year %></td></tr>
-    <tr><th scope="col">科目</th></tr>
     <tr>
-    <% @subjects.each do |subject| %>
-        <td><%= subject.name %></td>
-    <% end %>
+        <th scope="col">性</th>
+        <td><%= @student.family_name %></td>
     </tr>
-    <tr><th scope="col">担当講師</th></tr>
-    <tr><td><%= @student.staff_member.full_name %></td></tr>
-    <tr><th scope="col">保護者</th></tr>
-    <tr><td><%= @student.parent_member.full_name %></td></tr>
+    <tr>
+        <th scope="col">名</th>
+        <td><%= @student.given_name %></td>
+    </tr>
+    <tr>
+        <th scope="col">性（フリガナ）</th>
+        <td><%= @student.family_name_kana %></td>
+    </tr>
+    <tr>
+        <th scope="col">名（フリガナ）</th>
+        <td><%= @student.given_name_kana %></td>
+    </tr>
+    <tr>
+        <th scope="col">性別</th>
+        <td><%= @student.gender_i18n %></td>
+    </tr>
+    <tr>
+        <th scope="col">生年月日</th>
+        <td><%= @student.birthday %></td>
+    </tr>
+    <tr>
+        <th scope="col">学校</th>
+        <td><%= @student.school.name %></td>
+    </tr>
+    <tr>
+        <th scope="col">学年</th>
+        <td><%= @student.full_school_year %></td>
+    </tr>
+    <tr>
+        <th scope="col">科目</th>
+        <td>
+            <% @subjects.each do |subject| %>
+                <%= subject.name %>
+            <% end %>
+        </td>
+    </tr>
+    <tr>
+        <th scope="col">担当講師</th>
+        <td><%= @student.staff_member.full_name %></td>
+    </tr>
+    <tr>
+        <th scope="col">保護者</th>
+        <td><%= @student.parent_member.full_name %></td>
+    </tr>
 </table>
 <div class="btn-group">
     <%= button_to "編集", student_edit_path(@student.id), method: "get", class: "btn btn-outline-primary mx-2" %>
