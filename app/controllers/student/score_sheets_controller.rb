@@ -1,7 +1,7 @@
 class Student::ScoreSheetsController < Student::Base
 
     def index
-        @score_sheets = current_student.score_sheets.page(params[:page]).per(7)
+        @score_sheets = current_student.score_sheets.order(created_at: "DESC").page(params[:page]).per(7)
     end
 
     def new
