@@ -44,7 +44,7 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-user"></i>
+                    <i class="fas fa-user"></i> <%= current_staff.full_name %>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
                     <li><%= link_to "ユーザー情報", staff_path(current_staff), class: "dropdown-item" %></li>

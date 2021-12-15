@@ -50,7 +50,7 @@ class Staff::DailySheetsController < Staff::Base
     private
 
         def daily_sheet_params
-            params.require(:daily_sheet).permit(:study_date, :period_id, :message, :information, :participation, :student_member_id, :staff_member_id, :subject_id, :textbook_id)
+            params.require(:daily_sheet).permit(:study_date, :period_id, :message, :information, :participation, :student_member_id, :staff_member_id, :subject_id, :textbook_id, :event_id )
         end
 
         def daily_sheet_search_params
