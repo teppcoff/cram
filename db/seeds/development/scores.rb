@@ -78,27 +78,27 @@ Score.create!(
         {
             score_sheet_id: 4,
             subject_id: 11,
-            point: 70
+            point: 100
         },
         {
             score_sheet_id: 4,
             subject_id: 12,
-            point: 80
+            point: 60
         },
         {
             score_sheet_id: 4,
             subject_id: 13,
-            point: 90
+            point: 30
         },
         {
             score_sheet_id: 4,
             subject_id: 14,
-            point: 70
+            point: 90
         },
         {
             score_sheet_id: 4,
             subject_id: 15,
-            point: 80
+            point: 95
         },
         {
             score_sheet_id: 5,

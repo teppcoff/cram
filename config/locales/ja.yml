@@ -35,10 +35,12 @@ ja:
         school: 学校
         school_type: 学年1
         school_year: 学年2
+        subjects: 科目
       daily_sheet:
         message: メッセージ
         information: 連絡事項
         period: 時限
+        staff_member: 担当講師
         student_member: 生徒
         subject: 科目
         participation: 出欠
@@ -47,6 +49,8 @@ ja:
         title: 概要（表示名）
         starts_at: 開始時刻
         ends_at: 終了時刻
+        starts_on: 初回授業日
+        ends_on: 最終回授業日
         repeats_on: 曜日
         student_member: 生徒
         subject: 科目

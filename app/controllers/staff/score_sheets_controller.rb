@@ -14,12 +14,6 @@ class Staff::ScoreSheetsController < Staff::Base
         @scores = @score_sheet.scores
     end
 
-    def show_average_of(subject)
-        score_sheet = ScoreSheet.find(params[:id])
-        @examination = score_sheet.examination
-        @average = @examination.calculate_average_of(subject)
-    end
-
     private
 
         def score_sheet_search_params

@@ -16,9 +16,10 @@ class Student::AcountsController < Student::Base
     end
 
     def create
-        @student = StudentMember.new(student_params)
-        if @student.save
-            redirect_to student_path(@student.id), notice: "ようこそ、#{@student.full_name}さん!"
+        student = StudentMember.new(student_params)
+        if student.save
+            login_as_student(student)
+            redirect_to student_root_path, notice: "ようこそ、#{student.full_name}さん!"
         else
             render "new"
         end

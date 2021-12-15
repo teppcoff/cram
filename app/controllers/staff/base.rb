@@ -16,5 +16,9 @@ class Staff::Base < ApplicationController
       def login_required
         redirect_to staff_login_path unless current_staff
       end
+
+      def login_as_staff(staff)
+        session[:staff_id] = staff.id
+      end
   
 end
