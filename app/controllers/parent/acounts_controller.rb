@@ -9,6 +9,7 @@ class Parent::AcountsController < Parent::Base
     def create
         @parent = ParentMember.new(parent_params)
         if @parent.save
+            login_as_parent(@parent)
             redirect_to parent_root_path, notice: "ようこそ、#{@parent.full_name}さん!"
         else
             render "new"

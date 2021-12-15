@@ -16,5 +16,9 @@ class Student::Base < ApplicationController
       def login_required
         redirect_to student_login_path unless current_student
       end
+
+      def login_as_student(student)
+        session[:student_id] = student.id
+      end
   
 end
