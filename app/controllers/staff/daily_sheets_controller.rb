@@ -3,9 +3,9 @@ class Staff::DailySheetsController < Staff::Base
     def index
         @search_params = daily_sheet_search_params
         @daily_sheets = if @search_params.nil? 
-            current_staff.daily_sheets.page(params[:page]).per(5)
+            current_staff.daily_sheets.order(study_date: "DESC").page(params[:page]).per(5)
         else
-            DailySheet.search(@search_params).page(params[:page]).per(5)
+            DailySheet.search(@search_params).order(study_date: "DESC").page(params[:page]).per(5)
         end
     end
 

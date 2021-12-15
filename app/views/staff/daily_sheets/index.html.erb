@@ -11,6 +11,7 @@
         <th scope="col">日付</th>
         <th scope="col">時限</th>
         <th scope="col">科目</th>
+        <th scope="col">出欠</th>
         <th scope="col">詳細</th>
         </tr>
     </thead>
@@ -21,6 +22,7 @@
                 <td><%= sheet.study_date %></td>
                 <td><%= sheet.period.number_of_period %></td>
                 <td><%= sheet.subject.name %></td>
+                <td><%= sheet.participation_i18n %></td>
                 <td><%= link_to "表示", staff_daily_sheet_path(sheet.id), method: "get", class: "btn btn-outline-info" %></td>
             </tr>
         <% end %>

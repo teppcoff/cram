@@ -1,18 +1,32 @@
 <table class="table">
-    <tr><th scope="col">性</th></tr>
-    <tr><td><%= @parent.family_name %></td></tr>
-    <tr><th scope="col">名</th></tr>
-    <tr><td><%= @parent.given_name %></td></tr>
-    <tr><th scope="col">性（フリガナ）</th></tr>
-    <tr><td><%= @parent.family_name_kana %></td></tr>
-    <tr><th scope="col">名（フリガナ）</th></tr>
-    <tr><td><%= @parent.given_name_kana %></td></tr>
-    <tr><th scope="col">性別</th></tr>
-    <tr><td><%= @parent.gender_i18n %></td></tr>
-    <tr><th scope="col">生年月日</th></tr>
-    <tr><td><%= @parent.birthday %></td></tr>
-    <tr><th scope="col">メールアドレス</th></tr>
-    <tr><td><%= @parent.email %></td></tr>
+    <tr>
+        <th scope="col">性</th>
+        <td><%= @parent.family_name %></td>
+    </tr>
+    <tr>
+        <th scope="col">名</th>
+        <td><%= @parent.given_name %></td>
+    </tr>
+    <tr>
+        <th scope="col">性（フリガナ）</th>
+        <td><%= @parent.family_name_kana %></td>
+    </tr>
+    <tr>
+        <th scope="col">名（フリガナ）</th>
+        <td><%= @parent.given_name_kana %></td>
+    </tr>
+    <tr>
+        <th scope="col">性別</th>
+        <td><%= @parent.gender_i18n %></td>
+    </tr>
+    <tr>
+        <th scope="col">生年月日</th>
+        <td><%= @parent.birthday %></td>
+    </tr>
+    <tr>
+        <th scope="col">メールアドレス</th>
+        <td><%= @parent.email %></td>
+    </tr>
 </table>
 <div class="btn-group">
     <%= button_to "編集", parent_edit_path(@parent.id), method: "get", class: "btn btn-outline-primary mx-2" %>

@@ -3,9 +3,9 @@ class Staff::ScoreSheetsController < Staff::Base
     def index
         @search_params = score_sheet_search_params
         @score_sheets = if score_sheet_search_params.nil?
-            current_staff.score_sheets.page(params[:page]).per(7)
+            current_staff.score_sheets.order(created_at: "DESC").page(params[:page]).per(7)
         else
-            ScoreSheet.search(@search_params).page(params[:page]).per(7)
+            ScoreSheet.search(@search_params).order(created_at: "DESC").page(params[:page]).per(7)
         end
     end
 
