@@ -1,8 +1,8 @@
 class DailySheet < ApplicationRecord
 
     validates :study_date, presence: true
-    validates :message, presence: true
-    validates :information, presence: true
+    validates :message, presence: true, length: { maximum: 200 }
+    validates :information, presence: true, length: { maximum: 200 }
     validates :participation, presence: true
 
     enum participation: { attendant: 1, absent: 2, late: 3 }

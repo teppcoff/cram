@@ -10,6 +10,11 @@ RSpec.describe Textbook, type: :model do
     expect(@textbook).to be_valid
   end
 
+  it "nameが必要であること" do
+    @textbook.name = " "
+    expect(@textbook).to be_invalid
+  end
+
   it "text_typeが必要であること" do
     @textbook.text_type = nil
     expect(@textbook).to be_invalid

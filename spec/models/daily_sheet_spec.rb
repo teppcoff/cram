@@ -11,8 +11,53 @@ RSpec.describe DailySheet, type: :model do
   end
 
   it "messageが必要であること" do
-    @daily_sheet.message = nil
+    @daily_sheet.message = " "
     expect(@daily_sheet).to be_invalid
   end
 
+  it "messageは200字以下であること" do
+    @daily_sheet.message = "あ" * 201
+    expect(@daily_sheet).to be_invalid
+  end
+
+  it "informationは200字以下であること" do
+    @daily_sheet.information = "い" * 201
+    expect(@daily_sheet).to be_invalid
+  end
+
+  it "study_dateが必要であること" do
+    @daily_sheet.study_date = nil
+    expect(@daily_sheet).to be_invalid
+  end
+
+  it "participationが必要であること" do
+    @daily_sheet.participation = nil
+    expect(@daily_sheet).to be_invalid
+  end
+
+  it "staff_memberが必要であること" do
+    @daily_sheet.staff_member = nil
+    expect(@daily_sheet).to be_invalid
+  end
+
+  it "student_memberが必要であること" do
+    @daily_sheet.student_member = nil
+    expect(@daily_sheet).to be_invalid
+  end
+
+  it "subjectが必要であること" do
+    @daily_sheet.subject = nil
+    expect(@daily_sheet).to be_invalid
+  end
+
+  it "textbookが必要であること" do
+    @daily_sheet.textbook = nil
+    expect(@daily_sheet).to be_invalid
+  end
+
+  it "periodが必要であること" do
+    @daily_sheet.period = nil
+    expect(@daily_sheet).to be_invalid
+  end
+  
 end
