@@ -12,7 +12,6 @@ class StudentMember < ApplicationRecord
     validates :gender, presence: true
     validates :password, presence: true, length: { minimum: 8, maximum: 16 }, on: :create
     validates :password_confirmation, presence: true, on: :create
-
     has_secure_password
 
     belongs_to :staff_member
