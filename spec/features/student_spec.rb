@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 feature "student", type: :feature do
-    feature "ユーザー登録前" do
-        scenario "ユーザー登録できること", skip: true do
+    feature "ユーザー登録と削除" do
+        scenario "ユーザー登録できること" do
             visit root_path
             expect(page).to have_content("ようこそCramAppへ！")
             find("#student_login").click
@@ -18,7 +18,7 @@ feature "student", type: :feature do
             select "第二中学校", from: "学校"
             select "中学校", from: "学年1"
             select "1年生", from: "学年2"
-            check "中学国語", from: "科目"
+            find("#student_member_subject_ids_6").check
             select "山田 太郎", from: "担当講師"
             select "田中 真一", from: "保護者"
             fill_in "メールアドレス:", with: "test_student@example.com"
@@ -26,6 +26,20 @@ feature "student", type: :feature do
             fill_in "パスワード（確認）", with: "password"
             click_button "登録"
             expect(page).to have_content "ようこそ、Test Studentさん!"
+        end
+
+        scenario "ユーザー削除できること" do
+            visit student_login_path
+            fill_in "メールアドレス", with: "test_student@example.com"
+            fill_in "パスワード", with: "password"
+            click_button "ログイン"
+            click_on("ユーザー情報")
+            click_on("削除")
+            expect {
+                expect(page.driver.browser.switch_to.alert.text).to eq "ユーザー「Test Student」を削除します。本当によろしいですか？"
+                page.driver.browser.switch_to.alert.accept
+                expect(page).to have_content "ユーザーを削除しました"
+            }
         end
     end
 
@@ -58,6 +72,7 @@ feature "student", type: :feature do
             click_on("予定表")
             expect(current_path).to eq student_events_path
             # 本当はカレンダーが表示されていることをテストしたかった
+            # selenium/standalone-chromeがm1macで使えない？
         end
 
         scenario "点数表を確認できること" do
@@ -108,6 +123,11 @@ feature "student", type: :feature do
             expect(page).to have_content "ユーザー情報を更新しました"
         end
 
+        scenario "使い方を確認できること" do
+            click_on("使い方")
+            expect(page).to have_content "CramAppの使い方(生徒)"
+        end
+
         scenario "ログアウトできること" do
             click_on("ログアウト")
             expect {
@@ -115,11 +135,6 @@ feature "student", type: :feature do
                 page.driver.browser.switch_to.alert.accept
                 expect(page).to have_content "ログアウトしました"
             }
-        end
-
-        scenario "使い方を確認できること" do
-            click_on("使い方")
-            expect(page).to have_content "CramAppの使い方(生徒)"
         end
     end
 end

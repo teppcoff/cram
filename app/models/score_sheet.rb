@@ -6,7 +6,7 @@ class ScoreSheet < ApplicationRecord
     has_many :scores, inverse_of: :score_sheet, dependent: :destroy
     has_many :scores, dependent: :destroy
 
-    #score_sheetを作成する際にscoreも同時に作成する
+    #score_sheetを作成する際にscoreも任意の数同時に作成する
     accepts_nested_attributes_for :scores, allow_destroy: true
 
     def total_point

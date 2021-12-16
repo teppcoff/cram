@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 feature "staff", type: :feature do
-    feature "ユーザー登録前" do
-        scenario "ユーザー登録できること", skip: true do
+    feature "ユーザー登録と削除" do
+        scenario "ユーザー登録できること" do
             visit root_path
             expect(page).to have_content("ようこそCramAppへ！")
             find("#staff_login").click
@@ -21,6 +21,20 @@ feature "staff", type: :feature do
             fill_in "パスワード（確認）", with: "password"
             click_button "登録"
             expect(page).to have_content "ようこそ、Test Staffさん!"
+        end
+
+        scenario "ユーザー削除できること" do
+            visit staff_login_path
+            fill_in "メールアドレス", with: "test_staff@example.com"
+            fill_in "パスワード", with: "password"
+            click_button "ログイン"
+            click_on("ユーザー情報")
+            click_on("削除")
+            expect {
+                expect(page.driver.browser.switch_to.alert.text).to eq "ユーザー「Test Staff」を削除します。本当によろしいですか？"
+                page.driver.browser.switch_to.alert.accept
+                expect(page).to have_content "ユーザーを削除しました"
+            }
         end
     end
 
@@ -129,6 +143,7 @@ feature "staff", type: :feature do
             click_on("予定表")
             expect(current_path).to eq staff_events_path
             # 本当はカレンダーが表示されていることをテストしたかった
+            # selenium/standalone-chromeがm1macで使えない？
         end
 
         scenario "テキストを確認・登録・削除できること" do

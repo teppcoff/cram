@@ -50,5 +50,6 @@
 </table>
 <div class="btn-group">
     <%= button_to "編集", student_edit_path(@student.id), method: "get", class: "btn btn-outline-primary mx-2" %>
-    <%= button_to "削除", { controller: "acounts", action: "destroy" }, method: "delete", class: "btn btn-outline-danger" %>
+    <%= button_to "削除", { controller: "acounts", action: "destroy" }, method: "delete",
+        data: { confirm: "ユーザー「#{@student.full_name}」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger" %>
 </div>
