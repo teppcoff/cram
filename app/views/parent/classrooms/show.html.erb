@@ -1,25 +1,25 @@
-<div class="body-title">
-    <h5><i class="fas fa-school"></i> 教室情報</h5>
-</div>
-<table class="table">
-    <tr><td><b>正式名称</b>:　クラムアップ個別指導塾</td></tr>
-    <tr><td><b>電話番号</b>:　123-4567-8901</td></tr>
-    <tr><td><b>メールアドレス</b>:　cramapp@example.com</td></tr>
-    <tr><td><b>受付時間</b>:　16:00~21:00</td></tr>
-    <tr><td><b>住所</b>:　〒540-0008 大阪府大阪市中央区大手前２丁目１</td></tr>
-</table>
+<% provide(:body_title, "教室情報") %>
+<div class="content">
+    <table class="table">
+        <tr><td><b>正式名称</b>:　クラムアップ個別指導塾</td></tr>
+        <tr><td><b>電話番号</b>:　123-4567-8901</td></tr>
+        <tr><td><b>メールアドレス</b>:　cramapp@example.com</td></tr>
+        <tr><td><b>受付時間</b>:　16:00~21:00</td></tr>
+        <tr><td><b>住所</b>:　〒540-0008 大阪府大阪市中央区大手前２丁目１</td></tr>
+    </table>
 
-<div id="map" style="width:620px; height:350px"></div>
-<script>
-    function init() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 34.686824, lng: 135.519494},
-            zoom: 15,
-        });
-        marker = new google.maps.Marker({
-            position: {lat: 34.686824, lng: 135.519494},
-            map: map
-        });
-    }
-</script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=init"></script>
+    <div id="map" style="width:620px; height:350px"></div>
+    <script>
+        function init() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 34.686824, lng: 135.519494},
+                zoom: 15,
+            });
+            marker = new google.maps.Marker({
+                position: {lat: 34.686824, lng: 135.519494},
+                map: map
+            });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=init"></script>
+</div>

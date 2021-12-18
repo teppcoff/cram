@@ -1,20 +1,24 @@
-<h4><%= "#{@score_sheet.examination.name}" + "テスト" %></h4>
-<table class="table mt-3">
-    <thead>
-    <tr>
-        <th scope="col">科目</th>
-        <th scope="col">点数</th>
-    </tr>
-    </thead>
-    <tbody>
-        <% @scores.each do |score| %>
+<div class="sub-body-title">
+    <h5><%= "#{@score_sheet.examination.name}" + "テスト" %></h4>
+</div>
+<div class="content">
+    <table class="table mt-3">
+        <thead>
         <tr>
-            <td><%= score.subject.name %></td>
-            <td><%= score.point %></td>
+            <th scope="col">科目</th>
+            <th scope="col">点数</th>
         </tr>
-        <% end %>
-    </tbody>
-</table>
-<div class="btn-group">
-    <%= link_to "一覧", parent_score_sheets_path, class: "btn btn-outline-secondary" %>
+        </thead>
+        <tbody>
+            <% @scores.each do |score| %>
+            <tr>
+                <td><%= score.subject.name %></td>
+                <td><%= score.point %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <div class="btn-group">
+        <%= link_to "一覧", parent_score_sheets_path, class: "btn btn-outline-secondary" %>
+    </div>
 </div>

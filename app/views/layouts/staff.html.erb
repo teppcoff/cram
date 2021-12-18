@@ -26,6 +26,11 @@
           <%= content_tag(:div, value, class:key) %>
         <% end %>
       </div>
+      <% if current_staff %>
+        <div class="body-title">
+            <p class="h5"><%= yield(:body_title) %></p>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
     

@@ -1,21 +1,20 @@
-<div class="body-title">
-    <p class="h5">予定作成</p>
-</div>
-<%= form_with model: @event, url: staff_events_path, local: true do |f| %>
-    <%= render "layouts/error_messages", model: f.object %>
-    <div class="form-group">
-        <%= f.radio_button :event_type, :ordinary_type, checked: true, id: "js-ordinary_type" %>
-        <%= f.label :event_type, "通常授業" %>
-        <%= f.radio_button :event_type, :reservation_type, id: "js-reservation_type" %>
-        <%= f.label :event_type, "予約型" %>
+<% provide(:body_title, "予定作成") %>
+<div class="content">
+    <%= form_with model: @event, url: staff_events_path, local: true do |f| %>
+        <%= render "layouts/error_messages", model: f.object %>
+        <div class="form-group">
+            <%= f.radio_button :event_type, :ordinary_type, checked: true, id: "js-ordinary_type" %>
+            <%= f.label :event_type, "通常授業" %>
+            <%= f.radio_button :event_type, :reservation_type, id: "js-reservation_type" %>
+            <%= f.label :event_type, "予約型" %>
+        </div>
+        <%= render "form", f: f %>
+        <div class="form-submit">
+            <%= f.submit "登録", class: "btn btn-outline-success" %>
+        </div>
+    <% end %> 
+    <div class="btn-group">
+        <%= button_to "戻る", staff_events_path, method: :get, class: "btn btn-outline-secondary" %>
     </div>
-    <%= render "form", f: f %>
-    <div class="form-submit">
-        <%= f.submit "登録", class: "btn btn-outline-success" %>
-    </div>
-<% end %> 
-<div class="btn-group">
-    <%= button_to "戻る", staff_events_path, method: :get, class: "btn btn-outline-secondary" %>
 </div>
-
 <%= javascript_pack_tag "events_new" %>

@@ -1,21 +1,26 @@
-<h4><%= "#{@score_sheet.examination.name}" + "テスト" %></h4>
-<%= link_to "このテストの情報を確認する", staff_examination_path(@score_sheet.examination.id) %>
-<table class="table mt-3">
-    <thead>
-    <tr>
-        <th scope="col">科目</th>
-        <th scope="col">点数</th>
-    </tr>
-    </thead>
-    <tbody>
-        <% @scores.each do |score| %>
+<% provide(:body_title, "点数表詳細") %>
+<div class="sub-body-title">
+    <p class="h6"><%= "#{@score_sheet.examination.name}" + "テスト" %></p>
+</div>
+<div class="content">
+    <%= link_to "このテストの情報を確認する", staff_examination_path(@score_sheet.examination.id) %>
+    <table class="table mt-3">
+        <thead>
         <tr>
-            <td><%= score.subject.name %></td>
-            <td><%= score.point %></td>
+            <th scope="col">科目</th>
+            <th scope="col">点数</th>
         </tr>
-        <% end %>
-    </tbody>
-</table>
-<div class="btn-group">
-    <%= link_to "一覧", staff_score_sheets_path, class: "btn btn-outline-secondary" %>
+        </thead>
+        <tbody>
+            <% @scores.each do |score| %>
+            <tr>
+                <td><%= score.subject.name %></td>
+                <td><%= score.point %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <div class="btn-group">
+        <%= link_to "一覧", staff_score_sheets_path, class: "btn btn-outline-secondary" %>
+    </div>
 </div>

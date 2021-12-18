@@ -1,31 +1,31 @@
-<div class="body-title">
-    <p class="h5">デイリーシート一覧</p>
-</div>
-<div class="search-form mb-5">
-    <%= render "search_form" %>
-</div>
-<table class="table">
-    <thead>
-        <tr>
-        <th scope="col">生徒名</th>
-        <th scope="col">日付</th>
-        <th scope="col">時限</th>
-        <th scope="col">科目</th>
-        <th scope="col">出欠</th>
-        <th scope="col">詳細</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @daily_sheets.each do |sheet| %>
+<% provide(:body_title, "デイリーシート一覧") %>
+<div class="content">
+    <div class="search-form mb-5">
+        <%= render "search_form" %>
+    </div>
+    <table class="table">
+        <thead>
             <tr>
-                <td><%= sheet.student_member.full_name %></td>
-                <td><%= sheet.study_date %></td>
-                <td><%= sheet.period.number_of_period %></td>
-                <td><%= sheet.subject.name %></td>
-                <td><%= sheet.participation_i18n %></td>
-                <td><%= link_to "表示", staff_daily_sheet_path(sheet.id), method: "get", class: "btn btn-outline-info" %></td>
+            <th scope="col">生徒名</th>
+            <th scope="col">日付</th>
+            <th scope="col">時限</th>
+            <th scope="col">科目</th>
+            <th scope="col">出欠</th>
+            <th scope="col">詳細</th>
             </tr>
-        <% end %>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <% @daily_sheets.each do |sheet| %>
+                <tr>
+                    <td><%= sheet.student_member.full_name %></td>
+                    <td><%= sheet.study_date %></td>
+                    <td><%= sheet.period.number_of_period %></td>
+                    <td><%= sheet.subject.name %></td>
+                    <td><%= sheet.participation_i18n %></td>
+                    <td><%= link_to "表示", staff_daily_sheet_path(sheet.id), method: "get", class: "btn btn-outline-info" %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
 <%= paginate @daily_sheets %>

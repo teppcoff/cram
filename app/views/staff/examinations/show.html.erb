@@ -1,5 +1,6 @@
-<div class="body-title">
-    <p class="h5"><%= @examination.name %>(<%= @examination.academic_year %>年度)</p>
+<% provide(:body_title, "テスト詳細") %>
+<div class="sub-body-title">
+    <p class="h6"><%= @examination.name %>(<%= @examination.academic_year %>年度)</p>
 </div>
 <div class="content">
     <table class="table">
@@ -41,7 +42,7 @@
             <% @subjects.each do |subject| %>
                 <tr>
                     <th scope="row"><%= subject.name %></th>
-                    <td><%= @examination.calculate_average_of(subject.id) %>点</td>
+                    <td><%= @examination.calculate_average_point_of(subject.id) %>点</td>
                     <td><%= @examination.calculate_highest_point_of(subject.id) %>点</td>
                     <td><%= @examination.calculate_lowest_point_of(subject.id) %>点</td>
                 </tr>

@@ -1,11 +1,11 @@
-<div class="body-title">
-    <p class="h5">テキスト新規登録</p>
+<% provide(:body_title, "テキスト新規登録") %>
+<div class="content">
+    <%= form_with(model: @textbook, url: staff_textbooks_path, local: true) do |f| %>
+        <%= render "layouts/error_messages", model: f.object %>
+        <%= render partial: "form", locals: { f: f } %>
+        <div class="form-submit">
+            <%= f.submit "作成", class: "btn btn-outline-success" %>
+        </div>
+    <% end %> 
+    <%= button_to "戻る", staff_textbooks_path, method: "get", class: "btn btn-outline-secondary" %>
 </div>
-<%= form_with(model: @textbook, url: staff_textbooks_path, local: true) do |f| %>
-    <%= render "layouts/error_messages", model: f.object %>
-    <%= render partial: "form", locals: { f: f } %>
-    <div class="form-submit">
-        <%= f.submit "作成", class: "btn btn-outline-success" %>
-    </div>
-<% end %> 
-<%= button_to "戻る", staff_textbooks_path, method: "get", class: "btn btn-outline-secondary" %>

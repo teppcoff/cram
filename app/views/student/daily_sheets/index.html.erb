@@ -1,30 +1,30 @@
-<div class="body-title">
-    <p class="h5">デイリーシート一覧</p>
+<% provide(:body_title, "デイリーシート一覧") %>
+<div class="content">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">生徒</th>
+                <th scope="col">担当講師</th>
+                <th scope="col">日付</th>
+                <th scope="col">時限</th>
+                <th scope="col">出欠</th>
+                <th scope="col">メッセージ</th>
+                <th scope="col">詳細</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @daily_sheets.each do |sheet| %>
+                    <tr>
+                        <td><%= sheet.student_member.full_name %></td>
+                        <td><%= sheet.staff_member.full_name %></td>
+                        <td><%= sheet.study_date %></td>
+                        <td><%= sheet.period.number_of_period %></td>
+                        <td><%= sheet.participation_i18n %></td>
+                        <td><%= sheet.message.truncate(10) %></td>
+                        <td><%= link_to "表示", student_daily_sheet_path(sheet.id), class: "btn btn-outline-info" %></td>
+                    </tr>
+            <% end %>
+        </tbody>
+    </table>
 </div>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">生徒</th>
-            <th scope="col">担当講師</th>
-            <th scope="col">日付</th>
-            <th scope="col">時限</th>
-            <th scope="col">出欠</th>
-            <th scope="col">メッセージ</th>
-            <th scope="col">詳細</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @daily_sheets.each do |sheet| %>
-                <tr>
-                    <td><%= sheet.student_member.full_name %></td>
-                    <td><%= sheet.staff_member.full_name %></td>
-                    <td><%= sheet.study_date %></td>
-                    <td><%= sheet.period.number_of_period %></td>
-                    <td><%= sheet.participation_i18n %></td>
-                    <td><%= sheet.message.truncate(10) %></td>
-                    <td><%= link_to "表示", student_daily_sheet_path(sheet.id), class: "btn btn-outline-info" %></td>
-                </tr>
-        <% end %>
-    </tbody>
-</table>
 <%= paginate @daily_sheets %>

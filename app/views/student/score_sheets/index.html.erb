@@ -1,20 +1,20 @@
-<div class="body-title">
-    <p class="h5">定期テスト結果一覧</p>
-</div>
-<table class="table">
-    <thead>
-        <th scope="col">テスト</th>
-        <th scope="col">詳細</th>
-    </thead>
-    <% @score_sheets.each do |sheet| %>
-    <tbody>
-        <tr>
-            <td><%= sheet.examination.name %></td>
-            <td><%= link_to "表示する", student_score_sheet_path(sheet.id), class: "btn btn-outline-info" %></td>
-        </tr>
-    <% end %>
-</table>
-<div class="btn-group">
-    <%= button_to "新規登録", new_student_score_sheet_path, method: "get", class: "btn btn-outline-primary" %>
+<% provide(:body_title, "定期テスト結果一覧") %>
+<div class="content">
+    <table class="table">
+        <thead>
+            <th scope="col">テスト</th>
+            <th scope="col">詳細</th>
+        </thead>
+        <% @score_sheets.each do |sheet| %>
+        <tbody>
+            <tr>
+                <td><%= sheet.examination.name %></td>
+                <td><%= link_to "表示する", student_score_sheet_path(sheet.id), class: "btn btn-outline-info" %></td>
+            </tr>
+        <% end %>
+    </table>
+    <div class="btn-group">
+        <%= button_to "新規登録", new_student_score_sheet_path, method: "get", class: "btn btn-outline-primary" %>
+    </div>
 </div>
 <%= paginate @score_sheets %>
