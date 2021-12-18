@@ -1,29 +1,29 @@
-<div class="body-title">
-    <p class="h5">デイリーシート詳細</p>
-</div>
-<table class="table">
-    <tr><th scope="col">担当講師</th></tr>
-    <tr><td><%= @daily_sheet.staff_member.full_name %></td></tr>
-    <tr><th scope="col">生徒</th></tr>
-    <tr><td><%= @daily_sheet.student_member.full_name %></td></tr>
-    <tr><th scope="col">日付</th></tr>
-    <tr><td><%= @daily_sheet.study_date %></td></tr>
-    <tr><th scope="col">時限</th></tr>
-    <tr><td><%= @daily_sheet.period.number_of_period %></td></tr>
-    <tr><th scope="col">科目</th></tr>
-    <tr><td><%= @daily_sheet.subject.name %></td></tr>
-    <tr><th scope="col">テキスト</th></tr>
-    <tr><td><%= @daily_sheet.textbook.name %></td></tr>
-    <tr><th scope="col">メッセージ</th></tr>
-    <tr><td><%= @daily_sheet.message %></td></tr>
-    <tr><th scope="col">連絡事項</th></tr>
-    <tr><td><%= @daily_sheet.information %></td></tr>
-    <tr><th scope="col">出欠</th></tr>
-    <tr><td><%= @daily_sheet.participation_i18n %></td></tr>
-</table>
-<div class="btn-group">
-    <%= button_to "編集", edit_staff_daily_sheet_path(@daily_sheet), method: "get", class: "btn btn-outline-primary" %>
-    <%= button_to "削除", { controller: "daily_sheets", action: "destroy" }, method: "delete",
-        data: { confirm: " シート「#{@daily_sheet.study_date} #{@daily_sheet.period}限」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger" %>
-    <%= button_to "一覧", staff_daily_sheets_path, method: "get", class: "btn btn-outline-secondary" %>
+<% provide(:body_title, "デイリーシート詳細") %>
+<div class="content">
+    <table class="table">
+        <tr><th scope="col">担当講師</th></tr>
+        <tr><td><%= @daily_sheet.staff_member.full_name %></td></tr>
+        <tr><th scope="col">生徒</th></tr>
+        <tr><td><%= @daily_sheet.student_member.full_name %></td></tr>
+        <tr><th scope="col">日付</th></tr>
+        <tr><td><%= @daily_sheet.study_date %></td></tr>
+        <tr><th scope="col">時限</th></tr>
+        <tr><td><%= @daily_sheet.period.number_of_period %></td></tr>
+        <tr><th scope="col">科目</th></tr>
+        <tr><td><%= @daily_sheet.subject.name %></td></tr>
+        <tr><th scope="col">テキスト</th></tr>
+        <tr><td><%= @daily_sheet.textbook.name %></td></tr>
+        <tr><th scope="col">メッセージ</th></tr>
+        <tr><td><%= @daily_sheet.message %></td></tr>
+        <tr><th scope="col">連絡事項</th></tr>
+        <tr><td><%= @daily_sheet.information %></td></tr>
+        <tr><th scope="col">出欠</th></tr>
+        <tr><td><%= @daily_sheet.participation_i18n %></td></tr>
+    </table>
+    <div class="btn-group">
+        <%= button_to "編集", edit_staff_daily_sheet_path(@daily_sheet), method: "get", class: "btn btn-outline-primary" %>
+        <%= button_to "削除", { controller: "daily_sheets", action: "destroy" }, method: "delete",
+            data: { confirm: " シート「#{@daily_sheet.study_date} #{@daily_sheet.period}限」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger" %>
+        <%= button_to "一覧", staff_daily_sheets_path, method: "get", class: "btn btn-outline-secondary" %>
+    </div>
 </div>

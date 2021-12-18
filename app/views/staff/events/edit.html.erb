@@ -1,12 +1,12 @@
-<div class="body-title">
-    <p class="h5">予定編集</p>
-</div>
-<%= form_with model: @event, url: staff_event_path, local: true do |f| %>
-    <%= render "form", f: f %>
-    <div class="form-submit">
-        <%= f.submit "更新", class: "btn btn-outline-success" %>
+<% provide(:body_title, "予定編集") %>
+<div class="content">
+    <%= form_with model: @event, url: staff_event_path, local: true do |f| %>
+        <%= render "form", f: f %>
+        <div class="form-submit">
+            <%= f.submit "更新", class: "btn btn-outline-success" %>
+        </div>
+    <% end %>
+    <div class="btn-group">
+        <%= button_to "戻る", staff_event_path(@event.id), method: :get, class: "btn btn-outline-secondary" %>
     </div>
-<% end %>
-<div class="btn-group">
-    <%= button_to "戻る", staff_event_path(@event.id), method: :get, class: "btn btn-outline-secondary" %>
 </div>

@@ -1,27 +1,27 @@
-<div class="body-title">
-    <p class="h5">担当生徒一覧</p>
+<% provide(:body_title, "担当生徒一覧") %>
+<div class="content">
+    <%= render "search_form" %>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">生徒ID</th>
+            <th scope="col">氏名</th>
+            <th scope="col">学年</th>
+            <th scope="col">学校</th>
+            <th scope="col">性別</th>
+            </tr>
+        </thead>
+        <% @students.each do |student| %>
+        <tbody>
+            <tr>
+            <th scope="row"><%= student.id %></th>
+            <td><%= link_to "#{student.full_name}", staff_student_member_path(student.id), class: "text-info" %></td>
+            <td><%= student.full_school_year %></td>
+            <td><%= student.school.name %></td>
+            <td><%= student.gender_i18n %></td>
+            </tr>
+        </tbody>
+        <% end %>
+    </table>
 </div>
-<%= render "search_form" %>
-<table class="table">
-    <thead>
-        <tr>
-        <th scope="col">生徒ID</th>
-        <th scope="col">氏名</th>
-        <th scope="col">学年</th>
-        <th scope="col">学校</th>
-        <th scope="col">性別</th>
-        </tr>
-    </thead>
-    <% @students.each do |student| %>
-    <tbody>
-        <tr>
-        <th scope="row"><%= student.id %></th>
-        <td><%= link_to "#{student.full_name}", staff_student_member_path(student.id), class: "text-info" %></td>
-        <td><%= student.full_school_year %></td>
-        <td><%= student.school.name %></td>
-        <td><%= student.gender_i18n %></td>
-        </tr>
-    </tbody>
-    <% end %>
-</table>
 <%= paginate @students %>

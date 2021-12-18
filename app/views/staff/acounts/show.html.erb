@@ -1,43 +1,46 @@
-<table class="table">
-    <tr>
-        <th scope="col">性</th>
-        <td><%= @staff.family_name %></td>
-    </tr>
-    <tr>
-        <th scope="col">名</th>
-        <td><%= @staff.given_name %></td>
-    </tr>
-    <tr>
-        <th scope="col">性</th>
-        <td><%= @staff.family_name %></td>
-    </tr>
-    <tr>
-        <th scope="col">性（フリガナ）</th>
-        <td><%= @staff.family_name_kana %></td>
-    </tr>
-    <tr>
-        <th scope="col">名（フリガナ）</th>
-        <td><%= @staff.given_name_kana %></td>
-    </tr>
-    <tr>
-        <th scope="col">性別</th>
-        <td><%= @staff.gender_i18n %></td>
-    </tr>
-    <tr>
-        <th scope="col">生年月日</th>
-        <td><%= @staff.birthday %></td>
-    </tr>
-    <tr>
-        <th scope="col">メールアドレス</th>
-        <td><%= @staff.email %></td>
-    </tr>
-    <tr>
-        <th scope="col">雇用形態</th>
-        <td><%= @staff.employment_status_i18n %></td>
-    </tr>
-</table>
-<div class="btn-group">
-    <%= button_to "編集", staff_edit_path(@staff.id), method: "get", class: "btn btn-outline-primary mx-2" %>
-    <%= button_to "削除", { controller: "acounts", action: "destroy" }, method: "delete",
-        data: { confirm: "ユーザー「#{@staff.full_name}」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger" %>
+<% provide(:body_title, "ユーザー情報") %>
+<div class="content">
+    <table class="table">
+        <tr>
+            <th scope="col">性</th>
+            <td><%= @staff.family_name %></td>
+        </tr>
+        <tr>
+            <th scope="col">名</th>
+            <td><%= @staff.given_name %></td>
+        </tr>
+        <tr>
+            <th scope="col">性</th>
+            <td><%= @staff.family_name %></td>
+        </tr>
+        <tr>
+            <th scope="col">性（フリガナ）</th>
+            <td><%= @staff.family_name_kana %></td>
+        </tr>
+        <tr>
+            <th scope="col">名（フリガナ）</th>
+            <td><%= @staff.given_name_kana %></td>
+        </tr>
+        <tr>
+            <th scope="col">性別</th>
+            <td><%= @staff.gender_i18n %></td>
+        </tr>
+        <tr>
+            <th scope="col">生年月日</th>
+            <td><%= @staff.birthday %></td>
+        </tr>
+        <tr>
+            <th scope="col">メールアドレス</th>
+            <td><%= @staff.email %></td>
+        </tr>
+        <tr>
+            <th scope="col">雇用形態</th>
+            <td><%= @staff.employment_status_i18n %></td>
+        </tr>
+    </table>
+    <div class="btn-group">
+        <%= button_to "編集", staff_edit_path(@staff.id), method: "get", class: "btn btn-outline-primary mx-2" %>
+        <%= button_to "削除", { controller: "acounts", action: "destroy" }, method: "delete",
+            data: { confirm: "ユーザー「#{@staff.full_name}」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger" %>
+    </div>
 </div>

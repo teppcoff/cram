@@ -1,10 +1,10 @@
-<div class="body-title">
-    <p class="h5">お知らせ投稿</p>
+<% provide(:body_title, "お知らせ投稿") %>
+<div class="content">
+    <%= form_with model: @post, url: staff_posts_path, local: true do |f| %>
+        <%= render "layouts/error_messages", model: f.object %>
+        <%= render partial: "form", locals: { f: f } %>
+        <div class="form-submit">
+            <%= f.submit "投稿", class: "btn btn-outline-success" %>
+        </div>
+    <% end %>
 </div>
-<%= form_with model: @post, url: staff_posts_path, local: true do |f| %>
-    <%= render "layouts/error_messages", model: f.object %>
-    <%= render partial: "form", locals: { f: f } %>
-    <div class="form-submit">
-        <%= f.submit "投稿", class: "btn btn-outline-success" %>
-    </div>
-<% end %>

@@ -41,7 +41,7 @@ class Examination < ApplicationRecord
         scores_list
     end
 
-    def calculate_average_of(subject)
+    def calculate_average_point_of(subject)
         ( scores_list_of(subject).sum / (scores_list_of(subject).length) ).round(1)
     end
 

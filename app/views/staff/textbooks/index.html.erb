@@ -1,28 +1,28 @@
-<div class="body-title ">
-    <p class="h5">テキスト一覧</p>
-</div>
-<table class="table">
-        <thead>
-            <tr>
-            <th scope="col">タイトル</th>
-            <th scope="col">テキストタイプ</th>
-            <th scope="col">科目</th>
-            <th scope="col">削除</th>
-            </tr>
-        </thead>
-        <% @textbooks.each do |text| %>
-        <tbody>
-            <tr>
-                <td><%= text.name %></td>
-                <td><%= text.text_type_i18n %></td>
-                <td><%= text.subject.name %></td>
-                <td><%= link_to "削除", staff_textbook_path(text.id), method: "delete" ,
-                    data: { confirm: " テキスト「#{text.name}」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger" %></td>
-            </tr>
-        </tbody>
-        <% end %>
-</table>
-<div class="btn-group">
-    <%= link_to "新規登録", new_staff_textbook_path, class: "btn btn-outline-success" %>
+<% provide(:body_title, "テキスト一覧") %>
+<div class="content">
+    <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">タイトル</th>
+                <th scope="col">テキストタイプ</th>
+                <th scope="col">科目</th>
+                <th scope="col">削除</th>
+                </tr>
+            </thead>
+            <% @textbooks.each do |text| %>
+            <tbody>
+                <tr>
+                    <td><%= text.name %></td>
+                    <td><%= text.text_type_i18n %></td>
+                    <td><%= text.subject.name %></td>
+                    <td><%= link_to "削除", staff_textbook_path(text.id), method: "delete" ,
+                        data: { confirm: " テキスト「#{text.name}」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger" %></td>
+                </tr>
+            </tbody>
+            <% end %>
+    </table>
+    <div class="btn-group">
+        <%= link_to "新規登録", new_staff_textbook_path, class: "btn btn-outline-success" %>
+    </div>
 </div>
 <%= paginate @textbooks %>
