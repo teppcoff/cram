@@ -6,19 +6,19 @@
         <h6 id="table-title">概要</h6>
         <tr>
             <th scope="row">受験者数</th>
-            <td><%= @examination.score_sheets.count %>人</td>
+            <td><%= @examination.number_of_takers %>人</td>
         </tr>
         <tr>
             <th scope="row">平均点</th>
-            <td><%= @total_average_point %> / <%= @examination.score_sheets.count * 100 %> 点</td>
+            <td><%= @examination.calculate_average_total_point %> / <%= @examination.perfect_score %> 点</td>
         </tr>
         <tr>
             <th scope="row">最高得点</th>
-            <td><%= @highest_total_point %> / <%= @examination.score_sheets.count * 100 %> 点</td>
+            <td><%= @examination.calculate_highest_total_point %> / <%= @examination.perfect_score %> 点</td>
         </tr>
         <tr>
             <th scope="row">最低得点</th>
-            <td><%= @lowest_total_point %> / <%= @examination.score_sheets.count * 100 %> 点</td>
+            <td><%= @examination.calculate_lowest_total_point %> / <%= @examination.perfect_score %> 点</td>
         </tr>
         <tr>
             <th scope="row">科目</th>
