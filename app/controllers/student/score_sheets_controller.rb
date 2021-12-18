@@ -9,6 +9,15 @@ class Student::ScoreSheetsController < Student::Base
         @score = @score_sheet.scores.build
     end
 
+    def set_examination
+        # テストを選択すると対応する科目が取得される
+        examination = Examination.find(params[:examination_id])
+        @subjects = examination.subjects
+        respond_to do |format|
+          format.js
+        end
+    end
+
     def create
         @score_sheet = ScoreSheet.new(score_sheet_params)
         if @score_sheet.save

@@ -57,6 +57,7 @@ ja:
         period: 時限
       score_sheet:
         examination: テスト名
+        scores: 点数
       post:
         title: タイトル
         content: 本文
