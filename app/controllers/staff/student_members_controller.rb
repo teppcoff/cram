@@ -17,8 +17,7 @@ class Staff::StudentMembersController < Staff::Base
     private
 
         def student_member_search_params
-            params.fetch(:search, {}).permit(:family_name, :given_name, :family_name_kana, :given_name_kana,
-            :school_type, :school_year)
+            params.fetch(:search, {}).permit(:family_name, :given_name, :family_name_kana, :given_name_kana, :school_type)
         end
 
 end

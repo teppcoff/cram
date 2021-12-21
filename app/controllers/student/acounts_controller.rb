@@ -7,7 +7,7 @@ class Student::AcountsController < Student::Base
     end
     
     def set_school
-        # 学校を選択すると対応する学年1(小中高)が取得される
+        # 学校を選択すると対応する学年1(小・中・高)が取得される
         school = School.find(params[:school_id])
         @school_type = school.school_type
         respond_to do |format|

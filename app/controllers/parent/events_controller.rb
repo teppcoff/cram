@@ -1,12 +1,8 @@
 class Parent::EventsController < Parent::Base
 
     def index
-      # ページネーションのために子供のイベントを配列に入れている(他に良い方法が見つからなかった)
-      students = current_parent.student_members
-      events = Array.new
-      students.each { |student| events.push(student.events) }
-      events.flatten! 
-      @events = Kaminari.paginate_array(events).page(params[:page]).per(10)
+      @events = current_parent.events
+      @events = @events.page(params[:page]).per(5)
     end
 
     def show 

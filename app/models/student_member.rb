@@ -33,24 +33,20 @@ class StudentMember < ApplicationRecord
 
     def full_school_year
         self.school_type_i18n + " " + self.school_year_i18n
-        # 例)「中学校」+「3年生」で「中学校3年生」取得できる
+        # 例)「中学校」+「3年生」で「中学校3年生」を取得できる
     end
 
     scope :search, -> (search_params) do
         return if search_params.blank?
-
         family_name_is(search_params[:family_name])
             .given_name_is(search_params[:given_name])
             .family_name_kana_is(search_params[:family_name_kana])
             .given_name_kana_is(search_params[:given_name_kana])
             .school_type_is(search_params[:school_type])
-            .school_year_is(search_params[:school_year])
     end
-
         scope :family_name_is, -> (family_name) { where(family_name: family_name) if family_name.present? }
         scope :given_name_is, -> (given_name) { where(given_name: given_name) if given_name.present? }
         scope :family_name_kana_is, -> (family_name_kana) { where(family_name_kana: family_name_kana) if family_name_kana.present? }
         scope :given_name_kana_is, -> (given_name_kana) { where(given_name_kana: given_name_kana) if given_name_kana.present? }
         scope :school_type_is, -> (school_type) { where(school_type: school_type) if school_type.present? }
-        scope :school_year_is, -> (school_year) { where(school_year: school_year) if school_year.present? }
 end

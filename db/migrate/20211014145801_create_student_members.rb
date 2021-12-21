@@ -15,7 +15,5 @@ class CreateStudentMembers < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-    add_index :student_members, :family_name_kana
-    add_index :student_members, :given_name_kana
   end
 end
