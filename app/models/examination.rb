@@ -14,9 +14,9 @@ class Examination < ApplicationRecord
     end
 
     def calculate_average_total_point
-        total_point = 0
-        score_sheets.each { |sheet| total_point += sheet.total_point }
-        ( total_point / score_sheets.count ).round(1)
+        summed_total_point = 0
+        score_sheets.each { |sheet| summed_total_point += sheet.total_point }
+        ( summed_total_point / score_sheets.count ).round(1)
     end
 
     def calculate_highest_total_point
@@ -26,19 +26,9 @@ class Examination < ApplicationRecord
     end
 
     def calculate_lowest_total_point
-        lowest_total_point = 1000
+        lowest_total_point = 500
         score_sheets.each { |sheet| lowest_total_point = sheet.total_point if sheet.total_point < lowest_total_point }
         lowest_total_point
-    end
-
-    def scores_list_of(subject)
-        scores_list = Array.new
-        score_sheets.each do |sheet|
-            sheet.scores.each do |score|
-                scores_list.push(score.point) if score.subject_id == subject
-            end
-        end
-        scores_list
     end
 
     def calculate_average_point_of(subject)
@@ -51,6 +41,14 @@ class Examination < ApplicationRecord
 
     def calculate_lowest_point_of(subject)
         scores_list_of(subject).min
+    end
+
+    def scores_list_of(subject)
+        scores_list = Array.new
+        score_sheets.each do |sheet|
+            sheet.scores.each { |score| scores_list.push(score.point) if score.subject_id == subject }
+        end
+        scores_list
     end
 
     def subjects_of_examination

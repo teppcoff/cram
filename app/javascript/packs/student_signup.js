@@ -17,6 +17,7 @@ jQuery(function ($) {
         //学年２は、学年1(school_type)が小学校なら6年生まで、それ以外なら3年生までの選択肢が表示される
         //"#js-subjects_form"の子要素に科目の選択肢が並んでいる
         //それをsliceで範囲指定して表示・非表示を切り替えている
+        //他に良い方法があれば改良したい
         if (school_type == "high_school") {
             $("#student_member_school_year").children('[value="fourth_year"], [value="fifth_year"], [value="sixth_year"]').hide();
             $("#js-subjects_form").children().slice(12, 17).show();

@@ -10,5 +10,6 @@ class Event < ApplicationRecord
     belongs_to :staff_member
     belongs_to :subject
     belongs_to :period
+    has_one :parent_member, through: :student_member
     
 end

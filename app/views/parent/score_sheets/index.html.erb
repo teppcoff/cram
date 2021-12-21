@@ -8,8 +8,8 @@
             <th scope="col">テスト</th>
             <th scope="col">詳細</th>
         </thead>
+        <tbody>
             <% @score_sheets.each do |sheet| %>
-            <tbody>
                 <tr>
                     <td><%= sheet.examination.school.name %></td>
                     <td><%= sheet.student_member.school_type_i18n %><%= sheet.student_member.school_year_i18n %></td>
@@ -17,8 +17,8 @@
                     <td><%= sheet.examination.name %></td>
                     <td><%= link_to "表示する", parent_score_sheet_path(sheet.id), class: "btn btn-outline-info" %></td>
                 </tr>
-            </tbody>
             <% end %>
+        </tbody>
     </table>
 </div>
 <%= paginate @score_sheets %>
