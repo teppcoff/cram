@@ -6,7 +6,7 @@ class Examination < ApplicationRecord
     has_many :score_sheets
 
     def perfect_score
-        subjects_of_examination.count * 100
+        subjects_list_of_examination.count * 100
     end
 
     def number_of_takers
@@ -32,26 +32,27 @@ class Examination < ApplicationRecord
     end
 
     def calculate_average_point_of(subject)
-        ( scores_list_of(subject).sum / (scores_list_of(subject).length) ).round(1)
+        ( points_list_of(subject).sum / (points_list_of(subject).length) ).round(1)
     end
 
     def calculate_highest_point_of(subject)
-        scores_list_of(subject).max
+        points_list_of(subject).max
     end
 
     def calculate_lowest_point_of(subject)
-        scores_list_of(subject).min
+        points_list_of(subject).min
     end
 
-    def scores_list_of(subject)
-        scores_list = Array.new
-        score_sheets.each do |sheet|
-            sheet.scores.each { |score| scores_list.push(score.point) if score.subject_id == subject }
+    def points_list_of(subject)
+        points_list = Array.new
+        score_sheets.each do |sheet| 
+            point = sheet.point_of(subject)
+            points_list.push(point)
         end
-        scores_list
+        points_list
     end
 
-    def subjects_of_examination
+    def subjects_list_of_examination
         subjects_list = Array.new
         score_sheets.each do |sheet|
             sheet.scores.each { |score| subjects_list << score.subject }
