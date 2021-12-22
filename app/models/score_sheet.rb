@@ -14,6 +14,10 @@ class ScoreSheet < ApplicationRecord
         scores.sum(:point)
     end
 
+    def point_of(subject)
+        scores.where(subject_id: subject).first.point
+    end
+
     scope :search, -> (search_params) do
         return if search_params.blank?
         student_member_id_is(search_params[:student_member_id])
