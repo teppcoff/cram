@@ -2,24 +2,12 @@
 <div class="content">
     <table class="table">
         <tr>
-            <th scope="col">性</th>
-            <td><%= @staff.family_name %></td>
+            <th scope="col">氏名</th>
+            <td><%= @staff.full_name %></td>
         </tr>
         <tr>
-            <th scope="col">名</th>
-            <td><%= @staff.given_name %></td>
-        </tr>
-        <tr>
-            <th scope="col">性</th>
-            <td><%= @staff.family_name %></td>
-        </tr>
-        <tr>
-            <th scope="col">性（フリガナ）</th>
-            <td><%= @staff.family_name_kana %></td>
-        </tr>
-        <tr>
-            <th scope="col">名（フリガナ）</th>
-            <td><%= @staff.given_name_kana %></td>
+            <th scope="col">氏名（フリガナ）</th>
+            <td><%= @staff.full_name_kana %></td>
         </tr>
         <tr>
             <th scope="col">性別</th>

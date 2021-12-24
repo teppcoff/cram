@@ -21,6 +21,16 @@ body {
 .form-group {
     margin: 2px;
 }
+.required:after {
+    content: "*";
+    padding-left: 1px;
+    color: red;
+}
+.notes {
+    text-align: right;
+    font-size: 0.8em;
+    span.mark { color: red; }
+}
 .form-submit {
     margin-top: 10px;
 }

@@ -31,6 +31,10 @@ class StudentMember < ApplicationRecord
         self.family_name + " " + self.given_name
     end
 
+    def full_name_kana
+        self.family_name_kana + " " + self.given_name_kana
+    end
+
     def full_school_year
         self.school_type_i18n + " " + self.school_year_i18n
         # 例)「中学校」+「3年生」で「中学校3年生」を取得できる

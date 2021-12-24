@@ -50,11 +50,6 @@ RSpec.describe DailySheet, type: :model do
     expect(@daily_sheet).to be_invalid
   end
 
-  it "textbookが必要であること" do
-    @daily_sheet.textbook = nil
-    expect(@daily_sheet).to be_invalid
-  end
-
   it "periodが必要であること" do
     @daily_sheet.period = nil
     expect(@daily_sheet).to be_invalid

@@ -1,32 +1,21 @@
+<%= markup do |m|
+    p = AccountFormPresenter.new(f, self)
+    m << p.notes
+    p.with_options(required: true) do |q|
+        m << q.full_name_block(:family_name, :given_name, "氏名", class: "form-control col")
+        m << q.full_name_block(:family_name_kana, :given_name_kana, "フリガナ", class: "form-control col")
+        m << q.text_field_block(:email, "メールアドレス", class: "form-control")
+    end
+end %>
 <div class="form-group">
-    <%= f.label :family_name, "性" %>
-    <%= f.text_field :family_name, class: "form-control" %>
-</div>   
-<div class="form-group">
-    <%= f.label :given_name, "名" %>
-    <%= f.text_field :given_name, class: "form-control" %>
-</div>   
-<div class="form-group">
-    <%= f.label :family_name_kana, "性（フリガナ）" %>
-    <%= f.text_field :family_name_kana, class: "form-control" %>
-</div>   
-<div class="form-group">
-    <%= f.label :given_name_kana, "名（フリガナ）" %>
-    <%= f.text_field :given_name_kana, class: "form-control" %>
-</div> 
-<div class="group">
-    <%= f.label :gender, "性別:" %>
-    <%= f.select :gender, StaffMember.genders_i18n.keys.map{|k| [I18n.t("enums.staff_member.gender.#{k}"), k]} %>
+    <%= f.label :gender, "性別", class: "required" %>
+    <%= f.select :gender, StaffMember.genders_i18n.keys.map{|k| [I18n.t("enums.staff_member.gender.#{k}"), k]}, required: true %>
 </div> 
 <div class="form-group">
-    <%= f.label :birthday, "生年月日:" %>
-    <%= f.date_select :birthday, start_year: Time.now.year, end_year: 1900, class: "form-control" %>
-</div> 
+    <%= f.label :birthday, "生年月日", class: "required" %>
+    <%= f.date_select :birthday, start_year: Time.now.year, end_year: 1900, class: "form-control", required: true %>
+</div>
 <div class="form-group">
-    <%= f.label :email, "メールアドレス:" %>
-    <%= f.text_field :email, class: "form-control" %>
-</div> 
-<div class="form-group">
-    <%= f.label :employment_status, "雇用形態:" %>
-    <%= f.select :employment_status, StaffMember.employment_statuses_i18n.keys.map{|k| [I18n.t("enums.staff_member.employment_status.#{k}"), k]}, prompt: "選択する" %>
+    <%= f.label :employment_status, "雇用形態", class: "required" %>
+    <%= f.select :employment_status, StaffMember.employment_statuses_i18n.keys.map{|k| [I18n.t("enums.staff_member.employment_status.#{k}"), k]}, prompt: "選択する", required: true %>
 </div>

@@ -1,33 +1,33 @@
 <div class="form-group">
-    <%= f.label :student_member_id, "生徒:" %>
+    <%= f.label :student_member_id, "生徒", class: "required" %>
     <%= f.collection_select :student_member_id, StudentMember.all, :id, :full_name, prompt: "選択する" %>
 </div>
 <div class="form-group">
-    <%= f.label :staff_member_id, "担当講師:" %>
+    <%= f.label :staff_member_id, "担当講師", class: "required" %>
     <%= f.collection_select :staff_member_id, StaffMember.all, :id, :full_name, selected: current_staff.id %>
 </div>
 <div class="form-group">
-    <%= f.label :study_date, "日付:" %>
+    <%= f.label :study_date, "日付", class: "required" %>
     <%= f.date_select :study_date, {default: Date.today}, class: "form-control" %>
 </div> 
 <div class="form-group">
-    <%= f.label :period_id, "時限:" %>
+    <%= f.label :period_id, "時限", class: "required" %>
     <%= f.number_field :period_id, min: 1, max: 5, class: "form-control" %>
 </div>
 <div class="form-group">
-    <%= f.label :subject_id, "科目:" %>
+    <%= f.label :subject_id, "科目", class: "required" %>
     <%= f.collection_select :subject_id, Subject.all, :id, :name, prompt: "選択する" %>
 </div>
 <div class="form-group">
-    <%= f.label :textbook_id, "テキスト:" %>
+    <%= f.label :textbook_id, "テキスト" %>
     <%= f.collection_select :textbook_id, Textbook.all, :id, :name, prompt: "選択する" %>
 </div>
 <div class="form-group">
-    <%= f.label :message, "メッセージ:" %>
+    <%= f.label :message, "メッセージ", class: "required" %>
     <%= f.text_area :message, maxlength: 300, class: "form-control", placeholder: "例）よく集中できていました。期末テストに向けて頑張りましょう" %>
 </div>
 <div class="form-group">
-    <%= f.label :information, "連絡事項:" %>
+    <%= f.label :information, "連絡事項", class: "required" %>
     <%= f.text_area :information, maxlength: 300, class: "form-control", placeholder: "例）次回小テストを行うので、該当範囲の復習をしてきてください。" %>
 </div>
 <div class="form-group">
