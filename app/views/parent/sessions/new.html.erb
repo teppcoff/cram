@@ -1,12 +1,12 @@
 <%= form_with scope: :session, url: parent_login_path, local: true do |f| %>
-    <div class="form-group">
-        <%= f.label :email, "メールアドレス" %>
-        <%= f.text_field :email %>
-    </div>
-    <div class="form-group">
-        <%= f.label :password, "パスワード" %>
-        <%= f.password_field :password %>
-    </div>
+    <%= markup do |m|
+        p = AccountFormPresenter.new(f, self)
+        m << p.notes
+        p.with_options(required: true) do |q|
+            m << q.text_field_block(:email, "メールアドレス", class: "form-control")
+            m << q.password_field_block(:password, "パスワード", class: "form-control")
+        end
+    end %>
     <div class="form-submit">
         <%= f.submit "ログイン", class: "btn btn-outline-info" %>
     </div>

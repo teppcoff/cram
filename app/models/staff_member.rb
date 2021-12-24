@@ -27,5 +27,9 @@ class StaffMember < ApplicationRecord
     def full_name
         self.family_name + " " + self.given_name
     end
+
+    def full_name_kana
+        self.family_name_kana + " " + self.given_name_kana
+    end
     
 end

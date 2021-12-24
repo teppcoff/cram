@@ -1,20 +1,12 @@
 <% provide(:body_title, "ユーザー情報") %>
 <table class="table">
     <tr>
-        <th scope="col">性</th>
-        <td><%= @student.family_name %></td>
+        <th scope="col">氏名</th>
+        <td><%= @student.full_name %></td>
     </tr>
     <tr>
-        <th scope="col">名</th>
-        <td><%= @student.given_name %></td>
-    </tr>
-    <tr>
-        <th scope="col">性（フリガナ）</th>
-        <td><%= @student.family_name_kana %></td>
-    </tr>
-    <tr>
-        <th scope="col">名（フリガナ）</th>
-        <td><%= @student.given_name_kana %></td>
+        <th scope="col">氏名（フリガナ）</th>
+        <td><%= @student.full_name_kana %></td>
     </tr>
     <tr>
         <th scope="col">性別</th>
