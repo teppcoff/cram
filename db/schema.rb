@@ -35,10 +35,8 @@ ActiveRecord::Schema.define(version: 2021_12_13_004021) do
     t.string "title", null: false
     t.datetime "starts_at", null: false
     t.datetime "ends_at", null: false
-    t.date "starts_on"
-    t.date "ends_on"
-    t.integer "repeats_on"
     t.integer "event_type"
+    t.integer "repeat_count", default: 1
     t.bigint "period_id"
     t.bigint "student_member_id"
     t.bigint "staff_member_id"
@@ -81,7 +79,6 @@ ActiveRecord::Schema.define(version: 2021_12_13_004021) do
     t.string "email", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_parent_members_on_email", unique: true
   end
 
   create_table "periods", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -142,7 +139,6 @@ ActiveRecord::Schema.define(version: 2021_12_13_004021) do
     t.integer "employment_status", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_staff_members_on_email", unique: true
   end
 
   create_table "student_members", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -161,8 +157,6 @@ ActiveRecord::Schema.define(version: 2021_12_13_004021) do
     t.bigint "staff_member_id"
     t.bigint "parent_member_id"
     t.bigint "school_id"
-    t.index ["family_name_kana"], name: "index_student_members_on_family_name_kana"
-    t.index ["given_name_kana"], name: "index_student_members_on_given_name_kana"
     t.index ["parent_member_id"], name: "index_student_members_on_parent_member_id"
     t.index ["school_id"], name: "index_student_members_on_school_id"
     t.index ["staff_member_id"], name: "index_student_members_on_staff_member_id"
