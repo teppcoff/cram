@@ -1,8 +1,8 @@
 jQuery(function ($) {
     $("#student_member_school_id").on("change", function() {
-        var selected_school = $("#student_member_school_id").val();
+        let selected_school = $("#student_member_school_id").val();
         
-        //学校(school_id)を選択すると、自動的に学年1(school_type)が選択される
+        // 学校(school_id)を選択すると、自動的に学年1(school_type)が選択される
         $.ajax({
             url: "/student/signup/set_school/",
             type: "GET",
@@ -11,26 +11,32 @@ jQuery(function ($) {
     });
 
     $(document).ajaxComplete(function () {
-        var school_type = $("#student_member_school_type").val();
+        let school_type = $("#student_member_school_type").val();
+        let years_of_elementary_school = $("#student_member_school_year").children('[value="fourth_year"], [value="fifth_year"], [value="sixth_year"]');
+        let subjects_of_elementary_school = $("#js-subjects_form").children().slice(2, 7);
+        let subjects_of_junior_high_school = $("#js-subjects_form").children().slice(7, 12);
+        let subjects_of_high_school = $("#js-subjects_form").children().slice(12, 17);
 
-        //選択された学年1(school_type)に応じて、表示される学年2(school_year)と科目(subject_ids)の選択肢が切り替わる
-        //学年２は、学年1(school_type)が小学校なら6年生まで、それ以外なら3年生までの選択肢が表示される
-        //"#js-subjects_form"の子要素に科目の選択肢が並んでいる
-        //それをsliceで範囲指定して表示・非表示を切り替えている
-        //他に良い方法があれば改良したい
+        // 選択された学年1(school_type)に応じて、表示される学年2(school_year)と科目(subject_ids)の選択肢が切り替わる
+        // 学年２は、学年1(school_type)が小学校なら6年生まで、それ以外なら3年生までの選択肢が表示される
+        // 科目は、"#js-subjects_form"の子要素に選択肢として並んでいる
+        // それをsliceで範囲指定して表示・非表示を切り替えている
         if (school_type == "high_school") {
-            $("#student_member_school_year").children('[value="fourth_year"], [value="fifth_year"], [value="sixth_year"]').hide();
-            $("#js-subjects_form").children().slice(12, 17).show();
-            $("#js-subjects_form").children().slice(2, 12).hide();
+            years_of_elementary_school.hide();
+            subjects_of_elementary_school.hide();
+            subjects_of_junior_high_school.hide();
+            subjects_of_high_school.show();
         } else if (school_type == "junior_high_school") {
-            $("#student_member_school_year").children('[value="fourth_year"], [value="fifth_year"], [value="sixth_year"]').hide();
-            $("#js-subjects_form").children().slice(7, 12).show();
-            $("#js-subjects_form").children().slice(2, 7).hide();
-            $("#js-subjects_form").children().slice(12, 17).hide();
+            years_of_elementary_school.hide();
+            subjects_of_elementary_school.hide();
+            subjects_of_junior_high_school.show();
+            subjects_of_high_school.hide();
         } else if (school_type == "elementary_school") {
-            $("#student_member_school_year").children('[value="fourth_year"], [value="fifth_year"], [value="sixth_year"]').show();
-            $("#js-subjects_form").children().slice(2, 7).show();
-            $("#js-subjects_form").children().slice(7, 17).hide();
+            years_of_elementary_school.show();
+            subjects_of_elementary_school.show();
+            subjects_of_junior_high_school.hide();
+            subjects_of_high_school.hide();
+        
         }
     });
 })

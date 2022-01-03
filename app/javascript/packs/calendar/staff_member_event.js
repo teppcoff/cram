@@ -31,9 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     },
 
-    //予約型(reservation_type)のeventで予約されていないものは'lightpink'
-    //予約型(reservation_type)のeventですでに生徒が予約したものは'limegreen'
-    //それ以外のevent(通常授業)は'deepskyblue'
+    // 予約型(reservation_type)のeventで予約されていないものは'lightpink'
+    // 予約型(reservation_type)のeventですでに生徒が予約したものは'limegreen'
+    // それ以外のevent(通常授業)は'deepskyblue'
     eventDidMount: function(info) {
         if (info.event.extendedProps.student_member_id == null) {
             info.el.style.background='lightpink'
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     },
 
-    //eventをクリックで詳細確認・編集
+    // eventをクリックで詳細確認・編集
     eventClick: function(info) {
         alert('授業: ' + info.event.title);
         if (confirm('詳細を確認(削除もこちらから)')) {
