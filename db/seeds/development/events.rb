@@ -83,6 +83,46 @@ Event.create!(
             staff_member_id: 1,
             subject_id: 4,
             event_type: 2
+        },
+        {
+            title: "3限講習",
+            starts_at: "2022-01-06 18:20:00",
+            ends_at: "2022-01-06 19:20:00",
+            period_id: 3,
+            repeat_count: 1,
+            staff_member_id: 1,
+            subject_id: 3,
+            event_type: 2
+        },
+        {
+            title: "3限講習",
+            starts_at: "2022-01-13 18:20:00",
+            ends_at: "2022-01-13 19:20:00",
+            period_id: 3,
+            repeat_count: 1,
+            staff_member_id: 1,
+            subject_id: 4,
+            event_type: 2
+        },
+        {
+            title: "3限講習",
+            starts_at: "2022-01-20 18:20:00",
+            ends_at: "2022-01-20 19:20:00",
+            period_id: 3,
+            repeat_count: 1,
+            staff_member_id: 1,
+            subject_id: 3,
+            event_type: 2
+        },
+        {
+            title: "3限講習",
+            starts_at: "2022-01-27 18:20:00",
+            ends_at: "2022-01-27 19:20:00",
+            period_id: 3,
+            repeat_count: 1,
+            staff_member_id: 1,
+            subject_id: 4,
+            event_type: 2
         }
     ]
 )

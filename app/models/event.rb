@@ -11,6 +11,7 @@ class Event < ApplicationRecord
     belongs_to :subject
     belongs_to :period
     has_one :parent_member, through: :student_member
+    has_one :daily_sheet, dependent: :destroy
 
     def duplicate
         copied_event_param = self.attributes
@@ -19,8 +20,8 @@ class Event < ApplicationRecord
             return "finish!"
         elsif copied_event_param["repeat_count"] > 1 && self.save
             copied_event_param["repeat_count"] -= 1
-            copied_event_param["starts_at"] = custom_parse(copied_event_param["starts_at"])
-            copied_event_param["ends_at"] = custom_parse(copied_event_param["ends_at"])
+            copied_event_param["starts_at"] = a_week_after(copied_event_param["starts_at"])
+            copied_event_param["ends_at"] = a_week_after(copied_event_param["ends_at"])
             create_next_event(copied_event_param)
         end
     end
@@ -30,7 +31,7 @@ class Event < ApplicationRecord
         @event.duplicate
     end
 
-    def custom_parse(value)
+    def a_week_after(value)
         value.since(7.days)
     end
 

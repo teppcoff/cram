@@ -9,7 +9,8 @@ DailySheet.create!(
             information: "次回、学校の通知表を持ってきてください。",
             participation: "attendant",
             staff_member_id: 1,
-            student_member_id: 1
+            student_member_id: 1,
+            event_id: 1
         },
         {
             study_date: "2021-11-12",
@@ -20,7 +21,8 @@ DailySheet.create!(
             information: "次回、学校の通知表を持ってきてください。",
             participation: "attendant",
             staff_member_id: 1,
-            student_member_id: 1
+            student_member_id: 1,
+            event_id: 2
         },
         {
             study_date: "2021-11-19",
@@ -31,7 +33,8 @@ DailySheet.create!(
             information: "次回、小テストを行います。",
             participation: "late",
             staff_member_id: 1,
-            student_member_id: 1
+            student_member_id: 1,
+            event_id: 3
         },
         {
             study_date: "2021-11-26",
@@ -42,7 +45,8 @@ DailySheet.create!(
             information: "今回やる予定だった範囲を宿題にします(テキストP110~113)ので、次回その解説から始めます。",
             participation: "absent",
             staff_member_id: 1,
-            student_member_id: 1
+            student_member_id: 1,
+            event_id: 4
         },
         {
             study_date: "2021-12-03",
@@ -53,7 +57,8 @@ DailySheet.create!(
             information: "今回やる予定だった範囲を宿題にします(テキストP110~113)ので、次回その解説から始めます。",
             participation: "absent",
             staff_member_id: 1,
-            student_member_id: 1
+            student_member_id: 1,
+            event_id: 5
         },
         {
             study_date: "2021-11-02",
@@ -64,7 +69,8 @@ DailySheet.create!(
             information: "夏期講習の案内を配布していますので、ご確認ください。",
             participation: "attendant",
             staff_member_id: 1,
-            student_member_id: 2
+            student_member_id: 2,
+            event_id: 6
         },
         {
             study_date: "2021-11-09",
@@ -75,7 +81,8 @@ DailySheet.create!(
             information: "次回、学校の通知表を持ってきてください。",
             participation: "attendant",
             staff_member_id: 1,
-            student_member_id: 2
+            student_member_id: 2,
+            event_id: 7
         },
         {
             study_date: "2021-11-16",
@@ -86,7 +93,8 @@ DailySheet.create!(
             information: "次回、学校の通知表を持ってきてください。",
             participation: "attendant",
             staff_member_id: 1,
-            student_member_id: 2
+            student_member_id: 2,
+            event_id: 8
         },
         {
             study_date: "2021-11-23",
@@ -97,7 +105,8 @@ DailySheet.create!(
             information: "次回、小テストを行います。",
             participation: "late",
             staff_member_id: 1,
-            student_member_id: 2
+            student_member_id: 2,
+            event_id: 9
         },
         {
             study_date: "2021-11-30",
@@ -108,7 +117,8 @@ DailySheet.create!(
             information: "今回やる予定だった範囲を宿題にします(テキストP110~113)ので、次回その解説から始めます。",
             participation: "absent",
             staff_member_id: 1,
-            student_member_id: 2
+            student_member_id: 2,
+            event_id: 10
         },
         {
             study_date: "2021-12-07",
@@ -119,7 +129,8 @@ DailySheet.create!(
             information: "今回やる予定だった範囲を宿題にします(テキストP110~113)ので、次回その解説から始めます。",
             participation: "absent",
             staff_member_id: 1,
-            student_member_id: 2
+            student_member_id: 2,
+            event_id: 11
         }
     ]
 )

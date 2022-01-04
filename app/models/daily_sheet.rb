@@ -9,6 +9,7 @@ class DailySheet < ApplicationRecord
 
     belongs_to :student_member
     belongs_to :staff_member
+    belongs_to :event
     belongs_to :subject
     belongs_to :textbook, optional: true
     belongs_to :period

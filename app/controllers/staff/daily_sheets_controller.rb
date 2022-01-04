@@ -20,7 +20,8 @@ class Staff::DailySheetsController < Staff::Base
             @daily_sheet.create_notification_daily_sheet!(current_staff)
             # シートが新規作成されると通知が作成される
         else
-            render "new"
+            redirect_to new_staff_daily_sheet_path(event_id: daily_sheet_params[:event_id])
+            # ページ遷移後もevent_idが保持されるように、redirect_toを使用している
         end
     end
     
@@ -50,7 +51,8 @@ class Staff::DailySheetsController < Staff::Base
     private
 
         def daily_sheet_params
-            params.require(:daily_sheet).permit(:study_date, :period_id, :message, :information, :participation, :student_member_id, :staff_member_id, :subject_id, :textbook_id, :event_id )
+            params.require(:daily_sheet).permit(:study_date, :period_id, :message, :information, :participation,
+            :student_member_id, :staff_member_id, :subject_id, :textbook_id, :event_id )
         end
 
         def daily_sheet_search_params

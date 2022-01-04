@@ -12,7 +12,7 @@
         <tr><th scope="col">科目</th></tr>
         <tr><td><%= @daily_sheet.subject.name %></td></tr>
         <tr><th scope="col">テキスト</th></tr>
-        <tr><td><%= @daily_sheet.textbook.name %></td></tr>
+        <tr><td><%= @daily_sheet.textbook.name if @daily_sheet.textbook %></td></tr>
         <tr><th scope="col">メッセージ</th></tr>
         <tr><td><%= @daily_sheet.message %></td></tr>
         <tr><th scope="col">連絡事項</th></tr>
@@ -23,7 +23,10 @@
     <div class="btn-group">
         <%= button_to "編集", edit_staff_daily_sheet_path(@daily_sheet), method: "get", class: "btn btn-outline-primary" %>
         <%= button_to "削除", { controller: "daily_sheets", action: "destroy" }, method: "delete",
-            data: { confirm: " シート「#{@daily_sheet.study_date} #{@daily_sheet.period}限」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger" %>
+            data: { confirm: " シート「#{@daily_sheet.study_date} #{@daily_sheet.period}限」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger mx-2" %>
         <%= button_to "一覧", staff_daily_sheets_path, method: "get", class: "btn btn-outline-secondary" %>
+    </div>
+    <div class="btn-group">
+        <%= link_to "授業予定", staff_event_path(@daily_sheet.event.id), class: "btn btn-primary" if @daily_sheet.event%>
     </div>
 </div>

@@ -22,5 +22,6 @@
     </table>
     <div class="btn-group">
         <%= button_to "一覧", student_daily_sheets_path, method: "get", class: "btn btn-outline-secondary" %>
+        <%= button_to "授業予定確認", student_event_path(@daily_sheet.event), method: :get, class: "btn btn-primary mx-2" if @daily_sheet.event %>
     </div>
 </div>

@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // eventをクリックで詳細確認・編集
     eventClick: function(info) {
         alert('授業: ' + info.event.title);
-        if (confirm('詳細を確認(削除もこちらから)')) {
+        if (confirm('詳細を確認(デイリーシート作成もこちらから)')) {
             window.location.href = '../staff/events/' +info.event.id+ '/';
         }
     }
