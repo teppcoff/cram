@@ -25,9 +25,9 @@
         <%= button_to "戻る", {controller: "staff/events", action: "index"}, method: :get, class: "btn btn-outline-secondary" %>
     </div>
     <div class="btn-group">
-        <% if @event.daily_sheet.nil? %>
+        <% if @event.daily_sheet.nil? && @event.student_member != nil %>
             <%= link_to "デイリーシート作成", new_staff_daily_sheet_path(event_id: @event.id), class: "btn btn-primary" %> 
-        <% else %>
+        <% elsif @event.daily_sheet %>
             <%= link_to "デイリーシート確認", staff_daily_sheet_path(@event.daily_sheet), class: "btn btn-primary" %> 
         <% end %>
     </div>
