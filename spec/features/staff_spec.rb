@@ -103,37 +103,47 @@ feature "staff", type: :feature do
                 expect(page).to have_link "表示"
             end
 
-            scenario "デイリーシートを作成できること" do
-                click_on "デイリーシート作成"
-                select "田中 一郎", from: "daily_sheet_student_member_id"
-                select "2021", from: "daily_sheet[study_date(1i)]"
-                select "11", from: "daily_sheet[study_date(2i)]"
-                select "10", from: "daily_sheet[study_date(3i)]"
-                fill_in "daily_sheet_period_id", with: "1"
-                select "中学理科", from: "daily_sheet_subject_id"
-                select "中三理科問題集", from: "daily_sheet_textbook_id"
-                fill_in "daily_sheet_message", with: "テストのメッセージです。"
-                fill_in "daily_sheet_information", with: "テストのための連絡事項です。"
-                choose "daily_sheet_participation_attendant"
-                click_on "作成"
-                expect(page).to have_content "登録しました"
-            end
+            feature "イベントに関連づいたデイリーシート" do
+                scenario "通常授業を作成できること" do
+                    visit new_staff_event_path
+                    choose "js-ordinary_type"
+                    select "田中 一郎", from: "event_student_member_id"
+                    select "山田 太郎", from: "event_staff_member_id"
+                    fill_in "js-period_form", with: "3"
+                    select "高校英語", from: "event_subject_id"
+                    fill_in "js-start_time_form", with: "18:20"
+                    fill_in "js-end_time_form", with: "19:20"
+                    fill_in "js-title_form", with: "3限英語"
+                    click_on "登録"
+                    expect(page).to have_content "新たに予定を登録しました"
+                end
 
-            scenario "デイリーシートを編集できること" do
-                click_on "デイリーシート一覧"
-                first(:link, "表示").click
-                click_on "編集"
-                click_on "更新"
-                expect(page).to have_content "シートを更新しました"
-            end
+                scenario "デイリーシートを作成できること" do
+                    event = Event.last
+                    visit staff_event_path(event)
+                    click_on "デイリーシート作成"
+                    select "田中 一郎", from: "daily_sheet_student_member_id"
+                    fill_in "daily_sheet_study_date", with: Date.today
+                    fill_in "daily_sheet_period_id", with: "1"
+                    select "中学理科", from: "daily_sheet_subject_id"
+                    select "中三理科問題集", from: "daily_sheet_textbook_id"
+                    fill_in "daily_sheet_message", with: "テストのメッセージです。"
+                    fill_in "daily_sheet_information", with: "テストのための連絡事項です。"
+                    choose "daily_sheet_participation_attendant"
+                    click_on "作成"
+                    expect(page).to have_content "登録しました"
+                end
 
-            scenario "デイリーシートを削除できること" do
-                click_on "デイリーシート一覧"
-                first(:link, "表示").click
-                expect {
-                    page.driver.browser.switch_to.alert.accept
-                    expect(page).to have_content "シートを削除しました"
-                }
+                scenario "デイリーシートを確認・削除できること" do
+                    event = Event.last
+                    visit staff_event_path(event)
+                    click_on "デイリーシート確認"
+                    click_on "削除"
+                    expect {
+                        page.driver.browser.switch_to.alert.accept
+                        expect(page).to have_content "シートを削除しました"
+                    }
+                end
             end
 
             scenario "点数表を確認できること" do
@@ -158,26 +168,7 @@ feature "staff", type: :feature do
                 # selenium/standalone-chromeがm1macで使えない？
             end
 
-            scenario "通常の授業を追加できること" do
-                visit new_staff_event_path
-                choose "js-ordinary_type"
-                select "田中 一郎", from: "event_student_member_id"
-                select "山田 太郎", from: "event_staff_member_id"
-                fill_in "js-period_form", with: "3"
-                select "高校英語", from: "event_subject_id"
-                fill_in "js-start_time_form", with: "18:20"
-                fill_in "js-end_time_form", with: "19:20"
-                select "2021", from: "event[starts_on(1i)]"
-                select "11", from: "event[starts_on(2i)]"
-                select "5", from: "event[starts_on(3i)]"
-                select "2021", from: "event[ends_on(1i)]"
-                select "12", from: "event[ends_on(2i)]"
-                select "31", from: "event[ends_on(3i)]"
-                select "火", from: "event_repeats_on"
-                fill_in "js-title_form", with: "3限英語"
-                click_on "登録"
-                expect(page).to have_content "新たに予定を登録しました"
-            end
+
 
             scenario "予約型の授業を追加できること" do
                 visit new_staff_event_path

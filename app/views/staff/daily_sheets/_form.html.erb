@@ -1,6 +1,9 @@
 <div class="form-group">
+    <%= f.hidden_field :event_id, value: params[:event_id] %>
+</div>
+<div class="form-group">
     <%= f.label :student_member_id, "生徒", class: "required" %>
-    <%= f.collection_select :student_member_id, StudentMember.all, :id, :full_name, prompt: "選択する" %>
+    <%= f.collection_select :student_member_id, StudentMember.all, :id, :full_name %>
 </div>
 <div class="form-group">
     <%= f.label :staff_member_id, "担当講師", class: "required" %>
@@ -8,7 +11,7 @@
 </div>
 <div class="form-group">
     <%= f.label :study_date, "日付", class: "required" %>
-    <%= f.date_select :study_date, {default: Date.today}, class: "form-control" %>
+    <%= f.date_field :study_date %>
 </div> 
 <div class="form-group">
     <%= f.label :period_id, "時限", class: "required" %>
@@ -16,7 +19,7 @@
 </div>
 <div class="form-group">
     <%= f.label :subject_id, "科目", class: "required" %>
-    <%= f.collection_select :subject_id, Subject.all, :id, :name, prompt: "選択する" %>
+    <%= f.collection_select :subject_id, Subject.all, :id, :name %>
 </div>
 <div class="form-group">
     <%= f.label :textbook_id, "テキスト" %>

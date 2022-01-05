@@ -71,6 +71,7 @@ Rails.application.routes.draw do
 
     get "/how_to_use", to: "how_to_use#show"
 
+    post "/daily_sheets/new", to: "daily_sheets#create"
     resources :daily_sheets
     resources :student_members, only: [:index, :show]
     resources :textbooks

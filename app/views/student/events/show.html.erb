@@ -11,6 +11,8 @@
         <tr><td><%= @event.period.number_of_period %></td></tr>
         <tr><th scope="col">授業概要</th></tr>
         <tr><td><%= @event.title %></td></tr>
+        <tr><th scope="col">日付</th></tr>
+        <tr><td><%= @event.starts_at.strftime("%Y-%m-%d") %></td></tr>
         <tr><th scope="col">開始時刻</th></tr>
         <tr><td><%= @event.starts_at.strftime("%H:%M") %></td></tr>
         <tr><th scope="col">終了時刻</th></tr>
@@ -18,5 +20,6 @@
     </table>
     <div class="btn-group">
         <%= button_to "戻る", {controller: "student/events", action: "index"}, method: :get, class: "btn btn-outline-secondary" %>
+        <%= button_to "デイリーシート確認", student_daily_sheet_path(@event.daily_sheet), method: :get, class: "btn btn-primary mx-2" if @event.daily_sheet %>
     </div>
 </div>

@@ -1,6 +1,6 @@
 <% provide(:body_title, "デイリーシート作成") %>
 <div class="content">
-    <%= form_with model: @daily_sheet, url: staff_daily_sheets_path, local: true do |f| %>
+    <%= form_with model: @daily_sheet, url: new_staff_daily_sheet_path, local: true do |f| %>
         <%= render "layouts/error_messages", model: f.object %>
         <%= render partial: "form", locals: { f: f } %>
         <div class="form-submit">

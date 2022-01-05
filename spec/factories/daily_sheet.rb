@@ -5,6 +5,7 @@ FactoryBot.define do
         association :subject
         association :textbook
         association :period
+        association :event
         study_date { "2021-11-01" }
         message { "よくできました" }
         information { "特にありません" }

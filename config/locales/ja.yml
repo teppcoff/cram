@@ -37,6 +37,7 @@ ja:
         school_year: 学年2
         subjects: 科目
       daily_sheet:
+        study_date: 授業実施日
         message: メッセージ
         information: 連絡事項
         period: 時限

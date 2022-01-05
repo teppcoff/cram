@@ -20,10 +20,10 @@ class Staff::EventsController < Staff::Base
 
     def create
       @event = Event.new(event_params)
-      if @event.save
+      if @event.duplicate == "finish!"
         redirect_to staff_events_path, notice: "新たに予定を登録しました"
       else
-        render 'new'
+        render "new"
       end
     end
 
@@ -55,8 +55,8 @@ class Staff::EventsController < Staff::Base
     private
 
       def event_params
-        params.require(:event).permit(:event_type, :title, :period_id, :starts_at, :ends_at, :repeats_on,
-        :starts_on, :ends_on, :staff_member_id, :student_member_id, :subject_id)
+        params.require(:event).permit(:event_type, :title, :period_id, :starts_at, :ends_at,
+        :staff_member_id, :student_member_id, :subject_id, :repeat_count)
       end
 
 end
