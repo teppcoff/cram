@@ -15,16 +15,12 @@
     <%= f.number_field :period_id, min: 1, max: 5, id: "js-period_form", class: "form-control" %>
 </div>
 <div class="form-group">
-    <%= f.label :starts_at, "初回授業日" %>
-    <%= f.date_field :starts_at %>
-</div>
-<div class="form-group">
     <%= f.label :starts_at, "開始時刻" %>
-    <%= f.time_field :starts_at, id: "js-start_time_form" %>
+    <%= f.datetime_field :starts_at, id: "js-start_time_form" %>
 </div>
 <div class="form-group">
     <%= f.label :ends_at, "終了時刻" %>
-    <%= f.time_field :ends_at, id: "js-end_time_form" %>
+    <%= f.datetime_field :ends_at, id: "js-end_time_form" %>
 </div>
 <div class="form-group">
     <%= f.label :subject_id, "科目" %>

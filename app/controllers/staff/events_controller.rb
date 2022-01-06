@@ -13,6 +13,8 @@ class Staff::EventsController < Staff::Base
       period = Period.find(params[:period_id])
       @start_time = period.start_of_period.strftime("%H:%M")
       @end_time = period.end_of_period.strftime("%H:%M")
+      @start_time = Date.today.strftime("%Y-%m-%d") + "T" + @start_time
+      @end_time = Date.today.strftime("%Y-%m-%d") + "T" + @end_time
       respond_to do |format|
         format.js
       end
