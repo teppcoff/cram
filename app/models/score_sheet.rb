@@ -15,7 +15,7 @@ class ScoreSheet < ApplicationRecord
     end
 
     def point_of(subject)
-        scores.where(subject_id: subject).first.point
+        scores.find_by(subject_id: subject).point
     end
 
     scope :search, -> (search_params) do
