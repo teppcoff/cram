@@ -123,7 +123,8 @@ feature "staff", type: :feature do
                     visit staff_event_path(event)
                     click_on "デイリーシート作成"
                     select "田中 一郎", from: "daily_sheet_student_member_id"
-                    fill_in "daily_sheet_study_date", with: Date.today
+                    select "山田 太郎", from: "daily_sheet_staff_member_id"
+                    fill_in "daily_sheet_study_date", with: "2022-01-07"
                     fill_in "daily_sheet_period_id", with: "1"
                     select "中学理科", from: "daily_sheet_subject_id"
                     select "中三理科問題集", from: "daily_sheet_textbook_id"

@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     
+    include ApplicationHelper
     layout :set_layout
 
     private 

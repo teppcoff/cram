@@ -1,7 +1,3 @@
-<div class="form-group">
-    <%= f.label :repeat_count, "繰り返し回数" %>
-    <%= f.number_field :repeat_count, min: 1, max: 60, class: "form-control", prompt: 1 %>
-</div>
 <div class="form-group" id="js-hide_form">
     <%= f.label :student_member_id, "生徒" %>
     <%= f.collection_select :student_member_id, StudentMember.all, :id, :full_name, prompt: "選択する" %>
@@ -9,6 +5,14 @@
 <div class="form-group">
     <%= f.label :staff_member_id, "担当講師" %>
     <%= f.collection_select :staff_member_id, StaffMember.all, :id, :full_name, selected: current_staff.id %>
+</div>
+<div class="form-group">
+    <%= f.label :subject_id, "科目" %>
+    <%= f.collection_select :subject_id, Subject.all, :id, :name, prompt: "選択する", class: "form-control" %>
+</div>
+<div class="form-group">
+    <%= f.label :repeat_count, "繰り返し回数" %>
+    <%= f.number_field :repeat_count, min: 1, max: 60, class: "form-control", prompt: 1 %>
 </div>
 <div class="form-group">
     <%= f.label :period_id, "時限" %>
@@ -21,10 +25,6 @@
 <div class="form-group">
     <%= f.label :ends_at, "終了時刻" %>
     <%= f.datetime_field :ends_at, id: "js-end_time_form" %>
-</div>
-<div class="form-group">
-    <%= f.label :subject_id, "科目" %>
-    <%= f.collection_select :subject_id, Subject.all, :id, :name, prompt: "選択する", class: "form-control" %>
 </div>
 <div class="form-group">
     <%= f.label :title, "概要（表示名）" %>
