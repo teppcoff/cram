@@ -21,22 +21,31 @@ jQuery(function ($) {
         // 学年２は、学年1(school_type)が小学校なら6年生まで、それ以外なら3年生までの選択肢が表示される
         // 科目は、"#js-subjects_form"の子要素に選択肢として並んでいる
         // それをsliceで範囲指定して表示・非表示を切り替えている
-        if (school_type == "high_school") {
-            years_of_elementary_school.hide();
-            subjects_of_elementary_school.hide();
-            subjects_of_junior_high_school.hide();
-            subjects_of_high_school.show();
-        } else if (school_type == "junior_high_school") {
-            years_of_elementary_school.hide();
-            subjects_of_elementary_school.hide();
-            subjects_of_junior_high_school.show();
-            subjects_of_high_school.hide();
-        } else if (school_type == "elementary_school") {
-            years_of_elementary_school.show();
-            subjects_of_elementary_school.show();
-            subjects_of_junior_high_school.hide();
-            subjects_of_high_school.hide();
-        
+        switch (school_type) {
+            case "high_school" :
+                years_of_elementary_school.hide();
+                subjects_of_elementary_school.hide();
+                subjects_of_junior_high_school.hide();
+                subjects_of_high_school.show();
+                break;
+            case "junior_high_school" :
+                years_of_elementary_school.hide();
+                subjects_of_elementary_school.hide();
+                subjects_of_junior_high_school.show();
+                subjects_of_high_school.hide();
+                break;
+            case "elementary_school" :
+                years_of_elementary_school.show();
+                subjects_of_elementary_school.show();
+                subjects_of_junior_high_school.hide();
+                subjects_of_high_school.hide();
+                break;
+            default :
+                years_of_elementary_school.show();
+                subjects_of_elementary_school.show();
+                subjects_of_junior_high_school.show();
+                subjects_of_high_school.show();
+                break;
         }
     });
 })
