@@ -106,14 +106,14 @@ feature "staff", type: :feature do
             feature "イベントに関連づいたデイリーシート" do
                 scenario "通常授業を作成できること" do
                     visit new_staff_event_path
-                    choose "js-ordinary_type"
+                    choose "ordinary_type"
                     select "田中 一郎", from: "event_student_member_id"
                     select "山田 太郎", from: "event_staff_member_id"
-                    fill_in "js-period_form", with: "3"
+                    fill_in "event_period_id", with: "3"
                     select "高校英語", from: "event_subject_id"
-                    fill_in "js-start_time_form", with: "18:20"
-                    fill_in "js-end_time_form", with: "19:20"
-                    fill_in "js-title_form", with: "3限英語"
+                    fill_in "event_starts_at", with: "18:20"
+                    fill_in "event_ends_at", with: "19:20"
+                    fill_in "event_title", with: "3限英語"
                     click_on "登録"
                     expect(page).to have_content "新たに予定を登録しました"
                 end
@@ -169,17 +169,15 @@ feature "staff", type: :feature do
                 # selenium/standalone-chromeがm1macで使えない？
             end
 
-
-
             scenario "予約型の授業を追加できること" do
                 visit new_staff_event_path
-                choose "js-reservation_type"
+                choose "reservation_type"
                 select "山田 太郎", from: "event_staff_member_id"
-                fill_in "js-period_form", with: "3"
+                fill_in "event_period_id", with: "3"
                 select "高校英語", from: "event_subject_id"
-                fill_in "js-start_time_form", with: "18:20"
-                fill_in "js-end_time_form", with: "19:20"
-                fill_in "js-title_form", with: "3限講習"
+                fill_in "event_starts_at", with: "18:20"
+                fill_in "event_ends_at", with: "19:20"
+                fill_in "event_title", with: "3限講習"
                 click_on "登録"
                 expect(page).to have_content "新たに予定を登録しました"
             end
