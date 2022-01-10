@@ -11,6 +11,7 @@ class Staff::DailySheetsController < Staff::Base
 
     def new
         @daily_sheet = DailySheet.new
+        @event = Event.find(params[:event_id])
     end
     
     def create

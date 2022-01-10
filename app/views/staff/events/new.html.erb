@@ -3,9 +3,9 @@
     <%= form_with model: @event, url: staff_events_path, local: true do |f| %>
         <%= render "layouts/error_messages", model: f.object %>
         <div class="form-group">
-            <%= f.radio_button :event_type, :ordinary_type, checked: true, id: "js-ordinary_type" %>
+            <%= f.radio_button :event_type, :ordinary_type, checked: true, id: "ordinary_type" %>
             <%= f.label :event_type, "通常授業" %>
-            <%= f.radio_button :event_type, :reservation_type, id: "js-reservation_type" %>
+            <%= f.radio_button :event_type, :reservation_type, id: "reservation_type" %>
             <%= f.label :event_type, "予約型" %>
         </div>
         <%= render "form", f: f %>

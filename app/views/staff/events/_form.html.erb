@@ -1,4 +1,4 @@
-<div class="form-group" id="js-hide_form">
+<div class="form-group for_ordinary_type">
     <%= f.label :student_member_id, "生徒" %>
     <%= f.collection_select :student_member_id, StudentMember.all, :id, :full_name, prompt: "選択する" %>
 </div>
@@ -16,18 +16,18 @@
 </div>
 <div class="form-group">
     <%= f.label :period_id, "時限" %>
-    <%= f.number_field :period_id, min: 1, max: 5, id: "js-period_form", class: "form-control" %>
+    <%= f.number_field :period_id, min: 1, max: 5, class: "form-control" %>
 </div>
 <div class="form-group">
     <%= f.label :starts_at, "開始時刻" %>
-    <%= f.datetime_field :starts_at, id: "js-start_time_form" %>
+    <%= f.datetime_field :starts_at %>
 </div>
 <div class="form-group">
     <%= f.label :ends_at, "終了時刻" %>
-    <%= f.datetime_field :ends_at, id: "js-end_time_form" %>
+    <%= f.datetime_field :ends_at %>
 </div>
 <div class="form-group">
     <%= f.label :title, "概要（表示名）" %>
-    <%= f.text_field :title, class: "form-control", placeholder: "例）3限英語", id: "js-title_form" %>
+    <%= f.text_field :title, class: "form-control", placeholder: "例）3限英語" %>
 </div>
-<div class="text-danger" id="js-show_text">※予約型なら「◯限講習」とする</div>
+<div class="text-danger for_reservation_type">※予約型なら「◯限講習」とする</div>

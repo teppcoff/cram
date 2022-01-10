@@ -23,7 +23,7 @@
     <div class="btn-group">
         <%= button_to "編集", edit_staff_daily_sheet_path(@daily_sheet), method: "get", class: "btn btn-outline-primary" %>
         <%= button_to "削除", { controller: "daily_sheets", action: "destroy" }, method: "delete",
-            data: { confirm: " シート「#{@daily_sheet.study_date} #{@daily_sheet.period}限」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger mx-2" %>
+            data: { confirm: " シート「#{@daily_sheet.study_date} #{@daily_sheet.period.number_of_period}限」を削除します。本当によろしいですか？" }, class: "btn btn-outline-danger mx-2" %>
         <%= button_to "一覧", staff_daily_sheets_path, method: "get", class: "btn btn-outline-secondary" %>
     </div>
     <div class="btn-group">

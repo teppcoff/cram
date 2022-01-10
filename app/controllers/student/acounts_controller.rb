@@ -9,9 +9,8 @@ class Student::AcountsController < Student::Base
     def set_school
         # 学校を選択すると対応する学年1(小・中・高)が取得される
         school = School.find(params[:school_id])
-        @school_type = school.school_type
         respond_to do |format|
-          format.js
+          format.json { render json: { school_type: school.school_type } }
         end
     end
 
